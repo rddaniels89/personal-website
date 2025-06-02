@@ -349,6 +349,7 @@ export default function AboutPage() {
               variants={staggerContainer}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8"
             >
+              {/* Individual Awards */}
               <motion.div
                 variants={cardVariant}
                 className="card p-6 rounded-lg"
@@ -359,21 +360,55 @@ export default function AboutPage() {
                     Individual Awards
                   </h3>
                 </div>
-                <ul className="space-y-1 body-normal">
-                  <li>• Navy and Marine Corps Achievement Medal (2x)</li>
-                  <li>• Navy Good Conduct Medal</li>
-                  <li>• National Defense Service Medal</li>
-                  <li>• Global War on Terrorism Service Medal</li>
-                  <li>• Global War on Terrorism Expeditionary Medal</li>
-                  <li>• Operation Inherent Resolve Campaign Medal</li>
-                  <li>• Operation Freedom's Sentinel (Afghanistan) Campaign Medal</li>
-                  <li>• Navy Sea Service Deployment Ribbon (multiple)</li>
-                  <li>• Navy "E" Ribbon (unit award)</li>
-                  <li>• Letter of Commendation</li>
-                  <li>• Certificate of Appreciation</li>
+                <ul className="space-y-2 body-normal">
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Navy and Marine Corps Achievement Medal (2x)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Navy Good Conduct Medal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>National Defense Service Medal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Global War on Terrorism Service Medal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Global War on Terrorism Expeditionary Medal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Operation Inherent Resolve Campaign Medal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Operation Freedom's Sentinel (Afghanistan) Campaign Medal</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Navy Sea Service Deployment Ribbon (multiple)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Navy "E" Ribbon (unit award)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Letter of Commendation</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Certificate of Appreciation</span>
+                  </li>
                 </ul>
               </motion.div>
 
+              {/* Team Excellence Awards */}
               <motion.div
                 variants={cardVariant}
                 className="card p-6 rounded-lg"
@@ -384,16 +419,22 @@ export default function AboutPage() {
                     Team Excellence Awards
                   </h3>
                 </div>
-                <ul className="space-y-1 mb-4 body-normal">
-                  <li>• Supply Blue 'E' Excellence Award (4x)</li>
-                  <li>• Aircraft Intermediate Maintenance Black 'E' Award</li>
+                <ul className="space-y-2 mb-6 body-normal">
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Supply Blue 'E' Excellence Award (4x)</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2">•</span>
+                    <span>Aircraft Intermediate Maintenance Black 'E' Award</span>
+                  </li>
                 </ul>
                 
-                <div className="mt-4">
-                  <h4 className="font-medium text-sm mb-2 text-primary">
+                <div className="border-t border-surface-secondary pt-4">
+                  <h4 className="font-semibold text-base mb-3 text-primary">
                     Service Legacy
                   </h4>
-                  <p className="text-sm text-secondary">
+                  <p className="text-sm text-secondary leading-relaxed">
                     Multiple overseas deployments in support of combat and humanitarian operations, 
                     demonstrating leadership in high-stakes environments and unwavering commitment to mission success.
                   </p>
