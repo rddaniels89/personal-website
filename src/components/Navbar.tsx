@@ -2,8 +2,10 @@
 
 import * as React from 'react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { useTheme } from '@/lib/ThemeContext';
 import { FiSun, FiMoon, FiGithub, FiLinkedin, FiChevronDown } from 'react-icons/fi';
+import Logo from './Logo';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -32,22 +34,29 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
 
   return (
-    <nav className={`fixed w-full z-50 backdrop-blur-sm ${
-      theme === 'dystopian' 
-        ? 'bg-cyber-black/80 border-b border-neon-pink/20' 
-        : 'bg-modern-black/80 border-b border-modern-accent/20'
-    }`}>
+    <nav className={`fixed w-full z-50 backdrop-blur-sm`}
+         style={{ 
+           backgroundColor: 'var(--color-surface-elevated)', 
+           borderBottom: `1px solid var(--color-border-accent)` 
+         }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Logo/Name */}
+          {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className={`text-xl font-bold ${
-              theme === 'dystopian' 
-                ? 'neon-text text-neon-pink' 
-                : 'gradient-text'
-            }`}>
-              RD
-            </Link>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <Link href="/" className="block">
+                <Logo 
+                  size="sm" 
+                  variant="default" 
+                  showTooltip={true}
+                  animate={false}
+                />
+              </Link>
+            </motion.div>
           </div>
 
           {/* Navigation Links */}
@@ -60,42 +69,55 @@ export default function Navbar() {
                   onMouseEnter={() => item.dropdown && setOpenDropdown(item.name)}
                   onMouseLeave={() => setOpenDropdown(null)}
                 >
-                  <Link
-                    href={item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium inline-flex items-center ${
-                      theme === 'dystopian'
-                        ? 'text-gray-300 hover:text-neon-blue hover:bg-cyber-gray'
-                        : 'text-modern-text hover:text-modern-accent hover:bg-modern-gray'
-                    } transition-colors duration-200`}
+                  <motion.div
+                    whileHover={{ y: -2 }}
+                    whileTap={{ y: 0 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
                   >
-                    {item.name}
-                    {item.dropdown && (
-                      <FiChevronDown className="ml-1 h-4 w-4" />
-                    )}
-                  </Link>
+                    <Link
+                      href={item.href}
+                      className="link-primary px-3 py-2 rounded-md text-sm font-medium inline-flex items-center transition-all duration-300 hover:bg-surface-secondary"
+                    >
+                      {item.name}
+                      {item.dropdown && (
+                        <motion.div
+                          animate={{ 
+                            rotate: openDropdown === item.name ? 180 : 0 
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <FiChevronDown className="ml-1 h-4 w-4" />
+                        </motion.div>
+                      )}
+                    </Link>
+                  </motion.div>
 
                   {item.dropdown && openDropdown === item.name && (
-                    <div className={`absolute left-0 mt-1 w-48 rounded-md shadow-lg ${
-                      theme === 'dystopian'
-                        ? 'bg-cyber-black border border-neon-pink/20'
-                        : 'bg-modern-black border border-modern-accent/20'
-                    }`}>
+                    <motion.div 
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.2 }}
+                      className="card absolute left-0 mt-1 w-48 rounded-md shadow-lg border-accent"
+                      style={{ backgroundColor: 'var(--color-surface-elevated)' }}
+                    >
                       <div className="py-1">
                         {item.dropdown.map((dropdownItem) => (
-                          <Link
+                          <motion.div
                             key={dropdownItem.name}
-                            href={dropdownItem.href}
-                            className={`block px-4 py-2 text-sm ${
-                              theme === 'dystopian'
-                                ? 'text-gray-300 hover:text-neon-blue hover:bg-cyber-gray'
-                                : 'text-modern-text hover:text-modern-accent hover:bg-modern-gray'
-                            }`}
+                            whileHover={{ x: 4 }}
+                            transition={{ duration: 0.2 }}
                           >
-                            {dropdownItem.name}
-                          </Link>
+                            <Link
+                              href={dropdownItem.href}
+                              className="link-primary block px-4 py-2 text-sm transition-all duration-200 hover:bg-surface-secondary"
+                            >
+                              {dropdownItem.name}
+                            </Link>
+                          </motion.div>
                         ))}
                       </div>
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               ))}
@@ -105,37 +127,46 @@ export default function Navbar() {
           {/* Social Links and Theme Toggle */}
           <div className="flex items-center space-x-4">
             {socialLinks.map((item) => (
-              <a
+              <motion.a
                 key={item.name}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${
-                  theme === 'dystopian' 
-                    ? 'text-gray-400 hover:text-neon-pink' 
-                    : 'text-modern-text hover:text-modern-accent'
-                }`}
+                whileHover={{ 
+                  scale: 1.2,
+                  y: -2
+                }}
+                whileTap={{ scale: 0.9 }}
+                transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                className="link-primary transition-all duration-300"
               >
                 <item.icon className="h-5 w-5" />
                 <span className="sr-only">{item.name}</span>
-              </a>
+              </motion.a>
             ))}
             
-            <button
+            <motion.button
               onClick={toggleTheme}
-              className={`p-2 rounded-md ${
-                theme === 'dystopian'
-                  ? 'text-neon-pink hover:bg-cyber-gray'
-                  : 'text-modern-text hover:bg-modern-gray'
-              }`}
+              whileHover={{ 
+                scale: 1.1,
+                rotate: 180
+              }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="p-2 rounded-md transition-all duration-300 text-primary hover:bg-surface-secondary"
             >
-              {theme === 'dystopian' ? (
-                <FiSun className="h-5 w-5" />
-              ) : (
-                <FiMoon className="h-5 w-5" />
-              )}
+              <motion.div
+                animate={{ rotate: theme === 'dystopian' ? 0 : 360 }}
+                transition={{ duration: 0.5 }}
+              >
+                {theme === 'dystopian' ? (
+                  <FiSun className="h-5 w-5" />
+                ) : (
+                  <FiMoon className="h-5 w-5" />
+                )}
+              </motion.div>
               <span className="sr-only">Toggle theme</span>
-            </button>
+            </motion.button>
           </div>
         </div>
       </div>

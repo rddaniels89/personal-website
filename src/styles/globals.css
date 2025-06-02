@@ -6,32 +6,400 @@
   :root {
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
+    
+    /* ========================================== */
+    /* STANDARDIZED COLOR SYSTEM */
+    /* ========================================== */
+    
+    /* Primary Brand Colors */
+    --color-primary: #3B82F6;
+    --color-primary-hover: #2563EB;
+    --color-primary-light: #93C5FD;
+    --color-primary-dark: #1E40AF;
+    
+    /* Secondary/Accent Colors */
+    --color-accent: #EC4899;
+    --color-accent-hover: #DB2777;
+    --color-accent-light: #F9A8D4;
+    --color-accent-dark: #BE185D;
+    
+    /* Highlight Colors */
+    --color-highlight: #06B6D4;
+    --color-highlight-hover: #0891B2;
+    --color-highlight-light: #67E8F9;
+    --color-highlight-dark: #0E7490;
+    
+    /* Semantic Colors */
+    --color-success: #10B981;
+    --color-warning: #F59E0B;
+    --color-error: #EF4444;
+    
+    /* Background & Surface */
+    --color-background: #FFFFFF;
+    --color-surface: #FAFAFA;
+    --color-surface-secondary: #F5F5F5;
+    --color-surface-elevated: #FFFFFF;
+    
+    /* Text Colors */
+    --color-text: #1F2937;
+    --color-text-secondary: #374151;
+    --color-text-tertiary: #6B7280;
+    --color-text-inverse: #FFFFFF;
+    
+    /* Border Colors */
+    --color-border: #E5E7EB;
+    --color-border-secondary: #D1D5DB;
+    --color-border-accent: rgba(59, 130, 246, 0.2);
+    
+    /* Typography Scale */
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    
+    /* Font Sizes */
+    --text-xs: 0.75rem;     /* 12px */
+    --text-sm: 0.875rem;    /* 14px */
+    --text-base: 1rem;      /* 16px */
+    --text-lg: 1.125rem;    /* 18px */
+    --text-xl: 1.25rem;     /* 20px */
+    --text-2xl: 1.5rem;     /* 24px */
+    --text-3xl: 1.875rem;   /* 30px */
+    --text-4xl: 2.25rem;    /* 36px */
+    --text-5xl: 3rem;       /* 48px */
+    --text-6xl: 3.75rem;    /* 60px */
+    
+    /* Line Heights */
+    --leading-tight: 1.25;
+    --leading-snug: 1.375;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.625;
+    --leading-loose: 2;
   }
 
   .theme-dystopian {
-    --background: 0 0% 5%;
-    --foreground: 0 0% 98%;
+    /* Dystopian Color Overrides */
+    --color-primary: #EC4899;       /* Hot pink for primary actions */
+    --color-primary-hover: #DB2777;
+    --color-primary-light: #F9A8D4;
+    --color-primary-dark: #BE185D;
+    
+    --color-accent: #06B6D4;        /* Cyan for secondary actions */
+    --color-accent-hover: #0891B2;
+    --color-accent-light: #67E8F9;
+    --color-accent-dark: #0E7490;
+    
+    --color-highlight: #8B5CF6;     /* Purple for highlights */
+    --color-highlight-hover: #7C3AED;
+    --color-highlight-light: #C4B5FD;
+    --color-highlight-dark: #5B21B6;
+    
+    /* Dark backgrounds */
+    --color-background: #0D0D0D;
+    --color-surface: #1A1A1A;
+    --color-surface-secondary: #262626;
+    --color-surface-elevated: #1F1F1F;
+    
+    /* Light text on dark */
+    --color-text: #F9FAFB;
+    --color-text-secondary: #E5E7EB;
+    --color-text-tertiary: #9CA3AF;
+    --color-text-inverse: #1F2937;
+    
+    /* Dark borders */
+    --color-border: #374151;
+    --color-border-secondary: #4B5563;
+    --color-border-accent: rgba(0, 245, 255, 0.3);
+    
     font-family: 'BlenderPro', sans-serif;
   }
 
   .theme-modern {
-    --background: 0 0% 98%;
-    --foreground: 0 0% 12%;
+    /* Modern theme uses the default light values */
+    --color-primary: #2563EB;       /* Professional blue */
+    --color-primary-hover: #1D4ED8;
+    --color-primary-light: #93C5FD;
+    --color-primary-dark: #1E40AF;
+    
+    --color-accent: #EC4899;        /* Pink accent for highlights */
+    --color-accent-hover: #DB2777;
+    --color-accent-light: #F9A8D4;
+    --color-accent-dark: #BE185D;
+    
+    --color-highlight: #06B6D4;     /* Cyan for special elements */
+    --color-highlight-hover: #0891B2;
+    --color-highlight-light: #67E8F9;
+    --color-highlight-dark: #0E7490;
+    
     font-family: 'Inter', sans-serif;
+  }
+  
+  /* Base Typography Styles */
+  * {
+    font-feature-settings: "cv03", "cv04", "cv11";
+  }
+  
+  html {
+    font-size: 16px;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-background);
+    transition: background-color 0.3s ease;
+  }
+  
+  body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    letter-spacing: -0.011em;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    min-height: 100vh;
+  }
+
+  /* Ensure theme classes override any default styling */
+  html.theme-dystopian,
+  body.theme-dystopian {
+    background-color: var(--color-background) !important;
+    color: var(--color-text) !important;
+  }
+
+  html.theme-modern,
+  body.theme-modern {
+    background-color: var(--color-background) !important;
+    color: var(--color-text) !important;
+  }
+
+  /* Force all containers to inherit theme background */
+  .theme-dystopian #__next {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+
+  .theme-modern #__next {
+    background-color: var(--color-background);
+    color: var(--color-text);
   }
 }
 
 @layer components {
-  /* Dystopian Theme Components */
+  /* ========================================== */
+  /* STANDARDIZED COMPONENT STYLES */
+  /* ========================================== */
+  
+  /* Buttons */
+  .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-primary-hover);
+    transform: translateY(-2px);
+  }
+  
+  .btn-secondary {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    background-color: transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-text-inverse);
+  }
+  
+  /* Links */
+  .link-primary {
+    color: var(--color-primary);
+    transition: color 0.2s ease;
+  }
+  
+  .link-primary:hover {
+    color: var(--color-primary-hover);
+  }
+  
+  .link-accent {
+    color: var(--color-accent);
+    transition: color 0.2s ease;
+  }
+  
+  .link-accent:hover {
+    color: var(--color-accent-hover);
+  }
+  
+  /* Section dividers */
+  .divider {
+    border-color: var(--color-border);
+  }
+  
+  .divider-accent {
+    border-color: var(--color-border-accent);
+  }
+  
+  /* Cards */
+  .card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    border-color: var(--color-border-accent);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-elevated {
+    background-color: var(--color-surface-elevated);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Typography Component Classes */
+  .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: var(--leading-tight);
+  }
+  
+  .font-body {
+    font-family: var(--font-body);
+    font-weight: 400;
+    letter-spacing: -0.011em;
+    line-height: var(--leading-normal);
+  }
+  
+  /* Heading Styles */
+  .heading-1 {
+    font-family: var(--font-heading);
+    font-size: var(--text-5xl);
+    font-weight: 700;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.035em;
+    color: var(--color-text);
+  }
+  
+  .heading-2 {
+    font-family: var(--font-heading);
+    font-size: var(--text-4xl);
+    font-weight: 600;
+    line-height: var(--leading-tight);
+    letter-spacing: -0.025em;
+    color: var(--color-primary);
+  }
+  
+  .heading-3 {
+    font-family: var(--font-heading);
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    letter-spacing: -0.020em;
+    color: var(--color-accent);
+  }
+  
+  .heading-4 {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    line-height: var(--leading-snug);
+    letter-spacing: -0.015em;
+    color: var(--color-primary);
+  }
+  
+  .heading-5 {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    font-weight: 500;
+    line-height: var(--leading-snug);
+    letter-spacing: -0.010em;
+    color: var(--color-primary);
+  }
+  
+  .heading-6 {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    line-height: var(--leading-normal);
+    letter-spacing: -0.010em;
+    color: var(--color-primary);
+  }
+  
+  /* Body Text Styles */
+  .body-large {
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    font-weight: 400;
+    color: var(--color-text);
+  }
+  
+  .body-normal {
+    font-size: var(--text-base);
+    line-height: var(--leading-normal);
+    font-weight: 400;
+    color: var(--color-text);
+  }
+  
+  .body-small {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+  
+  .body-xs {
+    font-size: var(--text-xs);
+    line-height: var(--leading-normal);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+  }
+  
+  /* Specialized Text Styles */
+  .text-lead {
+    font-size: var(--text-xl);
+    line-height: var(--leading-relaxed);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    color: var(--color-text-secondary);
+  }
+  
+  .text-caption {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    font-weight: 500;
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+  }
+  
+  .text-label {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    color: var(--color-text);
+  }
+
+  /* Theme-specific effects */
+  .theme-dystopian .gradient-text {
+    background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .theme-dystopian .neon-text {
-    text-shadow: 0 0 10px theme('colors.neon-pink'),
-                0 0 20px theme('colors.neon-pink'),
-                0 0 30px theme('colors.neon-pink');
+    color: var(--color-primary);
+    text-shadow: 0 0 10px var(--color-primary),
+                0 0 20px var(--color-primary),
+                0 0 30px var(--color-primary);
   }
 
   .theme-dystopian .neon-border {
-    box-shadow: 0 0 10px theme('colors.neon-blue'),
-                0 0 20px theme('colors.neon-blue');
+    border-color: var(--color-accent);
+    box-shadow: 0 0 10px var(--color-accent),
+                0 0 20px var(--color-accent);
   }
 
   .theme-dystopian .scanline::before {
@@ -42,10 +410,25 @@
     background: rgba(255, 255, 255, 0.1);
     animation: scanline 6s linear infinite;
   }
+  
+  /* Dystopian Typography Overrides */
+  .theme-dystopian .font-heading {
+    font-family: 'Space Grotesk', monospace, sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .theme-dystopian .heading-1,
+  .theme-dystopian .heading-2,
+  .theme-dystopian .heading-3 {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
 
-  /* Modern Theme Components */
+  /* Modern Theme Typography */
   .theme-modern .gradient-text {
-    background: linear-gradient(45deg, theme('colors.modern-accent'), theme('colors.modern-text'));
+    background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -56,6 +439,28 @@
 
   .theme-modern .hover-lift:hover {
     transform: translateY(-2px);
+  }
+  
+  /* Modern Typography Refinements */
+  .theme-modern .font-heading {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+  }
+  
+  /* Responsive Typography */
+  @media (max-width: 640px) {
+    .heading-1 { font-size: var(--text-4xl); }
+    .heading-2 { font-size: var(--text-3xl); }
+    .heading-3 { font-size: var(--text-2xl); }
+    .heading-4 { font-size: var(--text-xl); }
+    .text-lead { font-size: var(--text-lg); }
+  }
+  
+  @media (max-width: 480px) {
+    .heading-1 { font-size: var(--text-3xl); }
+    .heading-2 { font-size: var(--text-2xl); }
+    .heading-3 { font-size: var(--text-xl); }
   }
 }
 
@@ -68,15 +473,50 @@
     background-size: 200% 200%;
     animation: gradient 15s ease infinite;
   }
+  
+  /* Typography Utilities */
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  
+  /* Color Utilities */
+  .text-primary { color: var(--color-primary); }
+  .text-accent { color: var(--color-accent); }
+  .text-highlight { color: var(--color-highlight); }
+  .text-success { color: var(--color-success); }
+  .text-warning { color: var(--color-warning); }
+  .text-error { color: var(--color-error); }
+  
+  /* Text color variations */
+  .text-secondary { color: var(--color-text-secondary); }
+  .text-tertiary { color: var(--color-text-tertiary); }
+  
+  .bg-primary { background-color: var(--color-primary); }
+  .bg-accent { background-color: var(--color-accent); }
+  .bg-highlight { background-color: var(--color-highlight); }
+  .bg-surface { background-color: var(--color-surface); }
+  .bg-surface-secondary { background-color: var(--color-surface-secondary); }
+  .bg-surface-elevated { background-color: var(--color-surface-elevated); }
+  
+  .border-primary { border-color: var(--color-primary); }
+  .border-accent { border-color: var(--color-accent); }
+  .border-highlight { border-color: var(--color-highlight); }
+  
+  /* Background colors for border-accent */
+  .bg-border-accent { background-color: var(--color-border-accent); }
 }
 
 /* LinkedIn Embed Styles */
 .linkedin-embed {
   position: relative;
   width: 100%;
-  max-width: 504px; /* Match LinkedIn's recommended width */
+  max-width: 504px;
   margin: 0 auto;
-  min-height: 671px; /* Match the tallest embed height */
+  min-height: 671px;
 }
 
 .linkedin-embed iframe {

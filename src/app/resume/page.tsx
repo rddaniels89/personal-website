@@ -3,6 +3,7 @@
 import React from 'react';
 import { useTheme } from '@/lib/ThemeContext';
 import { motion } from 'framer-motion';
+import Logo from '@/components/Logo';
 
 // Combine all timeline items and sort them by date
 const timelineItems = [
@@ -111,7 +112,7 @@ const item = {
 };
 
 const summary = {
-  professional: "Accomplished Financial Management Leader with 11+ years of experience driving financial strategy and operational excellence in government organizations. Proven expertise in managing billion-dollar budgets, leading cross-functional teams, and implementing process improvements that drive efficiency and regulatory compliance. Adept at navigating complex regulatory environments and delivering transformative results that support organizational growth and innovation. Recognized for strategic vision, data-driven decision-making, and a consistent record of delivering value across diverse government sectors",
+  professional: "Accomplished Financial Management Leader with 11+ years of experience driving financial strategy and operational excellence in government organizations. Proven expertise in managing billion-dollar budgets, leading cross-functional teams, and implementing process improvements that drive efficiency and regulatory compliance. Adept at navigating complex regulatory environments and delivering transformative results that support organizational growth and innovation. Recognized for strategic vision, data-driven decision-making, and a consistent record of delivering value across diverse government sectors.",
   competencies: [
     {
       category: "Financial Management",
@@ -132,54 +133,98 @@ export default function ResumePage() {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen ${
-      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-black'
-    }`}>
+    <div className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="flex justify-between items-center mb-12">
-          <div>
-            <motion.h1
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`text-4xl font-bold ${
-                theme === 'dystopian'
-                  ? 'neon-text text-neon-pink'
-                  : 'gradient-text'
-              }`}
-            >
-              Resume
-            </motion.h1>
+        {/* Header Section with Logo */}
+        <div className="flex justify-between items-start mb-12">
+          <div className="flex items-center gap-6">
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="mt-2"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5 }}
             >
-              <a
-                href="/resume/accomplishments"
-                className={`text-sm font-medium hover:underline ${
-                  theme === 'dystopian'
-                    ? 'text-neon-blue'
-                    : 'text-modern-accent'
-                }`}
-              >
-                View Key Accomplishments →
-              </a>
+              <Logo 
+                size="lg" 
+                variant="stacked" 
+                animate={true}
+              />
             </motion.div>
+            
+            <div>
+              <motion.h1
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="heading-1"
+              >
+                Resume
+              </motion.h1>
+              <motion.h2
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                className="heading-4 mt-2"
+              >
+                Roderick Daniels
+              </motion.h2>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-lead mt-1"
+              >
+                Financial Management Leader & Tech Innovator
+              </motion.p>
+              
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3 }}
+                className="mt-4"
+              >
+                <motion.a
+                  href="/resume/accomplishments"
+                  whileHover={{ 
+                    x: 8,
+                    scale: 1.05
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 400, 
+                    damping: 17 
+                  }}
+                  className="link-primary text-sm font-medium hover:underline transition-all duration-300"
+                >
+                  View Key Accomplishments →
+                </motion.a>
+              </motion.div>
+            </div>
           </div>
 
           <motion.a
-            href="/resume.pdf"
-            download
+            href="#"
+            onClick={(e: React.MouseEvent) => {
+              e.preventDefault();
+              window.print();
+            }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className={`px-4 py-2 rounded-lg font-medium ${
-              theme === 'dystopian'
-                ? 'bg-neon-pink text-black hover:bg-neon-blue neon-border'
-                : 'bg-modern-accent text-white hover:bg-opacity-90'
-            } transition-all duration-300`}
+            whileHover={{ 
+              scale: 1.05,
+              y: -2
+            }}
+            whileTap={{ 
+              scale: 0.95,
+              y: 0
+            }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 400, 
+              damping: 17 
+            }}
+            className="btn-primary px-6 py-3 rounded-lg font-medium cursor-pointer"
           >
-            Download PDF
+            Print Resume
           </motion.a>
         </div>
 
@@ -191,52 +236,28 @@ export default function ResumePage() {
         >
           {/* Professional Summary Section */}
           <motion.section variants={item}>
-            <div className={`p-6 rounded-lg ${
-              theme === 'dystopian'
-                ? 'bg-cyber-gray border border-neon-pink/20'
-                : 'bg-modern-gray border border-modern-accent/20'
-            }`}>
-              <h2 className={`text-2xl font-bold mb-4 text-center ${
-                theme === 'dystopian'
-                  ? 'text-neon-blue'
-                  : 'text-modern-accent'
-              }`}>
+            <div className="card p-6 rounded-lg">
+              <h2 className="heading-2 text-center text-balance mb-4">
                 Professional Summary
               </h2>
-              <p className={`mb-8 text-center max-w-3xl mx-auto ${
-                theme === 'dystopian'
-                  ? 'text-gray-300'
-                  : 'text-modern-text'
-              }`}>
+              <p className="text-lead text-center text-pretty max-w-3xl mx-auto mb-8">
                 {summary.professional}
               </p>
 
-              <h3 className={`text-xl font-bold mb-6 text-center ${
-                theme === 'dystopian'
-                  ? 'text-neon-pink'
-                  : 'text-modern-accent'
-              }`}>
+              <h3 className="heading-3 text-center mb-6">
                 Core Competencies
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 {summary.competencies.map((competency) => (
                   <div key={competency.category} className="text-center">
-                    <h4 className={`text-lg font-semibold mb-3 ${
-                      theme === 'dystopian'
-                        ? 'text-neon-blue'
-                        : 'text-blue-400'
-                    }`}>
+                    <h4 className="heading-4 mb-3">
                       {competency.category}
                     </h4>
                     <div className="flex flex-wrap gap-2 justify-center">
                       {competency.skills.map((skill) => (
                         <span
                           key={skill}
-                          className={`px-3 py-1 rounded-full text-sm ${
-                            theme === 'dystopian'
-                              ? 'bg-cyber-black text-neon-blue border border-neon-blue/30'
-                              : 'bg-modern-black text-modern-accent border border-modern-accent/30'
-                          }`}
+                          className="px-3 py-1 rounded-full text-sm bg-surface-secondary text-primary border border-primary/30"
                         >
                           {skill}
                         </span>
@@ -256,20 +277,16 @@ export default function ResumePage() {
             className="relative"
           >
             {/* Center Timeline Line */}
-            <div className={`absolute left-1/2 -translate-x-[1px] w-[2px] h-full ${
-              theme === 'dystopian'
-                ? 'bg-neon-pink/30'
-                : 'bg-modern-accent/30'
-            }`} />
+            <div className="absolute left-1/2 -translate-x-[1px] w-[2px] h-full bg-border-accent" />
 
             <div className="space-y-16">
               {timelineItems.map((item, index) => {
                 const isLeft = index % 2 === 0;
                 const typeColor = item.type === 'experience' 
-                  ? (theme === 'dystopian' ? 'text-neon-pink' : 'text-modern-accent')
+                  ? 'text-primary'
                   : item.type === 'education'
-                    ? (theme === 'dystopian' ? 'text-neon-blue' : 'text-blue-400')
-                    : (theme === 'dystopian' ? 'text-neon-green' : 'text-green-400');
+                    ? 'text-accent'
+                    : 'text-highlight';
 
                 return (
                   <motion.div
@@ -280,49 +297,29 @@ export default function ResumePage() {
                     {/* Left Content */}
                     <div className={`w-[calc(50%-24px)] ${isLeft ? 'pr-8' : 'text-right ml-auto pl-8'}`}>
                       {isLeft && (
-                        <div className={`p-6 rounded-lg ${
-                          theme === 'dystopian'
-                            ? 'bg-cyber-gray border border-neon-pink/20'
-                            : 'bg-modern-gray border border-modern-accent/20'
-                        }`}>
+                        <div className="card p-6 rounded-lg">
                           <div className="mb-2">
-                            <span className={`text-sm uppercase ${typeColor}`}>
+                            <span className={`text-sm uppercase font-medium ${typeColor}`}>
                               {item.type}
                             </span>
                           </div>
                           <h3 className={`text-xl font-bold ${typeColor}`}>
                             {item.title}
                           </h3>
-                          <p className={`${
-                            theme === 'dystopian'
-                              ? 'text-neon-blue'
-                              : 'text-modern-text'
-                          }`}>
+                          <p className="text-accent font-medium">
                             {item.company}
                           </p>
-                          <span className={`text-sm ${
-                            theme === 'dystopian'
-                              ? 'text-gray-400'
-                              : 'text-modern-text/70'
-                          }`}>
+                          <span className="text-sm text-tertiary">
                             {item.period}
                           </span>
                           {item.bullets ? (
-                            <ul className={`mt-4 space-y-2 list-disc ml-4 ${
-                              theme === 'dystopian'
-                                ? 'text-gray-300'
-                                : 'text-modern-text'
-                            }`}>
+                            <ul className="mt-4 space-y-2 list-disc ml-4 body-normal">
                               {item.bullets.map((bullet, idx) => (
                                 <li key={idx}>{bullet}</li>
                               ))}
                             </ul>
                           ) : (
-                            <p className={`mt-2 ${
-                              theme === 'dystopian'
-                                ? 'text-gray-300'
-                                : 'text-modern-text'
-                            }`}>
+                            <p className="mt-2 body-normal">
                               {item.description}
                             </p>
                           )}
@@ -331,11 +328,7 @@ export default function ResumePage() {
                               {item.technologies.map((tech) => (
                                 <span
                                   key={tech}
-                                  className={`px-2 py-1 text-xs rounded-full ${
-                                    theme === 'dystopian'
-                                      ? 'bg-cyber-black text-neon-blue border border-neon-blue/30'
-                                      : 'bg-modern-black text-modern-accent border border-modern-accent/30'
-                                  }`}
+                                  className="px-2 py-1 text-xs rounded-full bg-surface-secondary text-primary border border-primary/30"
                                 >
                                   {tech}
                                 </span>
@@ -347,58 +340,34 @@ export default function ResumePage() {
                     </div>
 
                     {/* Timeline Dot */}
-                    <div className={`w-3 h-3 rounded-full flex-shrink-0 ${
-                      theme === 'dystopian'
-                        ? 'bg-neon-pink shadow-glow-pink'
-                        : 'bg-modern-accent'
-                    }`} />
+                    <div className="w-3 h-3 rounded-full flex-shrink-0 bg-primary shadow-lg" />
 
                     {/* Right Content */}
                     <div className={`w-[calc(50%-24px)] ${isLeft ? 'pl-8' : 'pr-8'}`}>
                       {!isLeft && (
-                        <div className={`p-6 rounded-lg ${
-                          theme === 'dystopian'
-                            ? 'bg-cyber-gray border border-neon-pink/20'
-                            : 'bg-modern-gray border border-modern-accent/20'
-                        }`}>
+                        <div className="card p-6 rounded-lg">
                           <div className="mb-2">
-                            <span className={`text-sm uppercase ${typeColor}`}>
+                            <span className={`text-sm uppercase font-medium ${typeColor}`}>
                               {item.type}
                             </span>
                           </div>
                           <h3 className={`text-xl font-bold ${typeColor}`}>
                             {item.title}
                           </h3>
-                          <p className={`${
-                            theme === 'dystopian'
-                              ? 'text-neon-blue'
-                              : 'text-modern-text'
-                          }`}>
+                          <p className="text-accent font-medium">
                             {item.company}
                           </p>
-                          <span className={`text-sm ${
-                            theme === 'dystopian'
-                              ? 'text-gray-400'
-                              : 'text-modern-text/70'
-                          }`}>
+                          <span className="text-sm text-tertiary">
                             {item.period}
                           </span>
                           {item.bullets ? (
-                            <ul className={`mt-4 space-y-2 list-disc ml-4 ${
-                              theme === 'dystopian'
-                                ? 'text-gray-300'
-                                : 'text-modern-text'
-                            }`}>
+                            <ul className="mt-4 space-y-2 list-disc ml-4 body-normal">
                               {item.bullets.map((bullet, idx) => (
                                 <li key={idx}>{bullet}</li>
                               ))}
                             </ul>
                           ) : (
-                            <p className={`mt-2 ${
-                              theme === 'dystopian'
-                                ? 'text-gray-300'
-                                : 'text-modern-text'
-                            }`}>
+                            <p className="mt-2 body-normal">
                               {item.description}
                             </p>
                           )}
@@ -407,11 +376,7 @@ export default function ResumePage() {
                               {item.technologies.map((tech) => (
                                 <span
                                   key={tech}
-                                  className={`px-2 py-1 text-xs rounded-full ${
-                                    theme === 'dystopian'
-                                      ? 'bg-cyber-black text-neon-blue border border-neon-blue/30'
-                                      : 'bg-modern-black text-modern-accent border border-modern-accent/30'
-                                  }`}
+                                  className="px-2 py-1 text-xs rounded-full bg-surface-secondary text-primary border border-primary/30"
                                 >
                                   {tech}
                                 </span>

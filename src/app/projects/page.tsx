@@ -40,6 +40,29 @@ const item = {
   show: { opacity: 1, y: 0 }
 };
 
+// Card hover animation variants
+const cardHover = {
+  rest: { 
+    scale: 1, 
+    y: 0,
+    boxShadow: "0px 0px 0px rgba(0,0,0,0)"
+  },
+  hover: { 
+    scale: 1.02, 
+    y: -8,
+    boxShadow: "0px 20px 40px rgba(0,0,0,0.1)",
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      stiffness: 300
+    }
+  },
+  tap: {
+    scale: 0.98,
+    y: -4
+  }
+};
+
 const projects: Project[] = [
   {
     title: "Modern Farmhouse Dining Table",
@@ -145,14 +168,28 @@ export default function ProjectsPage() {
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`text-4xl font-bold mb-12 ${
+          className={`heading-1 text-center text-balance mb-6 ${
             theme === 'dystopian'
-              ? 'text-neon-pink'
-              : 'text-modern-accent'
+              ? 'neon-text text-neon-pink'
+              : 'gradient-text'
           }`}
         >
           Projects
         </motion.h1>
+
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          className={`text-lead text-center text-pretty max-w-3xl mx-auto mb-16 ${
+            theme === 'dystopian'
+              ? 'text-gray-300'
+              : 'text-modern-text/80'
+          }`}
+        >
+          A showcase of innovative solutions spanning financial systems, automation tools, 
+          and creative development projects that drive operational excellence.
+        </motion.p>
 
         <motion.div
           variants={container}
@@ -164,82 +201,134 @@ export default function ProjectsPage() {
             <motion.article
               key={project.title}
               variants={item}
-              className={`p-6 rounded-lg ${
+              initial="rest"
+              whileHover="hover"
+              whileTap="tap"
+              animate="rest"
+              className={`relative p-6 rounded-lg cursor-pointer transition-all duration-300 ${
                 theme === 'dystopian'
-                  ? 'bg-cyber-gray border border-neon-pink/20'
-                  : 'bg-modern-gray border border-modern-accent/20'
+                  ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:bg-cyber-gray/80 hover:shadow-[0_0_30px_rgba(255,0,110,0.15)]'
+                  : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:bg-white/50 hover:shadow-xl'
               }`}
+              style={{
+                transformStyle: "preserve-3d"
+              }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <project.icon
-                  className={`w-6 h-6 ${
+              <motion.div
+                variants={cardHover}
+                className="relative z-10"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <motion.div
+                    whileHover={{ 
+                      rotate: 360,
+                      scale: 1.2
+                    }}
+                    transition={{ 
+                      duration: 0.6,
+                      type: "spring",
+                      stiffness: 300
+                    }}
+                  >
+                    <project.icon
+                      className={`w-6 h-6 transition-colors duration-300 ${
+                        theme === 'dystopian'
+                          ? 'text-neon-blue group-hover:text-neon-pink'
+                          : 'text-modern-accent group-hover:text-blue-600'
+                      }`}
+                    />
+                  </motion.div>
+                  <h2 className={`text-xl font-semibold transition-colors duration-300 ${
                     theme === 'dystopian'
-                      ? 'text-neon-blue'
-                      : 'text-modern-accent'
-                  }`}
-                />
-                <h2 className={`text-xl font-semibold ${
+                      ? 'text-neon-pink group-hover:text-neon-blue'
+                      : 'text-modern-accent group-hover:text-blue-600'
+                  }`}>
+                    {project.title}
+                  </h2>
+                </div>
+
+                <div className={`mb-4 transition-colors duration-300 ${
                   theme === 'dystopian'
-                    ? 'text-neon-pink'
-                    : 'text-modern-accent'
+                    ? 'text-gray-300'
+                    : 'text-modern-text'
                 }`}>
-                  {project.title}
-                </h2>
-              </div>
-
-              <div className={`mb-4 ${
-                theme === 'dystopian'
-                  ? 'text-gray-300'
-                  : 'text-modern-text'
-              }`}>
-                {project.description}
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <h3 className={`flex items-center gap-2 font-medium mb-2 ${
-                    theme === 'dystopian'
-                      ? 'text-neon-blue'
-                      : 'text-blue-400'
-                  }`}>
-                    <FiMaximize2 className="w-4 h-4" />
-                    Details
-                  </h3>
-                  <ul className={`list-disc list-inside space-y-1 text-sm ${
-                    theme === 'dystopian'
-                      ? 'text-gray-400'
-                      : 'text-modern-text/70'
-                  }`}>
-                    {project.details.map((detail, index) => (
-                      <li key={index}>{detail}</li>
-                    ))}
-                  </ul>
+                  {project.description}
                 </div>
 
-                <div>
-                  <h3 className={`flex items-center gap-2 font-medium mb-2 ${
-                    theme === 'dystopian'
-                      ? 'text-neon-blue'
-                      : 'text-blue-400'
-                  }`}>
-                    <FiTool className="w-4 h-4" />
-                    Techniques & Tools
-                  </h3>
-                  <ul className={`list-disc list-inside space-y-1 text-sm ${
-                    theme === 'dystopian'
-                      ? 'text-gray-400'
-                      : 'text-modern-text/70'
-                  }`}>
-                    {project.techniques.map((technique, index) => (
-                      <li key={index}>{technique}</li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <motion.div
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h3 className={`flex items-center gap-2 font-medium mb-2 transition-colors duration-300 ${
+                      theme === 'dystopian'
+                        ? 'text-neon-blue'
+                        : 'text-blue-400'
+                    }`}>
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <FiMaximize2 className="w-4 h-4" />
+                      </motion.div>
+                      Details
+                    </h3>
+                    <ul className={`list-disc list-inside space-y-1 text-sm transition-colors duration-300 ${
+                      theme === 'dystopian'
+                        ? 'text-gray-400'
+                        : 'text-modern-text/70'
+                    }`}>
+                      {project.details.map((detail, index) => (
+                        <motion.li 
+                          key={index}
+                          whileHover={{ x: 4 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {detail}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
 
-              {project.images && project.images.length > 0 && (
-                <ImageGallery images={project.images} />
-              )}
+                  <motion.div
+                    whileHover={{ x: 4 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <h3 className={`flex items-center gap-2 font-medium mb-2 transition-colors duration-300 ${
+                      theme === 'dystopian'
+                        ? 'text-neon-blue'
+                        : 'text-blue-400'
+                    }`}>
+                      <motion.div
+                        whileHover={{ scale: 1.2 }}
+                        transition={{ duration: 0.2 }}
+                      >
+                        <FiTool className="w-4 h-4" />
+                      </motion.div>
+                      Techniques & Tools
+                    </h3>
+                    <ul className={`list-disc list-inside space-y-1 text-sm transition-colors duration-300 ${
+                      theme === 'dystopian'
+                        ? 'text-gray-400'
+                        : 'text-modern-text/70'
+                    }`}>
+                      {project.techniques.map((technique, index) => (
+                        <motion.li 
+                          key={index}
+                          whileHover={{ x: 4 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {technique}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </div>
+
+                {project.images && project.images.length > 0 && (
+                  <ImageGallery images={project.images} />
+                )}
+              </motion.div>
             </motion.article>
           ))}
         </motion.div>

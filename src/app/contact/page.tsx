@@ -1,55 +1,68 @@
 'use client';
 
 import * as React from 'react';
-import { useTheme } from '@/lib/ThemeContext';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
+import { useTheme } from '@/lib/ThemeContext';
+import { FiMail, FiLinkedin, FiGithub } from 'react-icons/fi';
 
-const socialLinks = [
-  {
-    name: 'GitHub',
-    icon: FiGithub,
-    href: 'https://github.com/rddaniels89',
-    color: '#FF006E'
-  },
-  {
-    name: 'LinkedIn',
-    icon: FiLinkedin,
-    href: 'https://www.linkedin.com/in/roderick-daniels/',
-    color: '#9D00FF'
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
   }
-];
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0 }
+};
 
 export default function ContactPage() {
   const { theme } = useTheme();
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission
-  };
 
   return (
     <div className={`min-h-screen ${
       theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-black'
     }`}>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-12"
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12"
         >
           {/* Contact Form */}
-          <div>
-            <h1 className={`text-4xl font-bold mb-6 ${
-              theme === 'dystopian'
-                ? 'neon-text text-neon-pink'
-                : 'gradient-text'
-            }`}>
-              Get in Touch
-            </h1>
+          <motion.div variants={item}>
+            <motion.h1
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={`heading-1 text-center text-balance mb-6 ${
+                theme === 'dystopian'
+                  ? 'neon-text text-neon-pink'
+                  : 'gradient-text'
+              }`}
+            >
+              Get In Touch
+            </motion.h1>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className={`text-lead text-center text-pretty max-w-2xl mx-auto mb-16 ${
+                theme === 'dystopian'
+                  ? 'text-gray-300'
+                  : 'text-modern-text/80'
+              }`}
+            >
+              Ready to discuss your next project, explore collaboration opportunities, 
+              or just connect? I'd love to hear from you.
+            </motion.p>
+
+            <form className="space-y-6">
               <div>
                 <label
                   htmlFor="name"
@@ -122,21 +135,34 @@ export default function ContactPage() {
                 />
               </div>
 
-              <button
+              <motion.button
                 type="submit"
-                className={`w-full py-3 rounded-lg font-medium ${
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2
+                }}
+                whileTap={{ 
+                  scale: 0.95,
+                  y: 0
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17 
+                }}
+                className={`w-full py-3 rounded-lg font-medium transition-all duration-300 ${
                   theme === 'dystopian'
-                    ? 'bg-neon-pink text-black hover:bg-neon-blue neon-border'
-                    : 'bg-modern-accent text-white hover:bg-opacity-90'
-                } transition-all duration-300`}
+                    ? 'bg-neon-pink text-black hover:bg-neon-blue hover:shadow-[0_0_20px_rgba(255,0,110,0.5)] neon-border'
+                    : 'bg-modern-accent text-white hover:bg-blue-600 hover:shadow-lg'
+                }`}
               >
                 Send Message
-              </button>
+              </motion.button>
             </form>
-          </div>
+          </motion.div>
 
           {/* Social Links */}
-          <div>
+          <motion.div variants={item}>
             <h2 className={`text-2xl font-bold mb-6 ${
               theme === 'dystopian'
                 ? 'text-neon-blue'
@@ -146,65 +172,149 @@ export default function ContactPage() {
             </h2>
 
             <div className="space-y-6">
-              {socialLinks.map((link) => (
-                <motion.a
-                  key={link.name}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  className={`flex items-center p-4 rounded-lg ${
-                    theme === 'dystopian'
-                      ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/50'
-                      : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/50'
-                  } transition-all duration-300`}
+              <motion.a
+                href="mailto:roderick.daniels@example.com"
+                whileHover={{ 
+                  scale: 1.05,
+                  x: 8
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17 
+                }}
+                className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:shadow-[0_0_15px_rgba(255,0,110,0.2)]'
+                    : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
+                }`}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
                 >
-                  <link.icon
-                    className={`w-6 h-6 ${
-                      theme === 'dystopian'
-                        ? 'text-neon-pink'
-                        : 'text-modern-accent'
-                    }`}
-                  />
-                  <span className={`ml-4 ${
+                  <FiMail className={`w-6 h-6 mr-4 ${
                     theme === 'dystopian'
-                      ? 'text-gray-300'
-                      : 'text-modern-text'
-                  }`}>
-                    {link.name}
-                  </span>
-                </motion.a>
-              ))}
-
-              <div className={`p-6 rounded-lg ${
-                theme === 'dystopian'
-                  ? 'bg-cyber-gray border border-neon-blue/20'
-                  : 'bg-modern-gray border border-modern-accent/20'
-              }`}>
-                <div className="flex items-center mb-4">
-                  <FiMail className={`w-6 h-6 ${
-                    theme === 'dystopian'
-                      ? 'text-neon-blue'
+                      ? 'text-neon-pink'
                       : 'text-modern-accent'
                   }`} />
-                  <h3 className={`ml-4 text-lg font-medium ${
+                </motion.div>
+                <div>
+                  <h3 className={`font-medium ${
                     theme === 'dystopian'
                       ? 'text-neon-blue'
                       : 'text-modern-accent'
                   }`}>
                     Email
                   </h3>
+                  <p className={
+                    theme === 'dystopian'
+                      ? 'text-gray-300'
+                      : 'text-modern-text'
+                  }>
+                    roderick.daniels@example.com
+                  </p>
                 </div>
-                <p className={`${
+              </motion.a>
+
+              <motion.a
+                href="https://www.linkedin.com/in/roderick-daniels/"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ 
+                  scale: 1.05,
+                  x: 8
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17 
+                }}
+                className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
                   theme === 'dystopian'
-                    ? 'text-gray-300'
-                    : 'text-modern-text'
-                }`}>
-                  contact@roderickdaniels.com
-                </p>
-              </div>
+                    ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:shadow-[0_0_15px_rgba(255,0,110,0.2)]'
+                    : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
+                }`}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FiLinkedin className={`w-6 h-6 mr-4 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink'
+                      : 'text-modern-accent'
+                  }`} />
+                </motion.div>
+                <div>
+                  <h3 className={`font-medium ${
+                    theme === 'dystopian'
+                      ? 'text-neon-blue'
+                      : 'text-modern-accent'
+                  }`}>
+                    LinkedIn
+                  </h3>
+                  <p className={
+                    theme === 'dystopian'
+                      ? 'text-gray-300'
+                      : 'text-modern-text'
+                  }>
+                    Connect professionally
+                  </p>
+                </div>
+              </motion.a>
+
+              <motion.a
+                href="https://github.com/rddaniels89"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ 
+                  scale: 1.05,
+                  x: 8
+                }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17 
+                }}
+                className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:shadow-[0_0_15px_rgba(255,0,110,0.2)]'
+                    : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
+                }`}
+              >
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <FiGithub className={`w-6 h-6 mr-4 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink'
+                      : 'text-modern-accent'
+                  }`} />
+                </motion.div>
+                <div>
+                  <h3 className={`font-medium ${
+                    theme === 'dystopian'
+                      ? 'text-neon-blue'
+                      : 'text-modern-accent'
+                  }`}>
+                    GitHub
+                  </h3>
+                  <p className={
+                    theme === 'dystopian'
+                      ? 'text-gray-300'
+                      : 'text-modern-text'
+                  }>
+                    View my projects
+                  </p>
+                </div>
+              </motion.a>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
       </div>
     </div>
