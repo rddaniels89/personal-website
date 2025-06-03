@@ -2,11 +2,31 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@/lib/ThemeContext';
 
 export default function HomePage() {
   const { theme } = useTheme();
+
+  // Cycling identities for the text animation
+  const identities = [
+    "Financial Leader",
+    "Technology Enthusiast", 
+    "Navy Veteran",
+    "Father",
+    "Husband",
+    "Strategic Thinker"
+  ];
+
+  const [currentIdentityIndex, setCurrentIdentityIndex] = React.useState(0);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIdentityIndex((prev) => (prev + 1) % identities.length);
+    }, 4000); // Changed to 4 seconds
+
+    return () => clearInterval(interval);
+  }, [identities.length]);
 
   return (
     <div className={`min-h-screen flex items-center justify-center relative overflow-hidden`}
@@ -121,6 +141,81 @@ export default function HomePage() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
+          {/* Profile Photo with Circular Border Animation */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.8, ease: "easeOut" }}
+            className="relative mx-auto mb-8"
+            style={{ width: '500px', height: '500px' }}
+          >
+            {/* Simple Animated Border */}
+            <div className="absolute inset-0">
+              <svg 
+                className="w-full h-full animate-spin" 
+                viewBox="0 0 500 500"
+                style={{ 
+                  animationDuration: '4s',
+                  animationTimingFunction: 'linear'
+                }}
+              >
+                <defs>
+                  <radialGradient 
+                    id="borderGradient" 
+                    cx="50%" 
+                    cy="50%" 
+                    r="50%"
+                    gradientUnits="objectBoundingBox"
+                  >
+                    <stop 
+                      offset="0%" 
+                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#3b82f6'} 
+                      stopOpacity="0.2" 
+                    />
+                    <stop 
+                      offset="70%" 
+                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#3b82f6'} 
+                      stopOpacity="0.8" 
+                    />
+                    <stop 
+                      offset="100%" 
+                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#3b82f6'} 
+                      stopOpacity="1" 
+                    />
+                  </radialGradient>
+                </defs>
+                <circle
+                  cx="250"
+                  cy="250"
+                  r="248"
+                  fill="none"
+                  stroke="url(#borderGradient)"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeDasharray="300 479"
+                  opacity="0.8"
+                />
+              </svg>
+            </div>
+            
+            {/* Profile Photo */}
+            <motion.div
+              initial={{ scale: 0.8 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+              className="absolute inset-3 rounded-full overflow-hidden"
+            >
+              <img
+                src="/images/roderick-home.png"
+                alt="Roderick Daniels"
+                className="w-full h-full object-cover"
+                style={{ 
+                  objectPosition: '50% 0%'
+                }}
+              />
+            </motion.div>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -155,7 +250,58 @@ export default function HomePage() {
             transition={{ delay: 0.4 }}
             className="heading-3 text-balance mb-8"
           >
-            Financial Management Leader & Tech Innovator
+            <span className="mr-3">I'm a</span>
+            <div className="inline-block relative" style={{ minWidth: '280px' }}>
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={currentIdentityIndex}
+                  initial={{ opacity: 1 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ 
+                    duration: 0.3,
+                    ease: "easeInOut"
+                  }}
+                  className="absolute top-0 left-0 font-semibold"
+                  style={{
+                    color: 'transparent',
+                    WebkitTextStroke: `1px ${theme === 'dystopian' ? 'rgba(6, 214, 160, 0.4)' : 'rgba(59, 130, 246, 0.4)'}`,
+                  }}
+                >
+                  {identities[currentIdentityIndex]}
+                  
+                  {/* Filled text overlay with color animation */}
+                  <motion.span
+                    initial={{ 
+                      clipPath: 'inset(0 100% 0 0)',
+                      color: theme === 'dystopian' ? '#06d6a0' : '#3b82f6'
+                    }}
+                    animate={{ 
+                      clipPath: 'inset(0 0 0 0)',
+                      color: theme === 'dystopian' ? '#06d6a0' : '#3b82f6'
+                    }}
+                    transition={{ 
+                      duration: 1.2,
+                      delay: 0.3,
+                      ease: "easeInOut"
+                    }}
+                    className="absolute top-0 left-0 font-semibold"
+                    style={{
+                      WebkitTextStroke: 'none',
+                    }}
+                  >
+                    {identities[currentIdentityIndex]}
+                  </motion.span>
+                </motion.span>
+              </AnimatePresence>
+              
+              {/* Invisible spacer to maintain consistent width */}
+              <span className="opacity-0 font-semibold">
+                {identities.reduce((longest, current) => 
+                  current.length > longest.length ? current : longest, ""
+                )}
+              </span>
+            </div>
           </motion.h2>
 
           <motion.p

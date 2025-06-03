@@ -508,6 +508,9 @@
   
   /* Background colors for border-accent */
   .bg-border-accent { background-color: var(--color-border-accent); }
+
+  .bg-surface-secondary { background-color: var(--color-surface-secondary); }
+  .border-surface-secondary { border-color: var(--color-surface-secondary); }
 }
 
 /* LinkedIn Embed Styles */
