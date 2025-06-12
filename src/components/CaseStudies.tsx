@@ -9,7 +9,7 @@ import {
   LineChart, PieChart, Wallet, Building2,
   ClipboardCheck, FileCheck, Download,
   AlertCircle, BadgeCheck, Hammer, Activity,
-  BarChart, Building
+  BarChart, Building, Target
 } from "lucide-react";
 import { useTheme } from '@/lib/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
