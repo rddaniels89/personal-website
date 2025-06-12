@@ -48,11 +48,11 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     // Also update CSS custom properties for immediate visual feedback
     const root = document.documentElement;
     if (theme === 'dystopian') {
-      root.style.setProperty('--color-background', '#0D0D0D');
-      root.style.setProperty('--color-text', '#F9FAFB');
+      root.style.setProperty('--color-background', '#090a10');
+      root.style.setProperty('--color-text', '#F8FAFC');
     } else {
-      root.style.setProperty('--color-background', '#FFFFFF');
-      root.style.setProperty('--color-text', '#1F2937');
+      root.style.setProperty('--color-background', '#F5F5F5');
+      root.style.setProperty('--color-text', '#000000');
     }
   }, [theme, isInitialized]);
 

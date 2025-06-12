@@ -26,13 +26,13 @@ const item = {
 const fadeInUp = {
   hidden: { 
     opacity: 0, 
-    y: 30 
+    y: 15
   },
   visible: { 
     opacity: 1, 
     y: 0,
     transition: {
-      duration: 0.6,
+      duration: 0.4,
       ease: "easeOut"
     }
   }
@@ -43,8 +43,8 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1
+      staggerChildren: 0.1,
+      delayChildren: 0.05
     }
   }
 };
@@ -52,16 +52,57 @@ const staggerContainer = {
 const cardVariant = {
   hidden: { 
     opacity: 0, 
-    y: 40,
-    scale: 0.95
+    y: 20,
+    scale: 0.98
   },
   visible: { 
     opacity: 1, 
     y: 0,
     scale: 1,
     transition: {
-      duration: 0.5,
-      ease: "easeOut"
+      duration: 0.4,
+      type: "spring",
+      stiffness: 50,
+      damping: 12
+    }
+  },
+  hover: {
+    scale: 1.02,
+    y: -3,
+    transition: {
+      duration: 0.2,
+      type: "spring",
+      stiffness: 300,
+      damping: 15
+    }
+  },
+  tap: {
+    scale: 0.99,
+    transition: {
+      duration: 0.1
+    }
+  }
+};
+
+const iconAnimation = {
+  hidden: { scale: 0.8, rotate: -45 },
+  visible: { 
+    scale: 1, 
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 15
+    }
+  },
+  hover: {
+    rotate: 15,
+    scale: 1.1,
+    transition: {
+      duration: 0.3,
+      type: "spring",
+      stiffness: 200,
+      damping: 10
     }
   }
 };
@@ -209,13 +250,36 @@ export default function AboutPage() {
                 <motion.div
                   key={area.title}
                   variants={cardVariant}
-                  className="card p-6 rounded-lg"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className={`card p-6 rounded-lg cursor-pointer transition-all duration-300 ${
+                    theme === 'dystopian'
+                      ? 'bg-cyber-gray border border-neon-pink/10 hover:border-neon-pink/30 hover:bg-cyber-gray/90 hover:shadow-[0_0_20px_rgba(255,0,110,0.1)]'
+                      : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                  }`}
                 >
-                  <area.icon className="text-primary w-6 h-6 mb-4" />
-                  <h3 className="heading-4 mb-3">
+                  <motion.div
+                    variants={iconAnimation}
+                    className="mb-4"
+                  >
+                    <area.icon className={`w-6 h-6 transition-colors duration-300 ${
+                      theme === 'dystopian'
+                        ? 'text-neon-pink/90'
+                        : 'text-modern-accent/90'
+                    }`} />
+                  </motion.div>
+                  <h3 className={`heading-4 mb-3 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-blue/90'
+                      : 'text-navy-blue/90'
+                  }`}>
                     {area.title}
                   </h3>
-                  <p className="body-normal">
+                  <p className={`body-normal transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-gray-300/90'
+                      : 'text-modern-text/90'
+                  }`}>
                     {area.description}
                   </p>
                 </motion.div>
@@ -241,13 +305,36 @@ export default function AboutPage() {
                 <motion.div
                   key={value.title}
                   variants={cardVariant}
-                  className="card p-6 rounded-lg"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className={`card p-6 rounded-lg cursor-pointer transition-all duration-300 ${
+                    theme === 'dystopian'
+                      ? 'bg-cyber-gray border border-neon-pink/10 hover:border-neon-pink/30 hover:bg-cyber-gray/90 hover:shadow-[0_0_20px_rgba(255,0,110,0.1)]'
+                      : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                  }`}
                 >
-                  <value.icon className="text-primary w-6 h-6 mb-4" />
-                  <h3 className="text-xl font-bold mb-2 text-primary">
+                  <motion.div
+                    variants={iconAnimation}
+                    className="mb-4"
+                  >
+                    <value.icon className={`w-6 h-6 transition-colors duration-300 ${
+                      theme === 'dystopian'
+                        ? 'text-neon-pink/90'
+                        : 'text-modern-accent/90'
+                    }`} />
+                  </motion.div>
+                  <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-blue/90'
+                      : 'text-navy-blue/90'
+                  }`}>
                     {value.title}
                   </h3>
-                  <p className="body-normal">
+                  <p className={`body-normal transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-gray-300/90'
+                      : 'text-modern-text/90'
+                  }`}>
                     {value.description}
                   </p>
                 </motion.div>

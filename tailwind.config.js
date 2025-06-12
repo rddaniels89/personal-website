@@ -129,18 +129,31 @@ module.exports = {
         // LEGACY COLORS (for backward compatibility)
         // ==========================================
         
-        // Dystopian Theme Colors (mapped to new system)
-        'neon-pink': '#EC4899',     // accent.500
-        'neon-blue': '#06B6D4',     // highlight.500
+        // Dystopian Theme Colors (mapped to new cyberpunk system)
+        'neon-cyan': '#19FFE5',     // primary in dystopian
+        'neon-blue': '#00C3FF',     // accent in dystopian
+        'neon-pink': '#EC4899',     // legacy pink (deprecated)
         'neon-purple': '#8B5CF6',   // purple.500
-        'cyber-black': '#0D0D0D',   // surface.dark.primary
-        'cyber-gray': '#1A1A1A',    // surface.dark.secondary
+        'electric-pink': '#FF29A8', // highlight in dystopian
+        'cyber-black': '#090a10',   // surface.dark.primary
+        'cyber-gray': '#181b22',    // surface.dark.secondary
+        'high-contrast': '#F8FAFC', // text.dark.primary
+        'muted': '#9CA3AF',         // text.dark.tertiary
         
-        // Modern Theme Colors (mapped to new system)
-        'modern-black': '#FAFAFA',  // surface.light.secondary
-        'modern-gray': '#F5F5F5',   // surface.light.tertiary
-        'modern-accent': '#2563EB', // primary.600
-        'modern-text': '#1F2937',   // text.light.primary
+        // Modern Theme Colors (mapped to light grey system)
+        'light-grey': '#F5F5F5',        // background
+        'pure-white': '#FFFFFF',        // cards/surfaces
+        'very-light-grey': '#EEEEEE',   // light sections
+        'pure-black': '#000000',        // primary black
+        'dark-grey': '#333333',         // secondary grey
+        'medium-grey': '#666666',       // muted text
+        'light-border': '#E0E0E0',      // borders
+        'modern-primary': '#000000',    // primary (pure-black)
+        'modern-accent': '#666666',     // accent (medium-grey)
+        'modern-background': '#F5F5F5', // main background (light-grey)
+        'modern-black': '#FFFFFF',      // surface (pure-white)
+        'modern-gray': '#FFFFFF',       // surface (pure-white) - for backward compatibility
+        'modern-text': '#000000',       // main text color
       },
       fontFamily: {
         'body': ['var(--font-inter)', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],

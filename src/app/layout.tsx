@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code-here',
   },
-  // manifest: '/site.webmanifest',
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -123,11 +123,17 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`dark ${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
-        <meta name="theme-color" content="#1a1a1a" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+        <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="msapplication-TileColor" content="#1a1a1a" />
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
@@ -138,10 +144,10 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} font-body`}>
+      <body className={`${inter.className} font-body antialiased`}>
         <ThemeProvider>
           <Navbar />
-          <main className="min-h-screen pt-16">
+          <main className="min-h-screen pt-16 overflow-x-hidden">
             {children}
           </main>
         </ThemeProvider>

@@ -115,7 +115,7 @@ export default function AccomplishmentsPage() {
 
   return (
     <div className={`min-h-screen ${
-      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-black'
+      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-background'
     }`}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.h1
@@ -230,7 +230,7 @@ export default function AccomplishmentsPage() {
                       <h3 className={`text-xl font-semibold mb-3 ${
                         theme === 'dystopian'
                           ? 'text-neon-pink'
-                          : 'text-blue-400'
+                          : 'text-navy-blue'
                       }`}>
                         {accomplishment.title}
                       </h3>
@@ -310,7 +310,7 @@ export default function AccomplishmentsPage() {
                       <h3 className={`text-xl font-semibold mb-3 ${
                         theme === 'dystopian'
                           ? 'text-neon-pink'
-                          : 'text-blue-400'
+                          : 'text-navy-blue'
                       }`}>
                         {accomplishment.title}
                       </h3>

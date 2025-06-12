@@ -76,58 +76,75 @@
   }
 
   .theme-dystopian {
-    /* Dystopian Color Overrides */
-    --color-primary: #EC4899;       /* Hot pink for primary actions */
-    --color-primary-hover: #DB2777;
-    --color-primary-light: #F9A8D4;
-    --color-primary-dark: #BE185D;
+    /* Dystopian Color Overrides - Updated Cyberpunk Palette */
+    --color-primary: #19FFE5;       /* Neon cyan for primary actions */
+    --color-primary-hover: #0FE5CB;
+    --color-primary-light: #67FFE9;
+    --color-primary-dark: #0CB5A0;
     
-    --color-accent: #06B6D4;        /* Cyan for secondary actions */
-    --color-accent-hover: #0891B2;
-    --color-accent-light: #67E8F9;
-    --color-accent-dark: #0E7490;
+    --color-accent: #00C3FF;        /* Neon blue for secondary actions */
+    --color-accent-hover: #0099CC;
+    --color-accent-light: #66D9FF;
+    --color-accent-dark: #0077AA;
     
-    --color-highlight: #8B5CF6;     /* Purple for highlights */
-    --color-highlight-hover: #7C3AED;
-    --color-highlight-light: #C4B5FD;
-    --color-highlight-dark: #5B21B6;
+    --color-highlight: #FF29A8;     /* Electric pink for highlights */
+    --color-highlight-hover: #E6248F;
+    --color-highlight-light: #FF66C4;
+    --color-highlight-dark: #CC1F85;
     
-    /* Dark backgrounds */
-    --color-background: #0D0D0D;
-    --color-surface: #1A1A1A;
-    --color-surface-secondary: #262626;
-    --color-surface-elevated: #1F1F1F;
+    /* Dark backgrounds - Cyberpunk palette */
+    --color-background: #090a10;    /* cyber-black */
+    --color-surface: #181b22;       /* cyber-gray */
+    --color-surface-secondary: #202530;
+    --color-surface-elevated: #1A1D26;
     
-    /* Light text on dark */
-    --color-text: #F9FAFB;
-    --color-text-secondary: #E5E7EB;
-    --color-text-tertiary: #9CA3AF;
-    --color-text-inverse: #1F2937;
+    /* High contrast text on dark */
+    --color-text: #F8FAFC;          /* high-contrast white */
+    --color-text-secondary: #E2E8F0;
+    --color-text-tertiary: #9CA3AF; /* muted text */
+    --color-text-inverse: #090a10;
     
-    /* Dark borders */
-    --color-border: #374151;
-    --color-border-secondary: #4B5563;
-    --color-border-accent: rgba(0, 245, 255, 0.3);
+    /* Dark borders with cyberpunk accent */
+    --color-border: #2A2F3A;
+    --color-border-secondary: #374151;
+    --color-border-accent: rgba(25, 255, 229, 0.3); /* neon-cyan glow */
     
     font-family: 'BlenderPro', sans-serif;
   }
 
   .theme-modern {
-    /* Modern theme uses the default light values */
-    --color-primary: #2563EB;       /* Professional blue */
-    --color-primary-hover: #1D4ED8;
-    --color-primary-light: #93C5FD;
-    --color-primary-dark: #1E40AF;
+    /* Modern theme - Light Grey with Black Accents */
+    --color-primary: #000000;          /* Pure black for primary elements */
+    --color-primary-hover: #333333;    /* Dark grey for hover states */
+    --color-primary-light: #666666;
+    --color-primary-dark: #000000;
     
-    --color-accent: #EC4899;        /* Pink accent for highlights */
-    --color-accent-hover: #DB2777;
-    --color-accent-light: #F9A8D4;
-    --color-accent-dark: #BE185D;
+    --color-accent: #333333;           /* Dark grey instead of medium grey */
+    --color-accent-hover: #666666;
+    --color-accent-light: #999999;
+    --color-accent-dark: #000000;
     
-    --color-highlight: #06B6D4;     /* Cyan for special elements */
-    --color-highlight-hover: #0891B2;
-    --color-highlight-light: #67E8F9;
-    --color-highlight-dark: #0E7490;
+    --color-highlight: #000000;        /* Pure black for highlights */
+    --color-highlight-hover: #333333;
+    --color-highlight-light: #666666;
+    --color-highlight-dark: #000000;
+    
+    /* Light sophisticated backgrounds */
+    --color-background: #F5F5F5;       /* Light grey background */
+    --color-surface: #FFFFFF;          /* Pure white for cards */
+    --color-surface-secondary: #EEEEEE; /* Very light grey for sections */
+    --color-surface-elevated: #FFFFFF; /* Pure white for elevated content */
+    
+    /* High contrast text on light backgrounds */
+    --color-text: #000000;             /* Pure black for main text */
+    --color-text-secondary: #333333;   /* Dark grey for secondary text */
+    --color-text-tertiary: #666666;    /* Medium grey for muted text */
+    --color-text-inverse: #FFFFFF;     /* White text for dark backgrounds */
+    
+    /* Clean borders */
+    --color-border: #E0E0E0;           /* Light grey borders */
+    --color-border-secondary: #CCCCCC;
+    --color-border-accent: rgba(0, 0, 0, 0.1); /* Black border accent */
     
     font-family: 'Inter', sans-serif;
   }
@@ -428,9 +445,10 @@
 
   /* Modern Theme Typography */
   .theme-modern .gradient-text {
-    background: linear-gradient(45deg, var(--color-primary), var(--color-accent));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--color-primary);
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
   }
 
   .theme-modern .hover-lift {

@@ -25,7 +25,7 @@ export default function TraditionalResumePage() {
 
   return (
     <div className={`min-h-screen print:min-h-full ${
-      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-black'
+      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-background'
     }`}>
       <div className="max-w-[8.5in] mx-auto px-4 sm:px-6 lg:px-8 py-8 print:py-4 print:px-6">
         <motion.div
@@ -190,7 +190,7 @@ export default function TraditionalResumePage() {
                     <h3 className={`font-semibold print:text-black ${
                       theme === 'dystopian'
                         ? 'text-neon-pink'
-                        : 'text-blue-400'
+                        : 'text-navy-blue'
                     }`}>
                       Financial Management Analyst
                     </h3>
@@ -230,7 +230,7 @@ export default function TraditionalResumePage() {
                     <h3 className={`font-semibold print:text-black ${
                       theme === 'dystopian'
                         ? 'text-neon-pink'
-                        : 'text-blue-400'
+                        : 'text-navy-blue'
                     }`}>
                       Budget Analyst
                     </h3>
@@ -271,7 +271,7 @@ export default function TraditionalResumePage() {
                     <h3 className={`font-semibold print:text-black ${
                       theme === 'dystopian'
                         ? 'text-neon-pink'
-                        : 'text-blue-400'
+                        : 'text-navy-blue'
                     }`}>
                       Financial Manager
                     </h3>
@@ -325,7 +325,7 @@ export default function TraditionalResumePage() {
                   <h3 className={`font-semibold print:text-black ${
                     theme === 'dystopian'
                       ? 'text-neon-pink'
-                      : 'text-blue-400'
+                      : 'text-navy-blue'
                   }`}>
                     Education
                   </h3>
@@ -376,7 +376,7 @@ export default function TraditionalResumePage() {
                   <h3 className={`font-semibold print:text-black ${
                     theme === 'dystopian'
                       ? 'text-neon-pink'
-                      : 'text-blue-400'
+                      : 'text-navy-blue'
                   }`}>
                     Professional Certifications
                   </h3>

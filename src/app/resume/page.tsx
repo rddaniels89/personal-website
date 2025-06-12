@@ -129,8 +129,32 @@ const summary = {
   ]
 };
 
+interface CardStyle {
+  borderColor?: string;
+  boxShadow?: string;
+  className: string;
+}
+
 export default function ResumePage() {
   const { theme } = useTheme();
+
+  const getCardStyle = (type: string): CardStyle => {
+    const color = type === 'experience' 
+      ? '#FF006E' // neon-pink
+      : type === 'education'
+        ? '#00FFFF' // neon-blue
+        : '#FF00FF'; // neon-purple
+
+    return theme === 'dystopian'
+      ? {
+          borderColor: color,
+          boxShadow: `0 0 20px ${color}30`,
+          className: `relative p-6 rounded-xl border-2 backdrop-blur-sm bg-surface-dark/80 text-primary`
+        }
+      : {
+          className: 'card p-6 rounded-lg bg-modern-gray/10'
+        };
+  };
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: 'var(--color-background)' }}>
@@ -236,7 +260,18 @@ export default function ResumePage() {
         >
           {/* Professional Summary Section */}
           <motion.section variants={item}>
-            <div className="card p-6 rounded-lg">
+            <motion.div
+              className={`p-6 rounded-xl ${
+                theme === 'dystopian'
+                  ? 'bg-surface-dark/80 border-2 border-neon-pink backdrop-blur-sm'
+                  : 'bg-modern-gray/10'
+              }`}
+              style={
+                theme === 'dystopian'
+                  ? { boxShadow: '0 0 20px rgba(255, 0, 110, 0.2)' }
+                  : undefined
+              }
+            >
               <h2 className="heading-2 text-center text-balance mb-4">
                 Professional Summary
               </h2>
@@ -257,7 +292,11 @@ export default function ResumePage() {
                       {competency.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-3 py-1 rounded-full text-sm bg-surface-secondary text-primary border border-primary/30"
+                          className={`px-3 py-1 rounded-full text-sm ${
+                            theme === 'dystopian'
+                              ? 'bg-cyber-gray/30 text-neon-pink border border-neon-pink/30'
+                              : 'bg-surface-secondary text-primary border border-primary/30'
+                          }`}
                         >
                           {skill}
                         </span>
@@ -266,7 +305,7 @@ export default function ResumePage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           </motion.section>
 
           {/* Timeline Section */}
@@ -277,16 +316,16 @@ export default function ResumePage() {
             className="relative"
           >
             {/* Center Timeline Line */}
-            <div className="absolute left-1/2 -translate-x-[1px] w-[2px] h-full bg-border-accent" />
+            <div className={`absolute left-1/2 -translate-x-[1px] w-[2px] h-full ${
+              theme === 'dystopian'
+                ? 'bg-neon-pink/20'
+                : 'bg-border-accent'
+            }`} />
 
             <div className="space-y-16">
               {timelineItems.map((item, index) => {
                 const isLeft = index % 2 === 0;
-                const typeColor = item.type === 'experience' 
-                  ? 'text-primary'
-                  : item.type === 'education'
-                    ? 'text-accent'
-                    : 'text-highlight';
+                const cardStyle = getCardStyle(item.type);
 
                 return (
                   <motion.div
@@ -295,21 +334,35 @@ export default function ResumePage() {
                     className="flex items-center justify-center"
                   >
                     {/* Left Content */}
-                    <div className={`w-[calc(50%-24px)] ${isLeft ? 'pr-8' : 'text-right ml-auto pl-8'}`}>
+                    <div className="flex-1 flex justify-end pr-8">
                       {isLeft && (
-                        <div className="card p-6 rounded-lg">
+                        <motion.div
+                          className={cardStyle.className}
+                          style={theme === 'dystopian' ? {
+                            borderColor: cardStyle.borderColor,
+                            boxShadow: cardStyle.boxShadow
+                          } : undefined}
+                          whileHover={theme === 'dystopian' && cardStyle.boxShadow ? {
+                            boxShadow: cardStyle.boxShadow.replace('30', '50'),
+                            scale: 1.02
+                          } : { scale: 1.02 }}
+                        >
                           <div className="mb-2">
-                            <span className={`text-sm uppercase font-medium ${typeColor}`}>
+                            <span className={`text-sm uppercase font-medium ${
+                              theme === 'dystopian' ? 'text-neon-pink' : 'text-primary'
+                            }`}>
                               {item.type}
                             </span>
                           </div>
-                          <h3 className={`text-xl font-bold ${typeColor}`}>
+                          <h3 className={`text-xl font-bold ${
+                            theme === 'dystopian' ? 'text-neon-blue' : 'text-primary'
+                          }`}>
                             {item.title}
                           </h3>
-                          <p className="text-accent font-medium">
+                          <p className={theme === 'dystopian' ? 'text-neon-pink' : 'text-accent'}>
                             {item.company}
                           </p>
-                          <span className="text-sm text-tertiary">
+                          <span className={theme === 'dystopian' ? 'text-gray-400' : 'text-tertiary'}>
                             {item.period}
                           </span>
                           {item.bullets ? (
@@ -328,36 +381,58 @@ export default function ResumePage() {
                               {item.technologies.map((tech) => (
                                 <span
                                   key={tech}
-                                  className="px-2 py-1 text-xs rounded-full bg-surface-secondary text-primary border border-primary/30"
+                                  className={`px-2 py-1 text-xs rounded-full ${
+                                    theme === 'dystopian'
+                                      ? 'bg-cyber-gray/30 text-neon-pink border border-neon-pink/30'
+                                      : 'bg-surface-secondary text-primary border border-primary/30'
+                                  }`}
                                 >
                                   {tech}
                                 </span>
                               ))}
                             </div>
                           )}
-                        </div>
+                        </motion.div>
                       )}
                     </div>
 
                     {/* Timeline Dot */}
-                    <div className="w-3 h-3 rounded-full flex-shrink-0 bg-primary shadow-lg" />
+                    <div className={`w-3 h-3 rounded-full flex-shrink-0 ${
+                      theme === 'dystopian'
+                        ? 'bg-neon-pink shadow-[0_0_10px_rgba(255,0,110,0.5)]'
+                        : 'bg-primary shadow-lg'
+                    }`} />
 
                     {/* Right Content */}
-                    <div className={`w-[calc(50%-24px)] ${isLeft ? 'pl-8' : 'pr-8'}`}>
+                    <div className="flex-1 flex justify-start pl-8">
                       {!isLeft && (
-                        <div className="card p-6 rounded-lg">
+                        <motion.div
+                          className={cardStyle.className}
+                          style={theme === 'dystopian' ? {
+                            borderColor: cardStyle.borderColor,
+                            boxShadow: cardStyle.boxShadow
+                          } : undefined}
+                          whileHover={theme === 'dystopian' && cardStyle.boxShadow ? {
+                            boxShadow: cardStyle.boxShadow.replace('30', '50'),
+                            scale: 1.02
+                          } : { scale: 1.02 }}
+                        >
                           <div className="mb-2">
-                            <span className={`text-sm uppercase font-medium ${typeColor}`}>
+                            <span className={`text-sm uppercase font-medium ${
+                              theme === 'dystopian' ? 'text-neon-pink' : 'text-primary'
+                            }`}>
                               {item.type}
                             </span>
                           </div>
-                          <h3 className={`text-xl font-bold ${typeColor}`}>
+                          <h3 className={`text-xl font-bold ${
+                            theme === 'dystopian' ? 'text-neon-blue' : 'text-primary'
+                          }`}>
                             {item.title}
                           </h3>
-                          <p className="text-accent font-medium">
+                          <p className={theme === 'dystopian' ? 'text-neon-pink' : 'text-accent'}>
                             {item.company}
                           </p>
-                          <span className="text-sm text-tertiary">
+                          <span className={theme === 'dystopian' ? 'text-gray-400' : 'text-tertiary'}>
                             {item.period}
                           </span>
                           {item.bullets ? (
@@ -376,14 +451,18 @@ export default function ResumePage() {
                               {item.technologies.map((tech) => (
                                 <span
                                   key={tech}
-                                  className="px-2 py-1 text-xs rounded-full bg-surface-secondary text-primary border border-primary/30"
+                                  className={`px-2 py-1 text-xs rounded-full ${
+                                    theme === 'dystopian'
+                                      ? 'bg-cyber-gray/30 text-neon-pink border border-neon-pink/30'
+                                      : 'bg-surface-secondary text-primary border border-primary/30'
+                                  }`}
                                 >
                                   {tech}
                                 </span>
                               ))}
                             </div>
                           )}
-                        </div>
+                        </motion.div>
                       )}
                     </div>
                   </motion.div>

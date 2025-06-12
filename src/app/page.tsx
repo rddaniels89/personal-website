@@ -225,6 +225,7 @@ export default function HomePage() {
                 ? 'neon-text'
                 : 'gradient-text'
             }`}
+            style={theme === 'modern' ? { color: '#000000' } : {}}
           >
             Roderick Daniels
           </motion.h1>
@@ -239,7 +240,9 @@ export default function HomePage() {
               theme === 'dystopian'
                 ? 'text-accent'
                 : 'text-primary'
-            }`}>
+            }`}
+            style={theme === 'modern' ? { color: '#000000' } : {}}
+            >
               Bridging Technology, Business, and Real-World Results.
             </p>
           </motion.div>
@@ -250,7 +253,11 @@ export default function HomePage() {
             transition={{ delay: 0.4 }}
             className="heading-3 text-balance mb-8"
           >
-            <span className="mr-3">I'm a</span>
+            <span className={`mr-3 ${
+              theme === 'dystopian' 
+                ? 'text-accent' 
+                : 'text-secondary'
+            }`}>I'm a</span>
             <div className="inline-block relative" style={{ minWidth: '280px' }}>
               <AnimatePresence mode="wait">
                 <motion.span
@@ -265,7 +272,7 @@ export default function HomePage() {
                   className="absolute top-0 left-0 font-semibold"
                   style={{
                     color: 'transparent',
-                    WebkitTextStroke: `1px ${theme === 'dystopian' ? 'rgba(6, 214, 160, 0.4)' : 'rgba(59, 130, 246, 0.4)'}`,
+                    WebkitTextStroke: `1px ${theme === 'dystopian' ? 'rgba(0, 195, 255, 0.4)' : 'rgba(0, 0, 0, 0.4)'}`,
                   }}
                 >
                   {identities[currentIdentityIndex]}
@@ -274,11 +281,11 @@ export default function HomePage() {
                   <motion.span
                     initial={{ 
                       clipPath: 'inset(0 100% 0 0)',
-                      color: theme === 'dystopian' ? '#06d6a0' : '#3b82f6'
+                      color: theme === 'dystopian' ? '#00C3FF' : '#000000'
                     }}
                     animate={{ 
                       clipPath: 'inset(0 0 0 0)',
-                      color: theme === 'dystopian' ? '#06d6a0' : '#3b82f6'
+                      color: theme === 'dystopian' ? '#00C3FF' : '#000000'
                     }}
                     transition={{ 
                       duration: 1.2,
