@@ -184,11 +184,15 @@ export default function CaseStudies() {
             initial="hidden"
             animate="visible"
             whileHover="hover"
-            className={`rounded-xl p-6 ${
+            className={`rounded-xl p-6 border-2 ${
               theme === 'dystopian'
-                ? 'bg-cyber-gray/20 border border-neon-pink/20'
+                ? 'hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
                 : 'bg-modern-gray/10'
             }`}
+            style={{
+              backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+              borderColor: theme === 'dystopian' ? '#083e12' : undefined
+            }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-6">
@@ -222,11 +226,15 @@ export default function CaseStudies() {
                       key={item.title}
                       variants={contentVariants}
                       whileHover={{ scale: 1.02, x: 5 }}
-                      className={`flex items-start gap-4 p-4 rounded-lg ${
+                      className={`flex items-start gap-4 p-4 rounded-lg border-2 ${
                         theme === 'dystopian'
-                          ? 'bg-cyber-gray/30 hover:bg-cyber-gray/40'
+                          ? 'hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                           : 'bg-modern-gray/10 hover:bg-modern-gray/20'
                       }`}
+                      style={{
+                        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                        borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                      }}
                     >
                       <motion.div
                         initial={{ rotate: -45, scale: 0 }}
@@ -307,11 +315,15 @@ export default function CaseStudies() {
                         key={metric.label}
                         variants={metricCardVariants}
                         whileHover="hover"
-                        className={`flex items-center gap-3 p-4 rounded-lg ${
+                        className={`flex items-center gap-3 p-4 rounded-lg border-2 ${
                           theme === 'dystopian'
-                            ? 'bg-cyber-gray/30'
+                            ? 'hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                             : 'bg-modern-gray/10'
                         }`}
+                        style={{
+                          backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                          borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                        }}
                       >
                         <motion.div
                           initial={{ rotate: -45, scale: 0 }}
@@ -348,11 +360,15 @@ export default function CaseStudies() {
             initial="hidden"
             animate="visible"
             whileHover="hover"
-            className={`rounded-xl p-6 ${
+            className={`rounded-xl p-6 border-2 ${
               theme === 'dystopian'
-                ? 'bg-cyber-gray/20 border border-neon-pink/20 text-gray-300'
+                ? 'text-gray-300 hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
                 : 'bg-modern-gray/10 text-modern-text'
             }`}
+            style={{
+              backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+              borderColor: theme === 'dystopian' ? '#083e12' : undefined
+            }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
@@ -393,11 +409,15 @@ export default function CaseStudies() {
                   <motion.div 
                     variants={metricCardVariants}
                     whileHover="hover"
-                    className={`flex flex-col items-center p-2 rounded-lg ${
+                    className={`flex flex-col items-center p-2 rounded-lg border-2 ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30 text-gray-300'
+                        ? 'text-gray-300 hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                         : 'bg-modern-gray/10 text-modern-text'
                     }`}
+                    style={{
+                      backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                      borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                    }}
                   >
                     <Clock className={theme === 'dystopian' ? 'text-neon-pink' : 'text-orange-500'} />
                     <span className="text-xs text-center">Monthly Reviews</span>
@@ -405,11 +425,15 @@ export default function CaseStudies() {
                   <motion.div 
                     variants={metricCardVariants}
                     whileHover="hover"
-                    className={`flex flex-col items-center p-2 rounded-lg ${
+                    className={`flex flex-col items-center p-2 rounded-lg border-2 ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30 text-gray-300'
+                        ? 'text-gray-300 hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                         : 'bg-modern-gray/10 text-modern-text'
                     }`}
+                    style={{
+                      backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                      borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                    }}
                   >
                     <TrendingUp className={theme === 'dystopian' ? 'text-neon-pink' : 'text-green-500'} />
                     <span className="text-xs text-center">25% Better</span>
@@ -417,11 +441,15 @@ export default function CaseStudies() {
                   <motion.div 
                     variants={metricCardVariants}
                     whileHover="hover"
-                    className={`flex flex-col items-center p-2 rounded-lg ${
+                    className={`flex flex-col items-center p-2 rounded-lg border-2 ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30 text-gray-300'
+                        ? 'text-gray-300 hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                         : 'bg-modern-gray/10 text-modern-text'
                     }`}
+                    style={{
+                      backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                      borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                    }}
                   >
                     <Target className={theme === 'dystopian' ? 'text-neon-pink' : 'text-purple-500'} />
                     <span className="text-xs text-center">90%</span>
@@ -438,11 +466,15 @@ export default function CaseStudies() {
             initial="hidden"
             animate="visible"
             whileHover="hover"
-            className={`rounded-xl p-6 ${
+            className={`rounded-xl p-6 border-2 ${
               theme === 'dystopian'
-                ? 'bg-cyber-gray/20 border border-neon-pink/20 text-gray-300'
+                ? 'text-gray-300 hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
                 : 'bg-modern-gray/10 text-modern-text'
             }`}
+            style={{
+              backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+              borderColor: theme === 'dystopian' ? '#083e12' : undefined
+            }}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-4">
@@ -466,11 +498,15 @@ export default function CaseStudies() {
                   <motion.div 
                     variants={metricCardVariants}
                     whileHover="hover"
-                    className={`flex items-start gap-3 p-3 rounded-lg ${
+                    className={`flex items-start gap-3 p-3 rounded-lg border-2 ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30 text-gray-300'
+                        ? 'text-gray-300 hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                         : 'bg-modern-gray/10 text-modern-text'
                     }`}
+                    style={{
+                      backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                      borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                    }}
                   >
                     <Activity className={theme === 'dystopian' ? 'text-neon-pink' : 'text-blue-500'} />
                     <div>
@@ -485,11 +521,15 @@ export default function CaseStudies() {
                   <motion.div 
                     variants={metricCardVariants}
                     whileHover="hover"
-                    className={`flex items-start gap-3 p-3 rounded-lg ${
+                    className={`flex items-start gap-3 p-3 rounded-lg border-2 ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30 text-gray-300'
+                        ? 'text-gray-300 hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                         : 'bg-modern-gray/10 text-modern-text'
                     }`}
+                    style={{
+                      backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                      borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                    }}
                   >
                     <Wallet className={theme === 'dystopian' ? 'text-neon-pink' : 'text-orange-500'} />
                     <div>
@@ -504,11 +544,15 @@ export default function CaseStudies() {
                   <motion.div 
                     variants={metricCardVariants}
                     whileHover="hover"
-                    className={`flex items-start gap-3 p-3 rounded-lg ${
+                    className={`flex items-start gap-3 p-3 rounded-lg border-2 ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30 text-gray-300'
+                        ? 'text-gray-300 hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
                         : 'bg-modern-gray/10 text-modern-text'
                     }`}
+                    style={{
+                      backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                      borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                    }}
                   >
                     <CheckCircle2 className={theme === 'dystopian' ? 'text-neon-pink' : 'text-green-500'} />
                     <div>
