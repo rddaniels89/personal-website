@@ -350,8 +350,8 @@ export default function CaseStudies() {
             whileHover="hover"
             className={`rounded-xl p-6 ${
               theme === 'dystopian'
-                ? 'bg-cyber-gray/20 border border-neon-pink/20'
-                : 'bg-modern-gray/10'
+                ? 'bg-cyber-gray/20 border border-neon-pink/20 text-gray-300'
+                : 'bg-modern-gray/10 text-modern-text'
             }`}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -364,13 +364,26 @@ export default function CaseStudies() {
                   </h3>
                 </motion.div>
                 <div className="space-y-3">
-                  <p><strong>Context:</strong> Inconsistent spend plans from MTFs impacted forecasting and mid-year adjustments.</p>
-                  <p><strong>Role:</strong> Lead Analyst – West Financial Support Desk.</p>
-                  <p><strong>Solution:</strong> Standardized review protocols, required variance justifications, held monthly reviews.</p>
+                  <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-modern-text'}>
+                    <strong className={theme === 'dystopian' ? 'text-neon-pink' : 'text-modern-accent'}>Context:</strong> 
+                    Inconsistent spend plans from MTFs impacted forecasting and mid-year adjustments.
+                  </p>
+                  <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-modern-text'}>
+                    <strong className={theme === 'dystopian' ? 'text-neon-pink' : 'text-modern-accent'}>Role:</strong> 
+                    Lead Analyst – West Financial Support Desk.
+                  </p>
+                  <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-modern-text'}>
+                    <strong className={theme === 'dystopian' ? 'text-neon-pink' : 'text-modern-accent'}>Solution:</strong> 
+                    Standardized review protocols, required variance justifications, held monthly reviews.
+                  </p>
                 </div>
               </div>
               <div className="space-y-4">
-                <h4 className="font-semibold">Key Metrics</h4>
+                <h4 className={`font-semibold ${
+                  theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                }`}>
+                  Key Metrics
+                </h4>
                 <div className="space-y-3">
                   <ChartBar percentage={25} label="Reprogramming Reduction" />
                   <ChartBar percentage={85} label="Trust Enhancement" />
@@ -382,11 +395,11 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex flex-col items-center p-2 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <Clock className="w-5 h-5 mb-1 text-orange-500" />
+                    <Clock className={theme === 'dystopian' ? 'text-neon-pink' : 'text-orange-500'} />
                     <span className="text-xs text-center">Monthly Reviews</span>
                   </motion.div>
                   <motion.div 
@@ -394,11 +407,11 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex flex-col items-center p-2 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <TrendingUp className="w-5 h-5 mb-1 text-green-500" />
+                    <TrendingUp className={theme === 'dystopian' ? 'text-neon-pink' : 'text-green-500'} />
                     <span className="text-xs text-center">25% Better</span>
                   </motion.div>
                   <motion.div 
@@ -406,11 +419,11 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex flex-col items-center p-2 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <BarChart className="w-5 h-5 mb-1 text-purple-500" />
+                    <Target className={theme === 'dystopian' ? 'text-neon-pink' : 'text-purple-500'} />
                     <span className="text-xs text-center">90%</span>
                   </motion.div>
                 </div>
@@ -427,8 +440,8 @@ export default function CaseStudies() {
             whileHover="hover"
             className={`rounded-xl p-6 ${
               theme === 'dystopian'
-                ? 'bg-cyber-gray/20 border border-neon-pink/20'
-                : 'bg-modern-gray/10'
+                ? 'bg-cyber-gray/20 border border-neon-pink/20 text-gray-300'
+                : 'bg-modern-gray/10 text-modern-text'
             }`}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -445,8 +458,8 @@ export default function CaseStudies() {
                     </h3>
                   </div>
                   <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                    <Briefcase className="w-4 h-4" />
-                    <span>Stock Control Lead</span>
+                    <Briefcase className={theme === 'dystopian' ? 'text-neon-pink' : 'text-modern-accent'} />
+                    <span className={theme === 'dystopian' ? 'text-gray-400' : 'text-gray-500'}>Stock Control Lead</span>
                   </div>
                 </motion.div>
                 <div className="space-y-3">
@@ -455,14 +468,18 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex items-start gap-3 p-3 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <Activity className="w-5 h-5 text-blue-500" />
+                    <Activity className={theme === 'dystopian' ? 'text-neon-pink' : 'text-blue-500'} />
                     <div>
-                      <h4 className="font-medium mb-1">Mission Scope</h4>
-                      <p className="text-sm text-gray-600">High-tempo deployment operations with critical supply chain management</p>
+                      <h4 className={`font-medium mb-1 ${
+                        theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                      }`}>Mission Scope</h4>
+                      <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-gray-600'}>
+                        High-tempo deployment operations with critical supply chain management
+                      </p>
                     </div>
                   </motion.div>
                   <motion.div 
@@ -470,14 +487,18 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex items-start gap-3 p-3 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <Wallet className="w-5 h-5 text-orange-500" />
+                    <Wallet className={theme === 'dystopian' ? 'text-neon-pink' : 'text-orange-500'} />
                     <div>
-                      <h4 className="font-medium mb-1">Resource Management</h4>
-                      <p className="text-sm text-gray-600">OPTAR funds and mission-critical logistics optimization</p>
+                      <h4 className={`font-medium mb-1 ${
+                        theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                      }`}>Resource Management</h4>
+                      <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-gray-600'}>
+                        OPTAR funds and mission-critical logistics optimization
+                      </p>
                     </div>
                   </motion.div>
                   <motion.div 
@@ -485,14 +506,18 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex items-start gap-3 p-3 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <CheckCircle2 className="w-5 h-5 text-green-500" />
+                    <CheckCircle2 className={theme === 'dystopian' ? 'text-neon-pink' : 'text-green-500'} />
                     <div>
-                      <h4 className="font-medium mb-1">Achievement</h4>
-                      <p className="text-sm text-gray-600">Multiple excellence awards and exceptional mission completion rate</p>
+                      <h4 className={`font-medium mb-1 ${
+                        theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                      }`}>Achievement</h4>
+                      <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-gray-600'}>
+                        Multiple excellence awards and exceptional mission completion rate
+                      </p>
                     </div>
                   </motion.div>
                 </div>
@@ -500,80 +525,15 @@ export default function CaseStudies() {
               <div className="space-y-6">
                 <div>
                   <motion.div variants={contentVariants} className="flex items-center gap-2 mb-3">
-                    <Award className="w-5 h-5 text-yellow-500" />
-                    <h4 className="font-semibold">Performance Metrics</h4>
+                    <Award className={theme === 'dystopian' ? 'text-neon-pink' : 'text-yellow-500'} />
+                    <h4 className={`font-semibold ${
+                      theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                    }`}>Performance Metrics</h4>
                   </motion.div>
                   <div className="space-y-3">
                     <ChartBar percentage={97.5} label="Sortie Completion Rate" />
                     <ChartBar percentage={80} label="Urgent Request Reduction" />
                     <ChartBar percentage={99} label="Supply Chain Efficiency" />
-                  </div>
-                </div>
-                <div>
-                  <motion.h4 variants={contentVariants} className="font-semibold mb-3">
-                    Operational Impact
-                  </motion.h4>
-                  <div className="grid grid-cols-2 gap-3">
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <LineChart className="w-5 h-5 text-green-500" />
-                      <div>
-                        <div className="text-lg font-bold">50K+</div>
-                        <div className="text-xs text-gray-500">Requisitions</div>
-                      </div>
-                    </motion.div>
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <TrendingUp className="w-5 h-5 text-blue-500" />
-                      <div>
-                        <div className="text-lg font-bold">97.5%</div>
-                        <div className="text-xs text-gray-500">Mission Success</div>
-                      </div>
-                    </motion.div>
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <Shield className="w-5 h-5 text-purple-500" />
-                      <div>
-                        <div className="text-lg font-bold">3+</div>
-                        <div className="text-xs text-gray-500">Excellence Awards</div>
-                      </div>
-                    </motion.div>
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <Activity className="w-5 h-5 text-orange-500" />
-                      <div>
-                        <div className="text-lg font-bold">-20%</div>
-                        <div className="text-xs text-gray-500">Urgent Requests</div>
-                      </div>
-                    </motion.div>
                   </div>
                 </div>
               </div>
@@ -589,8 +549,8 @@ export default function CaseStudies() {
             whileHover="hover"
             className={`rounded-xl p-6 ${
               theme === 'dystopian'
-                ? 'bg-cyber-gray/20 border border-neon-pink/20'
-                : 'bg-modern-gray/10'
+                ? 'bg-cyber-gray/20 border border-neon-pink/20 text-gray-300'
+                : 'bg-modern-gray/10 text-modern-text'
             }`}
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -606,9 +566,11 @@ export default function CaseStudies() {
                       Federal Audit Readiness (DHA J-7)
                     </h3>
                   </div>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                    <Briefcase className="w-4 h-4" />
-                    <span>Financial Analyst & Records Manager</span>
+                  <div className="flex items-center gap-2 text-sm mb-4">
+                    <Briefcase className={theme === 'dystopian' ? 'text-neon-pink' : 'text-modern-accent'} />
+                    <span className={theme === 'dystopian' ? 'text-gray-400' : 'text-gray-500'}>
+                      Financial Analyst & Records Manager
+                    </span>
                   </div>
                 </motion.div>
                 <div className="space-y-3">
@@ -617,14 +579,18 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex items-start gap-3 p-3 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <AlertCircle className="w-5 h-5 text-blue-500" />
+                    <AlertCircle className={theme === 'dystopian' ? 'text-neon-pink' : 'text-blue-500'} />
                     <div>
-                      <h4 className="font-medium mb-1">Critical Response</h4>
-                      <p className="text-sm text-gray-600">$62M pandemic response funding requiring immediate audit compliance</p>
+                      <h4 className={`font-medium mb-1 ${
+                        theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                      }`}>Critical Response</h4>
+                      <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-gray-600'}>
+                        $62M pandemic response funding requiring immediate audit compliance
+                      </p>
                     </div>
                   </motion.div>
                   <motion.div 
@@ -632,14 +598,18 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex items-start gap-3 p-3 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <FileCheck className="w-5 h-5 text-orange-500" />
+                    <FileCheck className={theme === 'dystopian' ? 'text-neon-pink' : 'text-orange-500'} />
                     <div>
-                      <h4 className="font-medium mb-1">Documentation</h4>
-                      <p className="text-sm text-gray-600">Comprehensive audit packages and custodian training program</p>
+                      <h4 className={`font-medium mb-1 ${
+                        theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                      }`}>Documentation</h4>
+                      <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-gray-600'}>
+                        Comprehensive audit packages and custodian training program
+                      </p>
                     </div>
                   </motion.div>
                   <motion.div 
@@ -647,138 +617,34 @@ export default function CaseStudies() {
                     whileHover="hover"
                     className={`flex items-start gap-3 p-3 rounded-lg ${
                       theme === 'dystopian'
-                        ? 'bg-cyber-gray/30'
-                        : 'bg-modern-gray/10'
+                        ? 'bg-cyber-gray/30 text-gray-300'
+                        : 'bg-modern-gray/10 text-modern-text'
                     }`}
                   >
-                    <BadgeCheck className="w-5 h-5 text-green-500" />
+                    <BadgeCheck className={theme === 'dystopian' ? 'text-neon-pink' : 'text-green-500'} />
                     <div>
-                      <h4 className="font-medium mb-1">Recognition</h4>
-                      <p className="text-sm text-gray-600">Contributed to Joint Meritorious Unit Award achievement</p>
+                      <h4 className={`font-medium mb-1 ${
+                        theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                      }`}>Recognition</h4>
+                      <p className={theme === 'dystopian' ? 'text-gray-300' : 'text-gray-600'}>
+                        Contributed to Joint Meritorious Unit Award achievement
+                      </p>
                     </div>
                   </motion.div>
                 </div>
               </div>
-
               <div className="space-y-6">
                 <div>
                   <motion.div variants={contentVariants} className="flex items-center gap-2 mb-3">
-                    <Award className="w-5 h-5 text-yellow-500" />
-                    <h4 className="font-semibold">Audit Performance</h4>
+                    <Award className={theme === 'dystopian' ? 'text-neon-pink' : 'text-yellow-500'} />
+                    <h4 className={`font-semibold ${
+                      theme === 'dystopian' ? 'text-neon-blue' : 'text-modern-accent'
+                    }`}>Audit Performance</h4>
                   </motion.div>
                   <div className="space-y-3">
-                    <motion.div
-                      variants={contentVariants}
-                      initial="hidden"
-                      animate="visible"
-                    >
-                      <ChartBar percentage={98} label="Audit Accuracy" />
-                    </motion.div>
-                    <motion.div
-                      variants={contentVariants}
-                      initial="hidden"
-                      animate="visible"
-                    >
-                      <ChartBar percentage={100} label="Documentation Coverage" />
-                    </motion.div>
-                    <motion.div
-                      variants={contentVariants}
-                      initial="hidden"
-                      animate="visible"
-                    >
-                      <ChartBar percentage={95} label="Compliance Rate" />
-                    </motion.div>
-                  </div>
-                </div>
-
-                <div>
-                  <motion.h4 
-                    variants={contentVariants} 
-                    className="font-semibold mb-3"
-                  >
-                    Impact Metrics
-                  </motion.h4>
-                  <div className="grid grid-cols-2 gap-3">
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <DollarSign className="w-5 h-5 text-green-500" />
-                      <div>
-                        <motion.div 
-                          variants={contentVariants}
-                          className="text-lg font-bold"
-                        >
-                          $62M
-                        </motion.div>
-                        <div className="text-xs text-gray-500">Funds Managed</div>
-                      </div>
-                    </motion.div>
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <FileCheck className="w-5 h-5 text-blue-500" />
-                      <div>
-                        <motion.div 
-                          variants={contentVariants}
-                          className="text-lg font-bold"
-                        >
-                          400+
-                        </motion.div>
-                        <div className="text-xs text-gray-500">Transactions</div>
-                      </div>
-                    </motion.div>
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <Users className="w-5 h-5 text-purple-500" />
-                      <div>
-                        <motion.div 
-                          variants={contentVariants}
-                          className="text-lg font-bold"
-                        >
-                          25+
-                        </motion.div>
-                        <div className="text-xs text-gray-500">Custodians</div>
-                      </div>
-                    </motion.div>
-                    <motion.div 
-                      variants={metricCardVariants}
-                      whileHover="hover"
-                      className={`flex items-center gap-3 p-3 rounded-lg ${
-                        theme === 'dystopian'
-                          ? 'bg-cyber-gray/30'
-                          : 'bg-modern-gray/10'
-                      }`}
-                    >
-                      <BadgeCheck className="w-5 h-5 text-orange-500" />
-                      <div>
-                        <motion.div 
-                          variants={contentVariants}
-                          className="text-lg font-bold"
-                        >
-                          98%
-                        </motion.div>
-                        <div className="text-xs text-gray-500">Accuracy</div>
-                      </div>
-                    </motion.div>
+                    <ChartBar percentage={98} label="Audit Accuracy" />
+                    <ChartBar percentage={100} label="Documentation Coverage" />
+                    <ChartBar percentage={95} label="Compliance Rate" />
                   </div>
                 </div>
               </div>

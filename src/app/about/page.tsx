@@ -439,89 +439,142 @@ export default function AboutPage() {
               {/* Individual Awards */}
               <motion.div
                 variants={cardVariant}
-                className="card p-6 rounded-lg"
+                className={`border rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                  theme === 'dystopian' 
+                    ? 'bg-surface border-primary glow-accent hover:border-accent' 
+                    : 'bg-surface border-border hover:border-primary'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? '#181b22' : '#FFFFFF'
+                }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <FaMedal className="text-primary w-5 h-5" />
-                  <h3 className="text-xl font-bold text-primary">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={`p-2 rounded-lg ${
+                    theme === 'dystopian' 
+                      ? 'bg-primary/10 border border-primary/20' 
+                      : 'bg-primary/10 border border-primary/20'
+                  }`}>
+                    <FaMedal className="text-primary w-5 h-5" />
+                  </div>
+                  <h3 className={`text-xl font-bold text-primary ${
+                    theme === 'dystopian' ? 'font-heading' : ''
+                  }`}>
                     Individual Awards
                   </h3>
                 </div>
-                <ul className="space-y-2 body-normal">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Navy and Marine Corps Achievement Medal (2x)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Navy Good Conduct Medal</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>National Defense Service Medal</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Global War on Terrorism Service Medal</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Global War on Terrorism Expeditionary Medal</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Operation Inherent Resolve Campaign Medal</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Operation Freedom's Sentinel (Afghanistan) Campaign Medal</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Navy Sea Service Deployment Ribbon (multiple)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Navy "E" Ribbon (unit award)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Letter of Commendation</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Certificate of Appreciation</span>
-                  </li>
-                </ul>
+                <div className="space-y-3">
+                  {[
+                    'Navy and Marine Corps Achievement Medal (2x)',
+                    'Navy Good Conduct Medal', 
+                    'National Defense Service Medal',
+                    'Global War on Terrorism Service Medal',
+                    'Global War on Terrorism Expeditionary Medal',
+                    'Operation Inherent Resolve Campaign Medal',
+                    'Operation Freedom\'s Sentinel (Afghanistan) Campaign Medal',
+                    'Navy Sea Service Deployment Ribbon (multiple)',
+                    'Navy "E" Ribbon (unit award)',
+                    'Letter of Commendation',
+                    'Certificate of Appreciation'
+                  ].map((award, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className={`flex items-start p-2 rounded-lg transition-all duration-200 ${
+                        theme === 'dystopian' 
+                          ? 'hover:bg-primary/5 hover:border-l-2 hover:border-primary' 
+                          : 'hover:bg-primary/5 hover:border-l-2 hover:border-primary'
+                      }`}
+                    >
+                      <span className={`mr-3 mt-1 ${
+                        theme === 'dystopian' 
+                          ? 'text-primary text-lg' 
+                          : 'text-primary text-lg'
+                      }`}>▸</span>
+                      <span className={`body-normal ${
+                        theme === 'dystopian' ? 'text-text' : 'text-text'
+                      }`}>
+                        {award}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
               </motion.div>
 
               {/* Team Excellence Awards */}
               <motion.div
                 variants={cardVariant}
-                className="card p-6 rounded-lg"
+                className={`border rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                  theme === 'dystopian' 
+                    ? 'bg-surface border-accent glow-accent hover:border-highlight' 
+                    : 'bg-surface border-border hover:border-primary'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? '#181b22' : '#FFFFFF'
+                }}
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <FaUsers className="text-primary w-5 h-5" />
-                  <h3 className="text-xl font-bold text-primary">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className={`p-2 rounded-lg ${
+                    theme === 'dystopian' 
+                      ? 'bg-accent/10 border border-accent/20' 
+                      : 'bg-primary/10 border border-primary/20'
+                  }`}>
+                    <FaUsers className={`w-5 h-5 ${
+                      theme === 'dystopian' ? 'text-accent' : 'text-primary'
+                    }`} />
+                  </div>
+                  <h3 className={`text-xl font-bold ${
+                    theme === 'dystopian' ? 'text-accent font-heading' : 'text-primary'
+                  }`}>
                     Team Excellence Awards
                   </h3>
                 </div>
-                <ul className="space-y-2 mb-6 body-normal">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Supply Blue 'E' Excellence Award (4x)</span>
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    <span>Aircraft Intermediate Maintenance Black 'E' Award</span>
-                  </li>
-                </ul>
                 
-                <div className="border-t border-surface-secondary pt-4">
-                  <h4 className="font-semibold text-base mb-3 text-primary">
-                    Service Legacy
-                  </h4>
-                  <p className="text-sm text-secondary leading-relaxed">
+                <div className="space-y-3 mb-6">
+                  {[
+                    'Supply Blue \'E\' Excellence Award (4x)',
+                    'Aircraft Intermediate Maintenance Black \'E\' Award'
+                  ].map((award, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.15 }}
+                      className={`flex items-start p-3 rounded-lg transition-all duration-200 ${
+                        theme === 'dystopian' 
+                          ? 'hover:bg-accent/5 hover:border-l-2 hover:border-accent' 
+                          : 'hover:bg-primary/5 hover:border-l-2 hover:border-primary'
+                      }`}
+                    >
+                      <span className={`mr-3 mt-1 text-lg ${
+                        theme === 'dystopian' ? 'text-accent' : 'text-primary'
+                      }`}>★</span>
+                      <span className="body-normal text-text font-medium">
+                        {award}
+                      </span>
+                    </motion.div>
+                  ))}
+                </div>
+                
+                <div className={`border-t pt-4 ${
+                  theme === 'dystopian' 
+                    ? 'border-accent/20' 
+                    : 'border-surface-secondary'
+                }`}>
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className={`w-2 h-2 rounded-full ${
+                      theme === 'dystopian' ? 'bg-highlight' : 'bg-primary'
+                    }`}></div>
+                    <h4 className={`font-semibold text-base ${
+                      theme === 'dystopian' ? 'text-highlight font-heading' : 'text-primary'
+                    }`}>
+                      Service Legacy
+                    </h4>
+                  </div>
+                  <p className={`text-sm leading-relaxed ${
+                    theme === 'dystopian' ? 'text-text-secondary' : 'text-secondary'
+                  }`}>
                     Multiple overseas deployments in support of combat and humanitarian operations, 
                     demonstrating leadership in high-stakes environments and unwavering commitment to mission success.
                   </p>
@@ -531,13 +584,16 @@ export default function AboutPage() {
 
             <motion.div 
               variants={fadeInUp}
-              className={`card mt-6 p-4 rounded-lg ${
+              className={`border rounded-lg p-6 shadow-lg ${
                 theme === 'dystopian'
-                  ? 'border-accent'
-                  : 'border-primary'
+                  ? 'bg-surface border-accent glow-accent'
+                  : 'bg-surface border-primary'
               }`}
+              style={{
+                backgroundColor: theme === 'dystopian' ? '#181b22' : '#FFFFFF'
+              }}
             >
-              <p className="text-center italic text-tertiary">
+              <p className="text-center italic text-tertiary text-lg leading-relaxed">
                 "The values I learned in the Navy—integrity, courage, and commitment—continue to guide every decision I make, 
                 whether I'm analyzing financial data, building automation tools, or teaching my daughters about perseverance."
               </p>

@@ -419,6 +419,14 @@
                 0 0 20px var(--color-accent);
   }
 
+  .theme-dystopian .glow-accent {
+    box-shadow: 0 0 20px rgba(25, 255, 229, 0.1), 0 4px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .theme-modern .glow-accent {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+
   .theme-dystopian .scanline::before {
     content: '';
     position: absolute;
