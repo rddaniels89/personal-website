@@ -32,6 +32,29 @@ const socialLinks = [
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
+  const [closeTimeout, setCloseTimeout] = React.useState<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = (itemName: string) => {
+    if (closeTimeout) {
+      clearTimeout(closeTimeout);
+      setCloseTimeout(null);
+    }
+    setOpenDropdown(itemName);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150); // 150ms delay before closing
+    setCloseTimeout(timeout);
+  };
+
+  const handleDropdownMouseEnter = () => {
+    if (closeTimeout) {
+      clearTimeout(closeTimeout);
+      setCloseTimeout(null);
+    }
+  };
 
   return (
     <nav className={`fixed w-full z-50 backdrop-blur-sm`}
@@ -66,8 +89,8 @@ export default function Navbar() {
                 <div
                   key={item.name}
                   className="relative"
-                  onMouseEnter={() => item.dropdown && setOpenDropdown(item.name)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => item.dropdown && handleMouseEnter(item.name)}
+                  onMouseLeave={handleMouseLeave}
                 >
                   <motion.div
                     whileHover={{ y: -2 }}
@@ -98,8 +121,10 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="card absolute left-0 mt-1 w-48 rounded-md shadow-lg border-accent"
+                      className="card absolute left-0 top-full w-48 rounded-md shadow-lg border-accent"
                       style={{ backgroundColor: 'var(--color-surface-elevated)' }}
+                      onMouseEnter={handleDropdownMouseEnter}
+                      onMouseLeave={handleMouseLeave}
                     >
                       <div className="py-1">
                         {item.dropdown.map((dropdownItem) => (
