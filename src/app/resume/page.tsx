@@ -292,11 +292,15 @@ export default function ResumePage() {
                       {competency.skills.map((skill) => (
                         <span
                           key={skill}
-                          className={`px-3 py-1 rounded-full text-sm ${
+                          className={`px-3 py-1 rounded-full text-sm border-2 ${
                             theme === 'dystopian'
-                              ? 'bg-cyber-gray/30 text-neon-pink border border-neon-pink/30'
-                              : 'bg-surface-secondary text-primary border border-primary/30'
+                              ? 'text-neon-pink hover:shadow-[0_0_15px_rgba(26,254,73,0.2)]'
+                              : 'bg-surface-secondary text-primary border-primary/30'
                           }`}
+                          style={{
+                            backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                            borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                          }}
                         >
                           {skill}
                         </span>

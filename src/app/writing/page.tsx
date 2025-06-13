@@ -61,9 +61,10 @@ export default function WritingPage() {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen ${
-      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-background'
-    }`}>
+    <div className={`min-h-screen`}
+      style={{
+        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+      }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -117,9 +118,13 @@ export default function WritingPage() {
                   variants={item}
                   className={`p-6 rounded-lg ${
                     theme === 'dystopian'
-                      ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/50 neon-border'
+                      ? 'border-2 hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
                       : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/50'
                   } transition-all duration-300`}
+                  style={{
+                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                  }}
                 >
                   <div className="flex items-center justify-between mb-4">
                     <time

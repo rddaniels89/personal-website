@@ -298,10 +298,10 @@ const NavyTimeline: React.FC = () => {
 
   const getCategoryColor = (category: TimelineEntry['category']) => {
     const colors = {
-      training: theme === 'dystopian' ? '#06B6D4' : '#3B82F6',
-      deployment: theme === 'dystopian' ? '#EC4899' : '#8B5CF6',
-      leadership: theme === 'dystopian' ? '#F59E0B' : '#10B981',
-      achievement: theme === 'dystopian' ? '#EF4444' : '#F59E0B'
+      training: theme === 'dystopian' ? '#3d43b4' : '#3B82F6',        // Deep Blue-Violet
+      deployment: theme === 'dystopian' ? '#8386f5' : '#8B5CF6',      // Light Periwinkle  
+      leadership: theme === 'dystopian' ? '#1afe49' : '#10B981',      // Neon Green
+      achievement: theme === 'dystopian' ? '#3d43b4' : '#F59E0B'      // Deep Blue-Violet
     };
     return colors[category];
   };

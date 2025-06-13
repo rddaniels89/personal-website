@@ -114,9 +114,10 @@ export default function AccomplishmentsPage() {
   const [view, setView] = useState<'role' | 'company'>('role');
 
   return (
-    <div className={`min-h-screen ${
-      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-background'
-    }`}>
+    <div className={`min-h-screen`}
+      style={{
+        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+      }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}

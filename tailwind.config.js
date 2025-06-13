@@ -129,14 +129,14 @@ module.exports = {
         // LEGACY COLORS (for backward compatibility)
         // ==========================================
         
-        // Dystopian Theme Colors (mapped to new cyberpunk system)
-        'neon-cyan': '#19FFE5',     // primary in dystopian
-        'neon-blue': '#00C3FF',     // accent in dystopian
-        'neon-pink': '#EC4899',     // legacy pink (deprecated)
-        'neon-purple': '#8B5CF6',   // purple.500
-        'electric-pink': '#FF29A8', // highlight in dystopian
-        'cyber-black': '#090a10',   // surface.dark.primary
-        'cyber-gray': '#181b22',    // surface.dark.secondary
+        // Dystopian Theme Colors (mapped to new blue-violet cyberpunk system)
+        'neon-cyan': '#3d43b4',     // primary in dystopian (Deep Blue-Violet)
+        'neon-blue': '#8386f5',     // accent in dystopian (Light Periwinkle)
+        'neon-pink': '#1afe49',     // highlight in dystopian (Neon Green) - renamed but kept for compatibility
+        'neon-purple': '#8386f5',   // Light Periwinkle
+        'electric-pink': '#1afe49', // highlight in dystopian (Neon Green)
+        'cyber-black': '#041348',   // surface.dark.primary (Midnight Blue)
+        'cyber-gray': '#083e12',    // surface.dark.secondary (Forest Green)
         'high-contrast': '#F8FAFC', // text.dark.primary
         'muted': '#9CA3AF',         // text.dark.tertiary
         

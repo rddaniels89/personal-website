@@ -9,11 +9,11 @@ export function Card({ className, ...props }: CardProps) {
   
   return (
     <div
-      className={`rounded-lg border ${
-        theme === 'dystopian'
-          ? 'bg-cyber-gray border-neon-pink/20'
-          : 'bg-white border-modern-accent/20'
-      } ${className}`}
+      className={`rounded-lg border-2 ${className}`}
+      style={{
+        backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+        borderColor: theme === 'dystopian' ? '#083e12' : undefined
+      }}
       {...props}
     />
   );

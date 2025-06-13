@@ -254,9 +254,13 @@ export default function AboutPage() {
                   whileTap="tap"
                   className={`card p-6 rounded-lg cursor-pointer transition-all duration-300 ${
                     theme === 'dystopian'
-                      ? 'bg-cyber-gray border border-neon-pink/10 hover:border-neon-pink/30 hover:bg-cyber-gray/90 hover:shadow-[0_0_20px_rgba(255,0,110,0.1)]'
+                      ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
                       : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
                   }`}
+                  style={{
+                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                  }}
                 >
                   <motion.div
                     variants={iconAnimation}
@@ -309,9 +313,13 @@ export default function AboutPage() {
                   whileTap="tap"
                   className={`card p-6 rounded-lg cursor-pointer transition-all duration-300 ${
                     theme === 'dystopian'
-                      ? 'bg-cyber-gray border border-neon-pink/10 hover:border-neon-pink/30 hover:bg-cyber-gray/90 hover:shadow-[0_0_20px_rgba(255,0,110,0.1)]'
+                      ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
                       : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
                   }`}
+                  style={{
+                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                  }}
                 >
                   <motion.div
                     variants={iconAnimation}
@@ -364,7 +372,7 @@ export default function AboutPage() {
                 variants={cardVariant}
                 className={`card relative aspect-[4/3] w-full max-w-md mx-auto rounded-xl overflow-hidden ${
                   theme === 'dystopian' 
-                    ? 'hover:shadow-[0_0_25px_rgba(236,72,153,0.3)]' 
+                    ? 'hover:shadow-[0_0_25px_rgba(61,67,180,0.3)]' 
                     : ''
                 }`}
               >
@@ -439,13 +447,14 @@ export default function AboutPage() {
               {/* Individual Awards */}
               <motion.div
                 variants={cardVariant}
-                className={`border rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                className={`border-2 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
                   theme === 'dystopian' 
-                    ? 'bg-surface border-primary glow-accent hover:border-accent' 
+                    ? 'glow-accent hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]' 
                     : 'bg-surface border-border hover:border-primary'
                 }`}
                 style={{
-                  backgroundColor: theme === 'dystopian' ? '#181b22' : '#FFFFFF'
+                  backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
                 }}
               >
                 <div className="flex items-center gap-3 mb-6">
@@ -505,13 +514,14 @@ export default function AboutPage() {
               {/* Team Excellence Awards */}
               <motion.div
                 variants={cardVariant}
-                className={`border rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
+                className={`border-2 rounded-lg p-6 shadow-lg hover:shadow-xl transition-all duration-300 ${
                   theme === 'dystopian' 
-                    ? 'bg-surface border-accent glow-accent hover:border-highlight' 
+                    ? 'glow-accent hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]' 
                     : 'bg-surface border-border hover:border-primary'
                 }`}
                 style={{
-                  backgroundColor: theme === 'dystopian' ? '#181b22' : '#FFFFFF'
+                  backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
                 }}
               >
                 <div className="flex items-center gap-3 mb-6">
@@ -584,13 +594,14 @@ export default function AboutPage() {
 
             <motion.div 
               variants={fadeInUp}
-              className={`border rounded-lg p-6 shadow-lg ${
+              className={`border-2 rounded-lg p-6 shadow-lg ${
                 theme === 'dystopian'
-                  ? 'bg-surface border-accent glow-accent'
+                  ? 'glow-accent hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
                   : 'bg-surface border-primary'
               }`}
               style={{
-                backgroundColor: theme === 'dystopian' ? '#181b22' : '#FFFFFF'
+                backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+                borderColor: theme === 'dystopian' ? '#083e12' : undefined
               }}
             >
               <p className="text-center italic text-tertiary text-lg leading-relaxed">

@@ -51,9 +51,13 @@ export default function LinkedInArticles({ articles }: LinkedInArticlesProps) {
           variants={item}
           className={`p-8 rounded-lg ${
             theme === 'dystopian'
-              ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/50'
+              ? 'border-2 hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
               : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/50'
           } transition-all duration-300`}
+          style={{
+            backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+            borderColor: theme === 'dystopian' ? '#083e12' : undefined
+          }}
         >
           <div className="flex items-center justify-between mb-6">
             <time

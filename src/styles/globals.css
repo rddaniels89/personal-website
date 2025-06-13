@@ -76,27 +76,27 @@
   }
 
   .theme-dystopian {
-    /* Dystopian Color Overrides - Updated Cyberpunk Palette */
-    --color-primary: #19FFE5;       /* Neon cyan for primary actions */
-    --color-primary-hover: #0FE5CB;
-    --color-primary-light: #67FFE9;
-    --color-primary-dark: #0CB5A0;
+    /* Dystopian Color Overrides - Blue-Violet Cyberpunk Palette */
+    --color-primary: #3d43b4;       /* Deep Blue-Violet - Strong, professional shade */
+    --color-primary-hover: #4a52d1;
+    --color-primary-light: #8386f5;
+    --color-primary-dark: #2d3285;
     
-    --color-accent: #00C3FF;        /* Neon blue for secondary actions */
-    --color-accent-hover: #0099CC;
-    --color-accent-light: #66D9FF;
-    --color-accent-dark: #0077AA;
+    --color-accent: #8386f5;        /* Light Periwinkle - Soft, calming violet-blue */
+    --color-accent-hover: #9a9df7;
+    --color-accent-light: #b1b4f9;
+    --color-accent-dark: #6c6ff3;
     
-    --color-highlight: #FF29A8;     /* Electric pink for highlights */
-    --color-highlight-hover: #E6248F;
-    --color-highlight-light: #FF66C4;
-    --color-highlight-dark: #CC1F85;
+    --color-highlight: #1afe49;     /* Neon Green - Bright, energetic green */
+    --color-highlight-hover: #34fe5c;
+    --color-highlight-light: #4dfe6f;
+    --color-highlight-dark: #15cc3a;
     
     /* Dark backgrounds - Cyberpunk palette */
-    --color-background: #090a10;    /* cyber-black */
-    --color-surface: #181b22;       /* cyber-gray */
-    --color-surface-secondary: #202530;
-    --color-surface-elevated: #1A1D26;
+    --color-background: #041348;    /* Midnight Blue - Dark and serious tone */
+    --color-surface: #083e12;       /* Forest Green - Deep, earthy green */
+    --color-surface-secondary: #0a1a2e;
+    --color-surface-elevated: #16213e;
     
     /* High contrast text on dark */
     --color-text: #F8FAFC;          /* high-contrast white */
@@ -107,7 +107,7 @@
     /* Dark borders with cyberpunk accent */
     --color-border: #2A2F3A;
     --color-border-secondary: #374151;
-    --color-border-accent: rgba(25, 255, 229, 0.3); /* neon-cyan glow */
+    --color-border-accent: rgba(61, 67, 180, 0.3); /* blue-violet glow */
     
     font-family: 'BlenderPro', sans-serif;
   }
@@ -420,7 +420,7 @@
   }
 
   .theme-dystopian .glow-accent {
-    box-shadow: 0 0 20px rgba(25, 255, 229, 0.1), 0 4px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(61, 67, 180, 0.2), 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 
   .theme-modern .glow-accent {

@@ -24,9 +24,10 @@ export default function ContactPage() {
   const { theme } = useTheme();
 
   return (
-    <div className={`min-h-screen ${
-      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-background'
-    }`}>
+    <div className={`min-h-screen`}
+      style={{
+        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+      }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
           variants={container}
@@ -79,11 +80,15 @@ export default function ContactPage() {
                   id="name"
                   name="name"
                   required
-                  className={`w-full px-4 py-2 rounded-lg ${
+                  className={`w-full px-4 py-2 rounded-lg border-2 ${
                     theme === 'dystopian'
-                      ? 'bg-cyber-gray border border-neon-pink/20 text-gray-300 focus:border-neon-pink'
-                      : 'bg-modern-gray border border-modern-accent/20 text-modern-text focus:border-modern-accent'
+                      ? 'text-gray-300 focus:shadow-[0_0_15px_rgba(26,254,73,0.3)]'
+                      : 'bg-modern-gray border-modern-accent/20 text-modern-text focus:border-modern-accent'
                   } transition-colors duration-200`}
+                  style={{
+                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                  }}
                 />
               </div>
 
@@ -103,11 +108,15 @@ export default function ContactPage() {
                   id="email"
                   name="email"
                   required
-                  className={`w-full px-4 py-2 rounded-lg ${
+                  className={`w-full px-4 py-2 rounded-lg border-2 ${
                     theme === 'dystopian'
-                      ? 'bg-cyber-gray border border-neon-pink/20 text-gray-300 focus:border-neon-pink'
-                      : 'bg-modern-gray border border-modern-accent/20 text-modern-text focus:border-modern-accent'
+                      ? 'text-gray-300 focus:shadow-[0_0_15px_rgba(26,254,73,0.3)]'
+                      : 'bg-modern-gray border-modern-accent/20 text-modern-text focus:border-modern-accent'
                   } transition-colors duration-200`}
+                  style={{
+                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                  }}
                 />
               </div>
 
@@ -127,11 +136,15 @@ export default function ContactPage() {
                   name="message"
                   rows={6}
                   required
-                  className={`w-full px-4 py-2 rounded-lg ${
+                  className={`w-full px-4 py-2 rounded-lg border-2 ${
                     theme === 'dystopian'
-                      ? 'bg-cyber-gray border border-neon-pink/20 text-gray-300 focus:border-neon-pink'
-                      : 'bg-modern-gray border border-modern-accent/20 text-modern-text focus:border-modern-accent'
+                      ? 'text-gray-300 focus:shadow-[0_0_15px_rgba(26,254,73,0.3)]'
+                      : 'bg-modern-gray border-modern-accent/20 text-modern-text focus:border-modern-accent'
                   } transition-colors duration-200`}
+                  style={{
+                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                  }}
                 />
               </div>
 
@@ -184,11 +197,15 @@ export default function ContactPage() {
                   stiffness: 400, 
                   damping: 17 
                 }}
-                className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
+                className={`flex items-center p-4 rounded-lg transition-all duration-300 border-2 ${
                   theme === 'dystopian'
-                    ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:shadow-[0_0_15px_rgba(255,0,110,0.2)]'
-                    : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
+                    ? 'hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
+                    : 'bg-modern-gray border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
                 }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
               >
                 <motion.div
                   whileHover={{ scale: 1.2 }}
@@ -232,11 +249,15 @@ export default function ContactPage() {
                   stiffness: 400, 
                   damping: 17 
                 }}
-                className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
+                className={`flex items-center p-4 rounded-lg transition-all duration-300 border-2 ${
                   theme === 'dystopian'
-                    ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:shadow-[0_0_15px_rgba(255,0,110,0.2)]'
-                    : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
+                    ? 'hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
+                    : 'bg-modern-gray border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
                 }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
               >
                 <motion.div
                   whileHover={{ scale: 1.2 }}
@@ -280,11 +301,15 @@ export default function ContactPage() {
                   stiffness: 400, 
                   damping: 17 
                 }}
-                className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
+                className={`flex items-center p-4 rounded-lg transition-all duration-300 border-2 ${
                   theme === 'dystopian'
-                    ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:shadow-[0_0_15px_rgba(255,0,110,0.2)]'
-                    : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
+                    ? 'hover:shadow-[0_0_25px_rgba(26,254,73,0.2)]'
+                    : 'bg-modern-gray border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
                 }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
               >
                 <motion.div
                   whileHover={{ scale: 1.2 }}

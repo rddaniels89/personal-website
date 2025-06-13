@@ -341,7 +341,7 @@ export default function HomePage() {
                 href="/resume"
                 className={`btn-primary inline-block px-8 py-3 rounded-lg font-medium ${
                   theme === 'dystopian'
-                    ? 'hover:shadow-[0_0_20px_rgba(236,72,153,0.5)] neon-border'
+                    ? 'hover:shadow-[0_0_20px_rgba(61,67,180,0.5)] neon-border'
                     : 'hover:shadow-lg hover-lift'
                 }`}
               >

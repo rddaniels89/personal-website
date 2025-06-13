@@ -548,9 +548,10 @@ export default function ProjectsPage() {
   };
 
   return (
-    <div className={`min-h-screen ${
-      theme === 'dystopian' ? 'bg-cyber-black' : 'bg-modern-background'
-    }`}>
+    <div className={`min-h-screen`}
+      style={{
+        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+      }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}
@@ -603,12 +604,16 @@ export default function ProjectsPage() {
               className={`relative p-4 sm:p-6 rounded-lg transition-all duration-300 ${
                 expandedProject === project.title
                   ? theme === 'dystopian'
-                    ? 'bg-cyber-gray border-2 border-neon-pink'
+                    ? 'border-2'
                     : 'bg-white border-2 border-modern-accent'
                   : theme === 'dystopian'
-                    ? 'bg-cyber-gray border border-neon-pink/20 hover:border-neon-pink/40 hover:bg-cyber-gray/80 hover:shadow-[0_0_30px_rgba(255,0,110,0.15)] cursor-pointer'
+                    ? 'border-2 hover:shadow-[0_0_25px_rgba(26,254,73,0.2)] cursor-pointer'
                     : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/40 hover:bg-white/50 hover:shadow-xl cursor-pointer'
               }`}
+              style={{
+                backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                borderColor: theme === 'dystopian' ? '#083e12' : undefined
+              }}
             >
               <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
                 <div className="flex items-center gap-2 sm:gap-3">
