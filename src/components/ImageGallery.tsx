@@ -1,17 +1,18 @@
 'use client';
 
 import React, { useState } from 'react';
-import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTheme } from '@/lib/ThemeContext';
+import { OptimizedImage } from './ui/optimized-image';
 import { FiX, FiMaximize2, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+import { AnimatePresence } from 'framer-motion';
 
 interface ImageGalleryProps {
-  images: Array<{
+  images: {
     src: string;
     alt: string;
     caption?: string;
-  }>;
+  }[];
 }
 
 const container = {
@@ -51,18 +52,21 @@ const modalVariants = {
 
 export default function ImageGallery({ images }: ImageGalleryProps) {
   const { theme } = useTheme();
+  const [currentImageIndex, setCurrentImageIndex] = useState<number | null>(null);
   const [isExpanded, setIsExpanded] = useState(false);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const previewImages = images.slice(0, 4);
-  const hasMoreImages = images.length > 4;
+  // Show first 8 images in preview, rest in expanded view
+  const previewImages = images.slice(0, 8);
+  const hasMoreImages = images.length > 8;
 
-  const handleNext = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % images.length);
+  const handleImageClick = (index: number) => {
+    setCurrentImageIndex(index);
+    setIsExpanded(true);
   };
 
-  const handlePrev = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  const handleClose = () => {
+    setIsExpanded(false);
+    setCurrentImageIndex(null);
   };
 
   return (
@@ -82,10 +86,7 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
               y: -4
             }}
             whileTap={{ scale: 0.98 }}
-            onClick={() => {
-              setCurrentImageIndex(index);
-              setIsExpanded(true);
-            }}
+            onClick={() => handleImageClick(index)}
             transition={{ 
               type: "spring", 
               stiffness: 300, 
@@ -97,18 +98,15 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
                 : 'border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-xl'
             }`}
           >
-            <motion.div 
-              className="relative aspect-video"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Image
+            <div className="relative aspect-video">
+              <OptimizedImage
                 src={image.src}
                 alt={image.alt}
                 fill
-                className="object-cover transition-transform duration-300"
+                sizes="(max-width: 768px) 50vw, 25vw"
+                className="object-cover"
               />
-            </motion.div>
+            </div>
             {image.caption && (
               <motion.div 
                 className={`p-2 text-xs sm:text-sm transition-colors duration-300 ${
@@ -129,92 +127,57 @@ export default function ImageGallery({ images }: ImageGalleryProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setIsExpanded(true)}
-          className={`mt-3 sm:mt-4 px-3 sm:px-4 py-1.5 sm:py-2 rounded-md flex items-center gap-2 text-sm sm:text-base transition-colors duration-300 ${
+          className={`mt-4 px-4 py-2 rounded-lg text-sm font-medium transition-all ${
             theme === 'dystopian'
-              ? 'bg-cyber-gray text-neon-pink hover:bg-cyber-gray/80'
-              : 'bg-modern-gray text-modern-accent hover:bg-modern-gray/80'
+              ? 'bg-cyber-gray/30 text-neon-pink hover:bg-cyber-gray/40 border border-neon-pink/20'
+              : 'bg-modern-gray/10 text-modern-accent hover:bg-modern-gray/20 border border-modern-accent/20'
           }`}
         >
-          <FiMaximize2 className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-          View All {images.length} Images
+          View All Images
         </motion.button>
       )}
 
-      <AnimatePresence>
-        {isExpanded && (
+      {isExpanded && currentImageIndex !== null && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+          onClick={handleClose}
+        >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-2 sm:p-4"
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            className={`relative max-w-6xl w-full max-h-[90vh] overflow-hidden rounded-xl ${
+              theme === 'dystopian'
+                ? 'bg-cyber-gray border border-neon-pink/20'
+                : 'bg-modern-gray border border-modern-accent/20'
+            }`}
+            onClick={(e: React.MouseEvent) => e.stopPropagation()}
           >
-            <motion.div
-              variants={modalVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className={`relative max-w-6xl w-full rounded-lg overflow-hidden ${
+            <div className="relative aspect-video">
+              <OptimizedImage
+                src={images[currentImageIndex].src}
+                alt={images[currentImageIndex].alt}
+                fill
+                priority
+                sizes="90vw"
+                className="object-contain"
+              />
+            </div>
+            {images[currentImageIndex].caption && (
+              <div className={`p-4 text-sm ${
                 theme === 'dystopian'
-                  ? 'bg-cyber-black border border-neon-pink/30'
-                  : 'bg-white'
-              }`}
-            >
-              <button
-                onClick={() => setIsExpanded(false)}
-                className={`absolute top-2 right-2 sm:top-4 sm:right-4 z-10 p-1.5 sm:p-2 rounded-full ${
-                  theme === 'dystopian'
-                    ? 'bg-cyber-gray text-neon-pink hover:bg-cyber-gray/80'
-                    : 'bg-modern-gray text-modern-accent hover:bg-modern-gray/80'
-                }`}
-              >
-                <FiX className="w-4 h-4 sm:w-6 sm:h-6" />
-              </button>
-
-              <div className="relative aspect-video">
-                <Image
-                  src={images[currentImageIndex].src}
-                  alt={images[currentImageIndex].alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 1200px"
-                  priority
-                />
-              </div>
-
-              <div className={`p-3 sm:p-4 ${
-                theme === 'dystopian'
-                  ? 'bg-cyber-gray text-gray-300'
-                  : 'bg-modern-gray text-modern-text/70'
+                  ? 'text-gray-300'
+                  : 'text-modern-text/70'
               }`}>
-                <p className="text-sm sm:text-lg">{images[currentImageIndex].caption}</p>
-                <p className="text-xs sm:text-sm mt-1 sm:mt-2">Image {currentImageIndex + 1} of {images.length}</p>
+                {images[currentImageIndex].caption}
               </div>
-
-              <button
-                onClick={handlePrev}
-                className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-full ${
-                  theme === 'dystopian'
-                    ? 'bg-cyber-gray text-neon-pink hover:bg-cyber-gray/80'
-                    : 'bg-modern-gray text-modern-accent hover:bg-modern-gray/80'
-                }`}
-              >
-                <FiChevronLeft className="w-4 h-4 sm:w-6 sm:h-6" />
-              </button>
-
-              <button
-                onClick={handleNext}
-                className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 rounded-full ${
-                  theme === 'dystopian'
-                    ? 'bg-cyber-gray text-neon-pink hover:bg-cyber-gray/80'
-                    : 'bg-modern-gray text-modern-accent hover:bg-modern-gray/80'
-                }`}
-              >
-                <FiChevronRight className="w-4 h-4 sm:w-6 sm:h-6" />
-              </button>
-            </motion.div>
+            )}
           </motion.div>
-        )}
-      </AnimatePresence>
+        </motion.div>
+      )}
     </>
   );
 } 
