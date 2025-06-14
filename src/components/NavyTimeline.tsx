@@ -312,11 +312,13 @@ const NavyTimeline: React.FC = () => {
         <div className="relative">
           {/* Custom timeline line with precise control */}
           <div 
-            className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-transparent via-current to-transparent"
+            className="absolute left-1/2 transform -translate-x-1/2 w-1"
             style={{
-              height: `${(timelineData.length - 1) * 200 + 100}px`,
-              color: theme === 'dystopian' ? 'rgba(6, 182, 212, 0.3)' : 'rgba(59, 130, 246, 0.3)',
-              top: '60px'
+              height: `${timelineData.length * 160 + 100}px`, // More generous spacing calculation
+              background: theme === 'dystopian' 
+                ? 'linear-gradient(to bottom, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.6) 10%, rgba(6, 182, 212, 0.6) 90%, rgba(6, 182, 212, 0.2) 100%)'
+                : 'linear-gradient(to bottom, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.6) 10%, rgba(59, 130, 246, 0.6) 90%, rgba(59, 130, 246, 0.2) 100%)',
+              top: '30px'
             }}
           />
           
