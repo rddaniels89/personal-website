@@ -26,7 +26,7 @@ export default function ContactPage() {
   return (
     <div className={`min-h-screen`}
       style={{
-        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+        backgroundColor: 'var(--color-background)'
       }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.div
@@ -86,7 +86,7 @@ export default function ContactPage() {
                       : 'bg-modern-gray border-modern-accent/20 text-modern-text focus:border-modern-accent'
                   } transition-colors duration-200`}
                   style={{
-                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                     borderColor: theme === 'dystopian' ? '#083e12' : undefined
                   }}
                 />
@@ -114,7 +114,7 @@ export default function ContactPage() {
                       : 'bg-modern-gray border-modern-accent/20 text-modern-text focus:border-modern-accent'
                   } transition-colors duration-200`}
                   style={{
-                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                     borderColor: theme === 'dystopian' ? '#083e12' : undefined
                   }}
                 />
@@ -142,7 +142,7 @@ export default function ContactPage() {
                       : 'bg-modern-gray border-modern-accent/20 text-modern-text focus:border-modern-accent'
                   } transition-colors duration-200`}
                   style={{
-                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                     borderColor: theme === 'dystopian' ? '#083e12' : undefined
                   }}
                 />
@@ -203,7 +203,7 @@ export default function ContactPage() {
                     : 'bg-modern-gray border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
                 }`}
                 style={{
-                  backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                   borderColor: theme === 'dystopian' ? '#083e12' : undefined
                 }}
               >
@@ -255,7 +255,7 @@ export default function ContactPage() {
                     : 'bg-modern-gray border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
                 }`}
                 style={{
-                  backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                   borderColor: theme === 'dystopian' ? '#083e12' : undefined
                 }}
               >
@@ -307,7 +307,7 @@ export default function ContactPage() {
                     : 'bg-modern-gray border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-md'
                 }`}
                 style={{
-                  backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                   borderColor: theme === 'dystopian' ? '#083e12' : undefined
                 }}
               >

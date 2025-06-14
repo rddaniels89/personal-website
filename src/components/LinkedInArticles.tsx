@@ -55,7 +55,7 @@ export default function LinkedInArticles({ articles }: LinkedInArticlesProps) {
               : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/50'
           } transition-all duration-300`}
           style={{
-            backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+            backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
             borderColor: theme === 'dystopian' ? '#083e12' : undefined
           }}
         >

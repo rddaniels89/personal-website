@@ -1,6 +1,8 @@
 import { Inter, Space_Grotesk } from 'next/font/google';
 import { ThemeProvider } from '@/lib/ThemeContext';
 import Navbar from '@/components/Navbar';
+import PageTransition from '@/components/PageTransition';
+import CustomCursor from '@/components/CustomCursor';
 import '@/styles/globals.css';
 import { Metadata } from 'next';
 
@@ -144,11 +146,14 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} font-body antialiased`}>
+      <body className={`${inter.className} font-body antialiased`} suppressHydrationWarning={true}>
         <ThemeProvider>
+          <CustomCursor />
           <Navbar />
           <main className="min-h-screen pt-16 overflow-x-hidden">
-            {children}
+            <PageTransition>
+              {children}
+            </PageTransition>
           </main>
         </ThemeProvider>
       </body>

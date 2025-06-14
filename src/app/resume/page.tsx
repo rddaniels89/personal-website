@@ -298,7 +298,7 @@ export default function ResumePage() {
                               : 'bg-surface-secondary text-primary border-primary/30'
                           }`}
                           style={{
-                            backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                            backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                             borderColor: theme === 'dystopian' ? '#083e12' : undefined
                           }}
                         >

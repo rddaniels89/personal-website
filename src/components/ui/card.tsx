@@ -11,7 +11,7 @@ export function Card({ className, ...props }: CardProps) {
     <div
       className={`rounded-lg border-2 ${className}`}
       style={{
-        backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+        backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : '#FFFFFF',
         borderColor: theme === 'dystopian' ? '#083e12' : undefined
       }}
       {...props}

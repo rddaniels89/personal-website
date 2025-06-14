@@ -4,6 +4,10 @@ import * as React from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@/lib/ThemeContext';
+import TextTransition from '@/components/TextTransition';
+import TypewriterText from '@/components/TypewriterText';
+import TextReveal from '@/components/TextReveal';
+import MagneticCursor from '@/components/MagneticCursor';
 
 export default function HomePage() {
   const { theme } = useTheme();
@@ -169,17 +173,17 @@ export default function HomePage() {
                   >
                     <stop 
                       offset="0%" 
-                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#3b82f6'} 
+                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#000000'} 
                       stopOpacity="0.2" 
                     />
                     <stop 
                       offset="70%" 
-                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#3b82f6'} 
+                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#000000'} 
                       stopOpacity="0.8" 
                     />
                     <stop 
                       offset="100%" 
-                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#3b82f6'} 
+                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#000000'} 
                       stopOpacity="1" 
                     />
                   </radialGradient>
@@ -210,42 +214,45 @@ export default function HomePage() {
                 alt="Roderick Daniels"
                 className="w-full h-full object-cover"
                 style={{ 
-                  objectPosition: '50% 0%'
+                  objectPosition: '50% 0%',
+                  filter: theme === 'modern' ? 'grayscale(100%)' : 'none'
                 }}
               />
             </motion.div>
           </motion.div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
+          <TextReveal
+            delay={0.2}
+            duration={1.2}
+            direction="up"
             className={`heading-1 text-balance mb-4 ${
               theme === 'dystopian'
-                ? 'neon-text'
+                ? 'neon-text text-glow'
                 : 'gradient-text'
             }`}
-            style={theme === 'modern' ? { color: '#000000' } : {}}
           >
-            Roderick Daniels
-          </motion.h1>
+            <h1 style={theme === 'modern' ? { color: '#000000' } : {}}>
+              Roderick Daniels
+            </h1>
+          </TextReveal>
 
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3 }}
+          <TextTransition
+            delay={0.5}
+            direction="up"
             className="mb-6"
           >
-            <p className={`text-lead font-medium text-balance ${
-              theme === 'dystopian'
-                ? 'text-accent'
-                : 'text-primary'
-            }`}
-            style={theme === 'modern' ? { color: '#000000' } : {}}
-            >
-              Bridging Technology, Business, and Real-World Results.
-            </p>
-          </motion.div>
+            <TypewriterText
+              text="Bridging Technology, Business, and Real-World Results."
+              speed={80}
+              delay={800}
+              className={`text-lead font-medium text-balance ${
+                theme === 'dystopian'
+                  ? 'text-accent'
+                  : 'text-primary'
+              }`}
+              style={theme === 'modern' ? { color: '#000000' } : {}}
+            />
+          </TextTransition>
 
           <motion.h2
             initial={{ opacity: 0, y: -30 }}
@@ -311,70 +318,74 @@ export default function HomePage() {
             </div>
           </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
+          <TextTransition
+            delay={2.5}
+            direction="up"
+            stagger={true}
             className="text-lead text-pretty max-w-2xl mx-auto mb-12"
           >
             Transforming financial operations through strategic leadership, innovative technology, 
             and data-driven solutions. 11+ years driving excellence in defense and government sectors.
-          </motion.p>
+          </TextTransition>
 
           <div className="flex flex-col sm:flex-row justify-center gap-6">
-            <motion.div
-              whileHover={{ 
-                scale: 1.05,
-                y: -2
-              }}
-              whileTap={{ 
-                scale: 0.98,
-                y: 0
-              }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 400, 
-                damping: 17 
-              }}
-            >
-              <Link
-                href="/resume"
-                className={`btn-primary inline-block px-8 py-3 rounded-lg font-medium ${
-                  theme === 'dystopian'
-                    ? 'hover:shadow-[0_0_20px_rgba(61,67,180,0.5)] neon-border'
-                    : 'hover:shadow-lg hover-lift'
-                }`}
+            <MagneticCursor strength={0.2}>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  y: 0
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17 
+                }}
               >
-                View Resume
-              </Link>
-            </motion.div>
+                <Link
+                  href="/resume"
+                  className={`btn-primary inline-block px-8 py-3 rounded-lg font-medium ${
+                    theme === 'dystopian'
+                      ? 'hover:shadow-[0_0_20px_rgba(61,67,180,0.5)] neon-border'
+                      : 'hover:shadow-lg hover-lift'
+                  }`}
+                >
+                  View Resume
+                </Link>
+              </motion.div>
+            </MagneticCursor>
             
-            <motion.div
-              whileHover={{ 
-                scale: 1.05,
-                y: -2
-              }}
-              whileTap={{ 
-                scale: 0.98,
-                y: 0
-              }}
-              transition={{ 
-                type: "spring", 
-                stiffness: 400, 
-                damping: 17 
-              }}
-            >
-              <Link
-                href="/contact"
-                className={`btn-secondary inline-block px-8 py-3 rounded-lg font-medium ${
-                  theme === 'dystopian'
-                    ? 'hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]'
-                    : 'hover:shadow-md'
-                }`}
+            <MagneticCursor strength={0.2}>
+              <motion.div
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -2
+                }}
+                whileTap={{ 
+                  scale: 0.98,
+                  y: 0
+                }}
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 17 
+                }}
               >
-                Get in Touch
-              </Link>
-            </motion.div>
+                <Link
+                  href="/contact"
+                  className={`btn-secondary inline-block px-8 py-3 rounded-lg font-medium ${
+                    theme === 'dystopian'
+                      ? 'hover:shadow-[0_0_20px_rgba(6,182,212,0.3)]'
+                      : 'hover:shadow-md'
+                  }`}
+                >
+                  Get in Touch
+                </Link>
+              </motion.div>
+            </MagneticCursor>
           </div>
         </motion.div>
 

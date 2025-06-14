@@ -6,6 +6,8 @@ import { useTheme } from '@/lib/ThemeContext';
 import { motion, useInView } from 'framer-motion';
 import { FaCode, FaChartLine, FaCogs, FaTools, FaGraduationCap, FaUsers, FaAnchor, FaMedal } from 'react-icons/fa';
 import NavyTimeline from '@/components/NavyTimeline';
+import TextTransition from '@/components/TextTransition';
+import TextReveal from '@/components/TextReveal';
 
 const container = {
   hidden: { opacity: 0 },
@@ -180,17 +182,18 @@ export default function AboutPage() {
           {/* Introduction with Photo */}
           <motion.section variants={item} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div>
-              <motion.h1
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
+              <TextReveal
+                delay={0.2}
+                duration={1.0}
+                direction="left"
                 className={`heading-1 text-center text-balance mb-8 ${
                   theme === 'dystopian'
-                    ? 'neon-text'
+                    ? 'neon-text text-glow'
                     : 'gradient-text'
                 }`}
               >
-                About Me
-              </motion.h1>
+                <h1>About Me</h1>
+              </TextReveal>
 
               <motion.p
                 initial={{ opacity: 0 }}
@@ -258,7 +261,7 @@ export default function AboutPage() {
                       : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
                   }`}
                   style={{
-                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                     borderColor: theme === 'dystopian' ? '#083e12' : undefined
                   }}
                 >
@@ -317,7 +320,7 @@ export default function AboutPage() {
                       : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
                   }`}
                   style={{
-                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                     borderColor: theme === 'dystopian' ? '#083e12' : undefined
                   }}
                 >
@@ -453,7 +456,7 @@ export default function AboutPage() {
                     : 'bg-surface border-border hover:border-primary'
                 }`}
                 style={{
-                  backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : '#FFFFFF',
                   borderColor: theme === 'dystopian' ? '#083e12' : undefined
                 }}
               >
@@ -520,7 +523,7 @@ export default function AboutPage() {
                     : 'bg-surface border-border hover:border-primary'
                 }`}
                 style={{
-                  backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : '#FFFFFF',
                   borderColor: theme === 'dystopian' ? '#083e12' : undefined
                 }}
               >
@@ -600,7 +603,7 @@ export default function AboutPage() {
                   : 'bg-surface border-primary'
               }`}
               style={{
-                backgroundColor: theme === 'dystopian' ? '#030a21' : '#FFFFFF',
+                backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : '#FFFFFF',
                 borderColor: theme === 'dystopian' ? '#083e12' : undefined
               }}
             >

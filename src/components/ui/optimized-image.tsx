@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -15,6 +15,9 @@ interface OptimizedImageProps {
   onClick?: () => void;
 }
 
+// Simple base64 blur placeholder
+const blurDataURL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+on//Z';
+
 export function OptimizedImage({
   src,
   alt,
@@ -25,9 +28,20 @@ export function OptimizedImage({
   quality = 80,
   onClick
 }: OptimizedImageProps) {
-  // Convert JPEG paths to WebP
-  const webpSrc = src.replace(/\.(jpg|jpeg)$/i, '.webp');
-  const thumbSrc = src.replace(/\.(jpg|jpeg)$/i, '.thumb.webp');
+  const [imageSrc, setImageSrc] = useState(() => {
+    // Try WebP first, fallback to original
+    const webpSrc = src.replace(/\.(jpg|jpeg)$/i, '.webp');
+    return webpSrc;
+  });
+  const [hasError, setHasError] = useState(false);
+
+  const handleError = () => {
+    if (!hasError) {
+      // Fallback to original image format
+      setImageSrc(src);
+      setHasError(true);
+    }
+  };
   
   return (
     <motion.div
@@ -38,7 +52,7 @@ export function OptimizedImage({
       onClick={onClick}
     >
       <Image
-        src={webpSrc}
+        src={imageSrc}
         alt={alt}
         className={`transition-opacity duration-300 ${className}`}
         priority={priority}
@@ -47,7 +61,8 @@ export function OptimizedImage({
         quality={quality}
         loading={priority ? 'eager' : 'lazy'}
         placeholder="blur"
-        blurDataURL={thumbSrc}
+        blurDataURL={blurDataURL}
+        onError={handleError}
       />
     </motion.div>
   );

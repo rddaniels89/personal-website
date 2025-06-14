@@ -26,7 +26,7 @@ export default function TraditionalResumePage() {
   return (
     <div className={`min-h-screen print:min-h-full`}
       style={{
-        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+        backgroundColor: 'var(--color-background)'
       }}>
       <div className="max-w-[8.5in] mx-auto px-4 sm:px-6 lg:px-8 py-8 print:py-4 print:px-6">
         <motion.div

@@ -63,7 +63,7 @@ export default function WritingPage() {
   return (
     <div className={`min-h-screen`}
       style={{
-        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+        backgroundColor: 'var(--color-background)'
       }}>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.h1
@@ -122,7 +122,7 @@ export default function WritingPage() {
                       : 'bg-modern-gray border border-modern-accent/20 hover:border-modern-accent/50'
                   } transition-all duration-300`}
                   style={{
-                    backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+                    backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
                     borderColor: theme === 'dystopian' ? '#083e12' : undefined
                   }}
                 >

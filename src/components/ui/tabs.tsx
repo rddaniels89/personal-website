@@ -50,7 +50,7 @@ export function TabsList({ children, className }: TabsListProps) {
           : 'bg-modern-gray/50 border border-modern-accent/20'
       } ${className}`}
       style={{
-        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined,
+        backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
         borderColor: theme === 'dystopian' ? '#083e12' : undefined
       }}>
       {children}
@@ -78,7 +78,7 @@ export function TabsTrigger({ value, children, className }: TabsTriggerProps) {
             : 'text-gray-600 hover:text-gray-800'
       } ${className}`}
       style={{
-        backgroundColor: isSelected && theme === 'dystopian' ? '#030a21' : undefined
+        backgroundColor: isSelected && theme === 'dystopian' ? 'var(--color-background)' : undefined
       }}
     >
       {children}

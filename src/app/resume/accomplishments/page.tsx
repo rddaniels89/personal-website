@@ -9,51 +9,54 @@ const accomplishmentsByRole = [
   {
     role: 'Financial Management Analyst',
     organization: 'Defense Health Agency',
-    period: 'Apr 2023 - Present',
+    period: 'Apr 2023 – Present',
+    skills: ['GFEBS', 'FMIS', 'Tableau', 'Power BI', 'Ektropy'],
     items: [
       {
-        title: 'Budget Optimization',
-        description: 'Successfully managed and optimized a $25M Operating Target budget, achieving 99.8% execution rate while maintaining compliance with federal regulations.',
-        impact: 'Resulted in zero audit findings and 15% cost savings through strategic resource allocation.'
+        title: '📌 Budget Optimization',
+        description: 'Successfully managed and optimized a $25M Operating Target budget with a 99.8% execution rate, ensuring federal compliance and strategic fund utilization.',
+        impact: 'Resulted in zero audit findings and 15% cost savings through reallocation of underutilized funds.'
       },
       {
-        title: 'Process Improvement',
-        description: 'Led implementation of automated financial systems across Military Treatment Facilities, streamlining budget analysis and reporting processes.',
-        impact: 'Reduced processing time by 40% and improved data accuracy by 25%.'
+        title: '📌 Process Improvement',
+        description: 'Led enterprise-wide implementation of automated financial workflows across Military Treatment Facilities, enhancing transparency and traceability in reporting.',
+        impact: 'Reduced processing time by 40% and improved data accuracy by 25%, enabling faster decision-making.'
       }
     ]
   },
   {
     role: 'Budget Analyst',
     organization: 'Defense Health Agency',
-    period: 'Sep 2021 - Apr 2023',
+    period: 'Sep 2021 – Apr 2023',
+    skills: ['GFEBS', 'FMIS', 'Excel', 'PowerBI', 'SAP'],
     items: [
       {
-        title: 'Resource Management',
-        description: 'Developed comprehensive resource planning framework for defense healthcare initiatives.',
-        impact: 'Enhanced resource utilization efficiency by 30% across multiple facilities.'
+        title: '📌 Resource Management',
+        description: 'Built a resource planning framework to standardize spend planning across defense healthcare programs.',
+        impact: 'Enhanced utilization efficiency by 30% and supported proactive mid-year adjustments.'
       },
       {
-        title: 'System Integration',
-        description: 'Led cross-functional team in implementing new financial management software across multiple facilities.',
-        impact: 'Completed project 2 months ahead of schedule with 20% under budget.'
+        title: '📌 System Integration',
+        description: 'Managed a cross-functional team to deploy a new budget management system across multiple MTFs.',
+        impact: 'Delivered the project 2 months early and 20% under budget, reducing manual reporting errors by 35%.'
       }
     ]
   },
   {
     role: 'Financial Manager',
-    organization: 'US Navy',
-    period: 'Aug 2014 - Aug 2019',
+    organization: 'U.S. Navy',
+    period: 'Aug 2014 – Aug 2019',
+    skills: ['Navy OPTAR', 'AVCAL', 'DoD Compliance', 'Audit Readiness'],
     items: [
       {
-        title: 'Team Development',
-        description: 'Mentored and trained junior financial analysts in DoD financial management practices and systems.',
-        impact: 'Improved team performance metrics by 35% and reduced onboarding time by 50%.'
+        title: '📌 Team Development',
+        description: 'Mentored and trained junior analysts in Navy OPTAR/AVCAL fund management, DoD compliance, and audit readiness.',
+        impact: 'Improved team performance by 35% and halved onboarding time for new personnel.'
       },
       {
-        title: 'Strategic Initiative',
-        description: 'Spearheaded implementation of new financial control systems across multiple departments.',
-        impact: 'Achieved 100% compliance with DoD financial management regulations.'
+        title: '📌 Strategic Initiative',
+        description: 'Spearheaded the development of financial control systems across supply and maintenance divisions during deployment cycles.',
+        impact: 'Achieved 100% compliance and enhanced operational funding transparency across 21 work centers.'
       }
     ]
   }
@@ -62,33 +65,33 @@ const accomplishmentsByRole = [
 const accomplishmentsByCompany = [
   {
     company: 'Defense Health Agency',
-    period: '2020 - Present',
+    period: '2021 - Present',
     items: [
       {
         title: 'Financial Systems Modernization',
-        description: 'Led comprehensive modernization of financial management systems across multiple facilities.',
-        impact: 'Achieved 45% improvement in processing efficiency and 99.9% accuracy in financial reporting.'
+        description: 'Led comprehensive modernization of financial management systems across multiple facilities with enterprise-wide automated workflows.',
+        impact: 'Achieved 40% improvement in processing efficiency and 25% improvement in data accuracy.'
       },
       {
         title: 'Budget Management Excellence',
-        description: 'Managed complex budget portfolios for multiple Military Treatment Facilities.',
-        impact: 'Maintained perfect audit compliance while optimizing resource allocation by 25%.'
+        description: 'Managed complex budget portfolios totaling $25M+ across multiple Military Treatment Facilities with 99.8% execution rate.',
+        impact: 'Maintained zero audit findings while achieving 15% cost savings through strategic resource allocation.'
       }
     ]
   },
   {
-    company: 'US Navy',
+    company: 'U.S. Navy',
     period: '2014 - 2019',
     items: [
       {
-        title: 'Operational Efficiency',
-        description: 'Streamlined financial operations and implemented new control systems.',
-        impact: 'Reduced operational costs by 20% while improving service delivery metrics.'
+        title: 'Operational Excellence',
+        description: 'Developed financial control systems across supply and maintenance divisions during deployment cycles.',
+        impact: 'Achieved 100% compliance and enhanced operational funding transparency across 21 work centers.'
       },
       {
-        title: 'Process Innovation',
-        description: 'Developed and implemented new financial management procedures.',
-        impact: 'Established new standards that were adopted across multiple naval facilities.'
+        title: 'Team Leadership',
+        description: 'Mentored junior analysts in Navy OPTAR/AVCAL fund management and DoD compliance standards.',
+        impact: 'Improved team performance by 35% and reduced onboarding time by 50% for new personnel.'
       }
     ]
   }
@@ -116,7 +119,7 @@ export default function AccomplishmentsPage() {
   return (
     <div className={`min-h-screen`}
       style={{
-        backgroundColor: theme === 'dystopian' ? '#030a21' : undefined
+        backgroundColor: 'var(--color-background)'
       }}>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <motion.h1
@@ -209,23 +212,39 @@ export default function AccomplishmentsPage() {
                   }`}>
                     {role.role}
                   </h2>
-                  <p className={`text-sm ${
+                  <p className={`text-sm mb-3 ${
                     theme === 'dystopian'
                       ? 'text-gray-400'
                       : 'text-modern-text/70'
                   }`}>
                     {role.organization} • {role.period}
                   </p>
+                  {role.skills && (
+                    <div className="flex flex-wrap gap-2">
+                      {role.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className={`px-3 py-1 text-xs font-medium rounded-full ${
+                            theme === 'dystopian'
+                              ? 'bg-neon-blue/20 text-neon-blue border border-neon-blue/30'
+                              : 'bg-modern-accent/20 text-modern-accent border border-modern-accent/30'
+                          }`}
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {role.items.map((accomplishment) => (
                     <div
                       key={accomplishment.title}
-                      className={`p-6 rounded-lg ${
+                      className={`p-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg ${
                         theme === 'dystopian'
-                          ? 'bg-cyber-black border border-neon-blue/20'
-                          : 'bg-modern-black border border-modern-accent/20'
+                          ? 'bg-cyber-black border border-neon-blue/20 hover:border-neon-blue/40 hover:shadow-neon-blue/20'
+                          : 'bg-modern-black border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-modern-accent/20'
                       }`}
                     >
                       <h3 className={`text-xl font-semibold mb-3 ${
@@ -242,7 +261,7 @@ export default function AccomplishmentsPage() {
                       }`}>
                         {accomplishment.description}
                       </p>
-                      <div className={`flex items-center ${
+                      <div className={`flex items-center transition-colors duration-300 hover:brightness-125 ${
                         theme === 'dystopian'
                           ? 'text-neon-green'
                           : 'text-green-400'
@@ -261,7 +280,7 @@ export default function AccomplishmentsPage() {
                           />
                         </svg>
                         <p className="text-sm font-medium">
-                          {accomplishment.impact}
+                          ✅ {accomplishment.impact}
                         </p>
                       </div>
                     </div>
@@ -302,10 +321,10 @@ export default function AccomplishmentsPage() {
                   {company.items.map((accomplishment) => (
                     <div
                       key={accomplishment.title}
-                      className={`p-6 rounded-lg ${
+                      className={`p-6 rounded-lg transition-all duration-300 hover:scale-105 hover:shadow-lg ${
                         theme === 'dystopian'
-                          ? 'bg-cyber-black border border-neon-blue/20'
-                          : 'bg-modern-black border border-modern-accent/20'
+                          ? 'bg-cyber-black border border-neon-blue/20 hover:border-neon-blue/40 hover:shadow-neon-blue/20'
+                          : 'bg-modern-black border border-modern-accent/20 hover:border-modern-accent/40 hover:shadow-modern-accent/20'
                       }`}
                     >
                       <h3 className={`text-xl font-semibold mb-3 ${
@@ -322,7 +341,7 @@ export default function AccomplishmentsPage() {
                       }`}>
                         {accomplishment.description}
                       </p>
-                      <div className={`flex items-center ${
+                      <div className={`flex items-center transition-colors duration-300 hover:brightness-125 ${
                         theme === 'dystopian'
                           ? 'text-neon-green'
                           : 'text-green-400'
@@ -341,7 +360,7 @@ export default function AccomplishmentsPage() {
                           />
                         </svg>
                         <p className="text-sm font-medium">
-                          {accomplishment.impact}
+                          ✅ {accomplishment.impact}
                         </p>
                       </div>
                     </div>

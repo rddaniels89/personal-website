@@ -57,11 +57,11 @@ export default function Navbar() {
   };
 
   return (
-    <nav className={`fixed w-full z-50 backdrop-blur-sm`}
-         style={{ 
-           backgroundColor: 'var(--color-surface-elevated)', 
-           borderBottom: `1px solid var(--color-border-accent)` 
-         }}>
+    <nav className={`fixed w-full z-50 backdrop-blur-sm transition-all duration-300 ${
+      theme === 'dystopian' 
+        ? 'bg-gray-900/90 border-b border-blue-500/20' 
+        : 'bg-white/90 border-b border-gray-200'
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -99,7 +99,11 @@ export default function Navbar() {
                   >
                     <Link
                       href={item.href}
-                      className="link-primary px-3 py-2 rounded-md text-sm font-medium inline-flex items-center transition-all duration-300 hover:bg-surface-secondary"
+                      className={`px-3 py-2 rounded-md text-sm font-medium inline-flex items-center transition-all duration-300 ${
+                        theme === 'dystopian'
+                          ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800/50'
+                          : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'
+                      }`}
                     >
                       {item.name}
                       {item.dropdown && (
@@ -121,8 +125,11 @@ export default function Navbar() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ duration: 0.2 }}
-                      className="card absolute left-0 top-full w-48 rounded-md shadow-lg border-accent"
-                      style={{ backgroundColor: 'var(--color-surface-elevated)' }}
+                      className={`absolute left-0 top-full w-48 rounded-md shadow-lg border ${
+                        theme === 'dystopian'
+                          ? 'bg-gray-900 border-blue-500/20'
+                          : 'bg-white border-gray-200'
+                      }`}
                       onMouseEnter={handleDropdownMouseEnter}
                       onMouseLeave={handleMouseLeave}
                     >
@@ -135,7 +142,11 @@ export default function Navbar() {
                           >
                             <Link
                               href={dropdownItem.href}
-                              className="link-primary block px-4 py-2 text-sm transition-all duration-200 hover:bg-surface-secondary"
+                              className={`block px-4 py-2 text-sm transition-all duration-200 ${
+                                theme === 'dystopian'
+                                  ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800/50'
+                                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'
+                              }`}
                             >
                               {dropdownItem.name}
                             </Link>
@@ -163,7 +174,11 @@ export default function Navbar() {
                 }}
                 whileTap={{ scale: 0.9 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
-                className="link-primary transition-all duration-300"
+                className={`transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300 hover:text-blue-400'
+                    : 'text-gray-700 hover:text-blue-600'
+                }`}
               >
                 <item.icon className="h-5 w-5" />
                 <span className="sr-only">{item.name}</span>
@@ -178,7 +193,11 @@ export default function Navbar() {
               }}
               whileTap={{ scale: 0.9 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="p-2 rounded-md transition-all duration-300 text-primary hover:bg-surface-secondary"
+              className={`p-2 rounded-md transition-all duration-300 ${
+                theme === 'dystopian'
+                  ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800/50'
+                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'
+              }`}
             >
               <motion.div
                 animate={{ rotate: theme === 'dystopian' ? 0 : 360 }}

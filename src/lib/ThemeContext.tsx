@@ -12,7 +12,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dystopian');
+  const [theme, setTheme] = useState<Theme>('dystopian'); // Always start with default for SSR
   const [isInitialized, setIsInitialized] = useState(false);
 
   // Initialize theme from localStorage on mount
@@ -20,8 +20,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const savedTheme = localStorage.getItem('theme') as Theme;
     if (savedTheme && (savedTheme === 'dystopian' || savedTheme === 'modern')) {
       setTheme(savedTheme);
+    } else {
+      // Set default theme if none saved
+      localStorage.setItem('theme', 'dystopian');
     }
-    setIsInitialized(true);
   }, []);
 
   const toggleTheme = () => {
@@ -32,8 +34,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   // Apply theme class to body and html elements
   useEffect(() => {
-    if (!isInitialized) return;
-
     const body = document.body;
     const html = document.documentElement;
     
@@ -48,11 +48,15 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     // Also update CSS custom properties for immediate visual feedback
     const root = document.documentElement;
     if (theme === 'dystopian') {
-      root.style.setProperty('--color-background', '#090a10');
+      root.style.setProperty('--color-background', '#080808');
       root.style.setProperty('--color-text', '#F8FAFC');
     } else {
-      root.style.setProperty('--color-background', '#F5F5F5');
+      root.style.setProperty('--color-background', '#D0D0D0');
       root.style.setProperty('--color-text', '#000000');
+    }
+    
+    if (!isInitialized) {
+      setIsInitialized(true);
     }
   }, [theme, isInitialized]);
 
@@ -69,4 +73,6 @@ export function useTheme() {
     throw new Error('useTheme must be used within a ThemeProvider');
   }
   return context;
-} 
+}
+
+ 

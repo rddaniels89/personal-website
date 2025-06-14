@@ -93,7 +93,7 @@
     --color-highlight-dark: #15cc3a;
     
     /* Dark backgrounds - Cyberpunk palette */
-    --color-background: #041348;    /* Midnight Blue - Dark and serious tone */
+    --color-background: #080808;    /* Very Dark Gray - Dark and serious tone */
     --color-surface: #083e12;       /* Forest Green - Deep, earthy green */
     --color-surface-secondary: #0a1a2e;
     --color-surface-elevated: #16213e;
@@ -113,24 +113,24 @@
   }
 
   .theme-modern {
-    /* Modern theme - Light Grey with Black Accents */
-    --color-primary: #000000;          /* Pure black for primary elements */
-    --color-primary-hover: #333333;    /* Dark grey for hover states */
-    --color-primary-light: #666666;
-    --color-primary-dark: #000000;
+    /* Modern theme - Light Grey with Blue Accents */
+    --color-primary: #041348;          /* Midnight blue for primary elements */
+    --color-primary-hover: #0a1a5c;    /* Lighter blue for hover states */
+    --color-primary-light: #1e2a70;
+    --color-primary-dark: #020a24;
     
     --color-accent: #333333;           /* Dark grey instead of medium grey */
     --color-accent-hover: #666666;
     --color-accent-light: #999999;
     --color-accent-dark: #000000;
     
-    --color-highlight: #000000;        /* Pure black for highlights */
-    --color-highlight-hover: #333333;
-    --color-highlight-light: #666666;
-    --color-highlight-dark: #000000;
+    --color-highlight: #041348;        /* Midnight blue for highlights */
+    --color-highlight-hover: #0a1a5c;
+    --color-highlight-light: #1e2a70;
+    --color-highlight-dark: #020a24;
     
     /* Light sophisticated backgrounds */
-    --color-background: #F5F5F5;       /* Light grey background */
+    --color-background: #D0D0D0;       /* Light grey background */
     --color-surface: #FFFFFF;          /* Pure white for cards */
     --color-surface-secondary: #EEEEEE; /* Very light grey for sections */
     --color-surface-elevated: #FFFFFF; /* Pure white for elevated content */
@@ -499,6 +499,246 @@
     background-size: 200% 200%;
     animation: gradient 15s ease infinite;
   }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+
+  .loading-shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .loading-shimmer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  .theme-dystopian .loading-shimmer::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(61, 67, 180, 0.1),
+      transparent
+    );
+  }
+
+  /* Text Animation Utilities */
+  .text-slide-up {
+    animation: textSlideUp 0.6s ease-out;
+  }
+
+  .text-slide-down {
+    animation: textSlideDown 0.6s ease-out;
+  }
+
+  .text-slide-left {
+    animation: textSlideLeft 0.6s ease-out;
+  }
+
+  .text-slide-right {
+    animation: textSlideRight 0.6s ease-out;
+  }
+
+  .text-fade-in-up {
+    animation: textFadeInUp 0.8s ease-out;
+  }
+
+  .text-fade-in-down {
+    animation: textFadeInDown 0.8s ease-out;
+  }
+
+  .text-zoom-in {
+    animation: textZoomIn 0.5s ease-out;
+  }
+
+  .text-blur-in {
+    animation: textBlurIn 0.8s ease-out;
+  }
+
+  @keyframes textSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes textSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes textSlideLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes textSlideRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes textFadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes textFadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-40px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes textZoomIn {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes textBlurIn {
+    from {
+      opacity: 0;
+      filter: blur(10px);
+      transform: scale(1.05);
+    }
+    to {
+      opacity: 1;
+      filter: blur(0);
+      transform: scale(1);
+    }
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.1s; }
+  .stagger-2 { animation-delay: 0.2s; }
+  .stagger-3 { animation-delay: 0.3s; }
+  .stagger-4 { animation-delay: 0.4s; }
+  .stagger-5 { animation-delay: 0.5s; }
+  .stagger-6 { animation-delay: 0.6s; }
+
+  /* Text glow effects for dystopian theme */
+  .theme-dystopian .text-glow {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor;
+  }
+
+  .theme-dystopian .text-glow-intense {
+    text-shadow: 
+      0 0 5px currentColor,
+      0 0 10px currentColor,
+      0 0 15px currentColor,
+      0 0 20px currentColor,
+      0 0 25px currentColor;
+  }
+
+  /* Typewriter cursor effect */
+  .typewriter-cursor {
+    animation: typewriterBlink 1s infinite;
+  }
+
+  @keyframes typewriterBlink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
   
   /* Typography Utilities */
   .text-balance {
@@ -537,6 +777,38 @@
 
   .bg-surface-secondary { background-color: var(--color-surface-secondary); }
   .border-surface-secondary { border-color: var(--color-surface-secondary); }
+
+  /* Custom Cursor Utilities */
+  .cursor-hover {
+    cursor: none !important;
+  }
+
+  .cursor-text {
+    cursor: none !important;
+  }
+
+  .cursor-loading {
+    cursor: none !important;
+  }
+
+  /* Hide default cursor on interactive elements when custom cursor is active */
+  body.custom-cursor-active * {
+    cursor: none !important;
+  }
+
+  /* Ensure custom cursor works on all elements */
+  * {
+    cursor: inherit;
+  }
+
+  /* Special cursor states for specific elements */
+  .cursor-magnetic {
+    transition: transform 0.3s ease;
+  }
+
+  .cursor-magnetic:hover {
+    transform: scale(1.05);
+  }
 }
 
 /* LinkedIn Embed Styles */
