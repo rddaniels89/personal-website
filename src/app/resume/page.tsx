@@ -81,18 +81,6 @@ const timelineItems = [
     technologies: ['R-Supply', 'NALCOMIS', 'STARS-FL', 'DFAS Reporting', 'Financial Management']
   },
   {
-    type: 'experience',
-    title: 'Personal Banker',
-    company: 'Wells Fargo',
-    period: 'Oct 2012 - Jul 2014',
-    bullets: [
-      'Managed customer portfolios and cross-sold financial products, achieving top-performer tier in the Orange County district for three consecutive quarters',
-      'Performed account servicing, reconciliations, credit evaluations, and outbound sales',
-      'Conducted financial analysis to reduce client risk and optimize account utilization'
-    ],
-    technologies: ['Customer Portfolio Management', 'Financial Products', 'Credit Analysis', 'Risk Assessment', 'Sales Performance']
-  },
-  {
     type: 'education',
     title: 'Bachelor of Arts in Finance',
     company: 'California State University, Fullerton',
@@ -105,6 +93,18 @@ const timelineItems = [
     company: 'Department of Defense',
     period: 'Jun 2016',
     description: 'Process improvement and optimization methodology'
+  },
+  {
+    type: 'experience',
+    title: 'Personal Banker',
+    company: 'Wells Fargo',
+    period: 'Oct 2012 - Jul 2014',
+    bullets: [
+      'Managed customer portfolios and cross-sold financial products, achieving top-performer tier in the Orange County district for three consecutive quarters',
+      'Performed account servicing, reconciliations, credit evaluations, and outbound sales',
+      'Conducted financial analysis to reduce client risk and optimize account utilization'
+    ],
+    technologies: ['Customer Portfolio Management', 'Financial Products', 'Credit Analysis', 'Risk Assessment', 'Sales Performance']
   }
 ];
 
