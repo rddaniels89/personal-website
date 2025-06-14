@@ -308,6 +308,41 @@ export default function TraditionalResumePage() {
                     <li>Served as subject matter expert for financial management systems and procedures</li>
                   </ul>
                 </div>
+
+                <div>
+                  <div className="flex justify-between items-baseline">
+                    <h3 className={`font-semibold print:text-black ${
+                      theme === 'dystopian'
+                        ? 'text-neon-pink'
+                        : 'text-navy-blue'
+                    }`}>
+                      Personal Banker
+                    </h3>
+                    <span className={`text-sm print:text-gray-600 ${
+                      theme === 'dystopian'
+                        ? 'text-gray-400'
+                        : 'text-modern-text/70'
+                    }`}>
+                      Oct 2012 - Jul 2014
+                    </span>
+                  </div>
+                  <p className={`text-sm mb-2 print:text-gray-600 ${
+                    theme === 'dystopian'
+                      ? 'text-gray-400'
+                      : 'text-modern-text/70'
+                  }`}>
+                    Wells Fargo · Anaheim, CA
+                  </p>
+                  <ul className={`list-disc list-outside ml-4 space-y-1 print:text-gray-800 ${
+                    theme === 'dystopian'
+                      ? 'text-gray-300'
+                      : 'text-modern-text'
+                  }`}>
+                    <li>Managed customer portfolios and cross-sold financial products, achieving top-performer tier in the Orange County district for three consecutive quarters</li>
+                    <li>Performed account servicing, reconciliations, credit evaluations, and outbound sales</li>
+                    <li>Conducted financial analysis to reduce client risk and optimize account utilization</li>
+                  </ul>
+                </div>
               </div>
             </motion.section>
 

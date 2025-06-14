@@ -9,6 +9,7 @@ interface TrailPoint {
   x: number;
   y: number;
   timestamp: number;
+  gridType?: 'horizontal' | 'vertical' | 'intersection';
 }
 
 interface SlashEffect {
@@ -55,22 +56,49 @@ export default function CustomCursor() {
   const cursorX = useSpring(mouseX, springConfig);
   const cursorY = useSpring(mouseY, springConfig);
 
-  // Create trail points for hover effect (dystopian only)
-  const createTrailPoint = useCallback((x: number, y: number) => {
+  // Create grid points at cursor position (dystopian only)
+  const createGridPoint = useCallback((x: number, y: number) => {
     if (theme !== 'dystopian') return;
     
-    const newPoint: TrailPoint = {
-      id: Date.now() + Math.random(),
-      x: x - 12, // Offset to center closer to cursor
-      y: y - 12, // Offset to center closer to cursor
-      timestamp: Date.now()
-    };
+    // Snap to 40px grid
+    const gridSize = 40;
+    const gridX = Math.round(x / gridSize) * gridSize;
+    const gridY = Math.round(y / gridSize) * gridSize;
     
-    setTrailPoints(prev => [...prev, newPoint]);
+    // Clear existing grid points and create new ones at current position
+    setTrailPoints([]);
     
+    // Create grid elements at cursor position
+    const gridElements = [
+      {
+        id: Date.now() + 1,
+        x: gridX - 60, // Horizontal line
+        y: gridY - 1,
+        timestamp: Date.now(),
+        gridType: 'horizontal' as const
+      },
+      {
+        id: Date.now() + 2,
+        x: gridX - 1, // Vertical line
+        y: gridY - 60,
+        timestamp: Date.now(),
+        gridType: 'vertical' as const
+      },
+      {
+        id: Date.now() + 3,
+        x: gridX - 4, // Intersection point
+        y: gridY - 4,
+        timestamp: Date.now(),
+        gridType: 'intersection' as const
+      }
+    ];
+    
+    setTrailPoints(gridElements);
+    
+    // Clear grid after short duration
     setTimeout(() => {
-      setTrailPoints(prev => prev.filter(p => p.id !== newPoint.id));
-    }, 600); // Reduced duration for tighter trail
+      setTrailPoints([]);
+    }, 800);
   }, [theme]);
 
   // Create slash effect on click (dystopian only)
@@ -115,14 +143,8 @@ export default function CustomCursor() {
       mouseY.set(e.clientY);
       setIsVisible(true);
       
-      // Create trail points when hovering (dystopian only) - throttled
-      if (cursorState.isHovering && theme === 'dystopian') {
-        const now = Date.now();
-        if (now - lastTrailTime > 50) { // Only create trail every 50ms
-          createTrailPoint(e.clientX, e.clientY);
-          setLastTrailTime(now);
-        }
-      }
+      // Only create grid effect on click, not on hover
+      // Removed trailing grid effect for minimalistic design
     };
 
     const handleMouseEnter = () => setIsVisible(true);
@@ -132,7 +154,7 @@ export default function CustomCursor() {
       setCursorState(prev => ({ ...prev, isClicking: true }));
       
       if (theme === 'dystopian') {
-        createSlashEffect(e.clientX, e.clientY);
+        createGridPoint(e.clientX, e.clientY); // Show grid on click only
       } else if (theme === 'modern') {
         createRippleEffect(e.clientX, e.clientY);
       }
@@ -193,7 +215,7 @@ export default function CustomCursor() {
       document.removeEventListener('mouseup', handleMouseUp);
       observer.disconnect();
     };
-  }, [mouseX, mouseY, createTrailPoint, createSlashEffect, createRippleEffect, cursorState.isHovering, theme, lastTrailTime]);
+  }, [mouseX, mouseY, createGridPoint, createSlashEffect, createRippleEffect, cursorState.isHovering, theme, lastTrailTime]);
 
   // Hide default cursor
   useEffect(() => {
@@ -238,137 +260,187 @@ export default function CustomCursor() {
   // Render different cursor styles based on theme
   const renderDystopianCursor = () => (
     <>
-      {/* Trail Points (Green Glow on Hover) */}
+      {/* Laser Grid Trail */}
       <AnimatePresence>
-        {trailPoints.map((point) => (
-          <motion.div
-            key={point.id}
-            initial={{ opacity: 0.8, scale: 0.8 }}
-            animate={{ opacity: 0, scale: 1.2 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="fixed pointer-events-none rounded-full"
-            style={{
-              left: point.x,
-              top: point.y,
-              width: 6,
-              height: 6,
-              backgroundColor: '#1afe49',
-              boxShadow: '0 0 12px #1afe49',
-              zIndex: 9997,
-            }}
-          />
-        ))}
+        {trailPoints.map((point) => {
+          const baseColor = '#00ffff'; // Cyan/tron blue
+          const glowColor = '#0080ff'; // Brighter blue for glow
+          
+          if (point.gridType === 'horizontal') {
+            return (
+              <motion.div
+                key={point.id}
+                initial={{ 
+                  opacity: 0.8, 
+                  scaleX: 0,
+                  scaleY: 1
+                }}
+                animate={{ 
+                  opacity: 0, 
+                  scaleX: 1,
+                  scaleY: 1
+                }}
+                exit={{ opacity: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  ease: 'easeOut',
+                  scaleX: { duration: 0.3 }
+                }}
+                className="fixed pointer-events-none"
+                style={{
+                  left: point.x,
+                  top: point.y,
+                  width: 120,
+                  height: 2,
+                  backgroundColor: baseColor,
+                  boxShadow: `0 0 10px ${glowColor}, 0 0 20px ${glowColor}, 0 0 30px ${baseColor}`,
+                  zIndex: 9997,
+                  transformOrigin: 'left center',
+                }}
+              />
+            );
+          }
+          
+          if (point.gridType === 'vertical') {
+            return (
+              <motion.div
+                key={point.id}
+                initial={{ 
+                  opacity: 0.8, 
+                  scaleX: 1,
+                  scaleY: 0
+                }}
+                animate={{ 
+                  opacity: 0, 
+                  scaleX: 1,
+                  scaleY: 1
+                }}
+                exit={{ opacity: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  ease: 'easeOut',
+                  scaleY: { duration: 0.3 }
+                }}
+                className="fixed pointer-events-none"
+                style={{
+                  left: point.x,
+                  top: point.y,
+                  width: 2,
+                  height: 120,
+                  backgroundColor: baseColor,
+                  boxShadow: `0 0 10px ${glowColor}, 0 0 20px ${glowColor}, 0 0 30px ${baseColor}`,
+                  zIndex: 9997,
+                  transformOrigin: 'center top',
+                }}
+              />
+            );
+          }
+          
+          if (point.gridType === 'intersection') {
+            return (
+              <motion.div
+                key={point.id}
+                initial={{ 
+                  opacity: 1, 
+                  scale: 0
+                }}
+                animate={{ 
+                  opacity: 0, 
+                  scale: 2
+                }}
+                exit={{ opacity: 0 }}
+                transition={{ 
+                  duration: 0.8, 
+                  ease: 'easeOut'
+                }}
+                className="fixed pointer-events-none rounded-full"
+                style={{
+                  left: point.x - 4,
+                  top: point.y - 4,
+                  width: 8,
+                  height: 8,
+                  backgroundColor: '#ffffff',
+                  boxShadow: `0 0 15px ${baseColor}, 0 0 25px ${glowColor}, 0 0 35px #ffffff`,
+                  zIndex: 9998,
+                }}
+              />
+            );
+          }
+          
+          return null;
+        })}
       </AnimatePresence>
 
-      {/* Slash Effects */}
-      <AnimatePresence>
-        {slashEffects.map((slash) => (
-          <motion.div
-            key={slash.id}
-            initial={{ opacity: 1, scaleX: 0, scaleY: 1 }}
-            animate={{ opacity: 0, scaleX: 1, scaleY: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="fixed pointer-events-none"
-            style={{
-              left: slash.x - 25,
-              top: slash.y - 2,
-              width: 50,
-              height: 4,
-              backgroundColor: '#ffffff',
-              borderRadius: '2px',
-              transform: `rotate(${slash.angle}deg)`,
-              boxShadow: '0 0 10px #ffffff',
-              zIndex: 9998,
-            }}
-          />
-        ))}
-      </AnimatePresence>
 
-      {/* Blade Cursor */}
+
+      {/* Telescopic Sight Cursor */}
       <motion.div
         animate={{
           scale: getCursorSize(),
-          rotate: cursorState.isClicking ? 45 : 0,
+          rotate: cursorState.isClicking ? 15 : 0,
         }}
         transition={{
           type: 'spring',
-          damping: 20,
-          stiffness: 400,
+          damping: 25,
+          stiffness: 350,
         }}
         className="relative"
       >
-        {/* Main Blade Body */}
+        {/* Minimalist Outer Circle */}
         <div
-          className="relative"
+          className="absolute rounded-full border"
           style={{
-            width: 0,
-            height: 0,
-            borderLeft: '8px solid transparent',
-            borderRight: '8px solid transparent',
-            borderBottom: `24px solid ${getCursorColor()}`,
-            transform: 'rotate(45deg)',
-            filter: `drop-shadow(0 0 8px ${getCursorColor()})`,
+            width: 24,
+            height: 24,
+            left: -12,
+            top: -12,
+            borderColor: cursorState.isHovering ? '#ff006e' : '#00ffff',
+            borderWidth: '1px',
+            boxShadow: cursorState.isHovering 
+              ? '0 0 8px #ff006e' 
+              : '0 0 6px #00ffff',
           }}
         />
         
-        {/* Glowing Edge Effect */}
-        <motion.div
-          animate={{
-            opacity: cursorState.isHovering ? 0.8 : 0.4,
-          }}
-          transition={{ duration: 0.3 }}
-          className="absolute inset-0"
-          style={{
-            width: 0,
-            height: 0,
-            borderLeft: '10px solid transparent',
-            borderRight: '10px solid transparent',
-            borderBottom: `28px solid ${getCursorColor()}`,
-            transform: 'rotate(45deg)',
-            filter: 'blur(4px)',
-            opacity: 0.3,
-          }}
-        />
-        
-        {/* Core Highlight */}
+        {/* Crosshairs - Horizontal */}
         <div
           className="absolute"
           style={{
-            top: '8px',
-            left: '50%',
-            transform: 'translateX(-50%) rotate(45deg)',
-            width: 0,
-            height: 0,
-            borderLeft: '2px solid transparent',
-            borderRight: '2px solid transparent',
-            borderBottom: '8px solid rgba(255, 255, 255, 0.6)',
+            left: -8,
+            top: -0.5,
+            width: 16,
+            height: 1,
+            backgroundColor: cursorState.isHovering ? '#ff006e' : '#00ffff',
+          }}
+        />
+        
+        {/* Crosshairs - Vertical */}
+        <div
+          className="absolute"
+          style={{
+            left: -0.5,
+            top: -8,
+            width: 1,
+            height: 16,
+            backgroundColor: cursorState.isHovering ? '#ff006e' : '#00ffff',
+          }}
+        />
+        
+        {/* Center Dot */}
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: 3,
+            height: 3,
+            left: -1.5,
+            top: -1.5,
+            backgroundColor: cursorState.isHovering ? '#ff006e' : '#00ffff',
+            boxShadow: cursorState.isHovering 
+              ? '0 0 6px #ff006e' 
+              : '0 0 4px #00ffff',
           }}
         />
       </motion.div>
-
-      {/* Outer Glow Ring */}
-      <motion.div
-        animate={{
-          scale: getCursorSize() + 0.5,
-          opacity: cursorState.isHovering ? 0.3 : 0.1,
-        }}
-        transition={{
-          type: 'spring',
-          damping: 30,
-          stiffness: 300,
-        }}
-        className="absolute rounded-full blur-lg"
-        style={{
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          width: 40,
-          height: 40,
-          backgroundColor: getCursorColor(),
-        }}
-      />
     </>
   );
 

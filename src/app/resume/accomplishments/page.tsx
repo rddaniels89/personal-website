@@ -59,6 +59,24 @@ const accomplishmentsByRole = [
         impact: 'Achieved 100% compliance and enhanced operational funding transparency across 21 work centers.'
       }
     ]
+  },
+  {
+    role: 'Personal Banker',
+    organization: 'Wells Fargo',
+    period: 'Oct 2012 – Jul 2014',
+    skills: ['Customer Portfolio Management', 'Financial Products', 'Credit Analysis', 'Risk Assessment', 'Sales Performance'],
+    items: [
+      {
+        title: '📌 Client Portfolio Management',
+        description: 'Managed customer portfolios and cross-sold financial products, achieving top-performer tier in the Orange County district for three consecutive quarters.',
+        impact: 'Increased product-per-customer ratio by identifying and closing cross-sell opportunities.'
+      },
+      {
+        title: '📌 Financial Services & Risk Mitigation',
+        description: 'Performed account servicing, reconciliations, credit evaluations, and outbound sales. Conducted financial analysis to reduce client risk and optimize account utilization.',
+        impact: 'Improved client satisfaction and retention by streamlining onboarding and account review workflows.'
+      }
+    ]
   }
 ];
 
@@ -92,6 +110,22 @@ const accomplishmentsByCompany = [
         title: 'Team Leadership',
         description: 'Mentored junior analysts in Navy OPTAR/AVCAL fund management and DoD compliance standards.',
         impact: 'Improved team performance by 35% and reduced onboarding time by 50% for new personnel.'
+      }
+    ]
+  },
+  {
+    company: 'Wells Fargo',
+    period: '2012 - 2014',
+    items: [
+      {
+        title: 'Sales Excellence',
+        description: 'Managed customer portfolios and cross-sold financial products, achieving top-performer tier in the Orange County district for three consecutive quarters.',
+        impact: 'Increased product-per-customer ratio by identifying and closing cross-sell opportunities.'
+      },
+      {
+        title: 'Risk Management & Client Services',
+        description: 'Performed account servicing, reconciliations, credit evaluations, and outbound sales with focus on client risk reduction.',
+        impact: 'Improved client satisfaction and retention by streamlining onboarding and account review workflows.'
       }
     ]
   }
