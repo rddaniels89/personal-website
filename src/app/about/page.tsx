@@ -215,7 +215,7 @@ export default function AboutPage() {
               }`}
             >
               <Image
-                src="/images/roderick-profile2.jpg"
+                src="/images/roderick-profile4.webp"
                 alt="Roderick Daniels - Professional Photo"
                 fill
                 className="object-cover"

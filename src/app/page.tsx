@@ -173,17 +173,17 @@ export default function HomePage() {
                   >
                     <stop 
                       offset="0%" 
-                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#000000'} 
+                      stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
                       stopOpacity="0.2" 
                     />
                     <stop 
                       offset="70%" 
-                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#000000'} 
+                      stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
                       stopOpacity="0.8" 
                     />
                     <stop 
                       offset="100%" 
-                      stopColor={theme === 'dystopian' ? '#06d6a0' : '#000000'} 
+                      stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
                       stopOpacity="1" 
                     />
                   </radialGradient>

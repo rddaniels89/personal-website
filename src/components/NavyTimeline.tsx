@@ -310,15 +310,18 @@ const NavyTimeline: React.FC = () => {
     <>
       <div className="navy-timeline relative max-w-4xl mx-auto">
         <div className="relative">
-          {/* Custom timeline line with precise control */}
+          {/* Custom timeline line with consistent visibility */}
           <div 
-            className="absolute left-1/2 transform -translate-x-1/2 w-1"
+            className="absolute left-1/2 transform -translate-x-1/2 w-1 rounded-full"
             style={{
-              height: `${timelineData.length * 160 + 100}px`, // More generous spacing calculation
+              height: `${timelineData.length * 400}px`, // Full height for all items
               background: theme === 'dystopian' 
-                ? 'linear-gradient(to bottom, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0.6) 10%, rgba(6, 182, 212, 0.6) 90%, rgba(6, 182, 212, 0.2) 100%)'
-                : 'linear-gradient(to bottom, rgba(59, 130, 246, 0.2) 0%, rgba(59, 130, 246, 0.6) 10%, rgba(59, 130, 246, 0.6) 90%, rgba(59, 130, 246, 0.2) 100%)',
-              top: '30px'
+                ? 'rgba(6, 182, 212, 0.8)' // Solid cyan color without gradient fade
+                : 'rgba(59, 130, 246, 0.8)', // Solid blue color without gradient fade
+              top: '20px', // Start higher to cover first item
+              boxShadow: theme === 'dystopian'
+                ? '0 0 10px rgba(6, 182, 212, 0.3)'
+                : '0 0 10px rgba(59, 130, 246, 0.3)'
             }}
           />
           

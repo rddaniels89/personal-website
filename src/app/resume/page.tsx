@@ -28,6 +28,13 @@ const timelineItems = [
     description: 'Member of Sigma Alpha Pi, The National Society of Leadership and Success'
   },
   {
+    type: 'education',
+    title: 'Bachelor of Arts in Finance',
+    company: 'California State University, Fullerton',
+    period: '2022',
+    description: 'Activities: Finance Association, NSBE, APAC'
+  },
+  {
     type: 'experience',
     title: 'Budget Analyst - Financial Operations',
     company: 'Defense Health Agency',
@@ -79,13 +86,6 @@ const timelineItems = [
       'Processed complex financial transactions and formulated budget estimates'
     ],
     technologies: ['R-Supply', 'NALCOMIS', 'STARS-FL', 'DFAS Reporting', 'Financial Management']
-  },
-  {
-    type: 'education',
-    title: 'Bachelor of Arts in Finance',
-    company: 'California State University, Fullerton',
-    period: '2022',
-    description: 'Activities: Finance Association, NSBE, APAC'
   },
   {
     type: 'certification',
