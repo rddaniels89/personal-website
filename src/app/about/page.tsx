@@ -199,30 +199,150 @@ export default function AboutPage() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="text-lead text-center text-pretty max-w-3xl mx-auto mb-16"
+                className="text-lead text-center text-pretty max-w-3xl mx-auto mb-8"
               >
                 Financial leader, technology enthusiast, and Navy veteran dedicated to driving 
                 operational excellence through strategic innovation and data-driven solutions.
               </motion.p>
+
+              {/* What Drives Me - Personal Mission */}
+              <div className="prose max-w-none mt-6">
+                <h4 className={`heading-4 mb-4 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  What Drives Me
+                </h4>
+                <p className="mb-4 body-normal">
+                  I've always been drawn to the space where precision meets purpose — where financial systems can be used to create real, measurable impact. Whether I was managing OPTAR funds aboard a Navy carrier or helping optimize $1B+ budgets across the Defense Health Agency, my mission has stayed the same: to bring clarity, structure, and strategy to organizations that serve people.
+                </p>
+                <p className="mb-6 body-normal">
+                  I believe that data is only powerful when it's actionable — and I'm driven by the challenge of translating complex financial realities into decisions that move missions forward.
+                </p>
+              </div>
             </div>
             
             <motion.div 
               variants={item}
-              className={`card relative aspect-[3/4] w-full max-w-md mx-auto rounded-lg overflow-hidden ${
-                theme === 'dystopian' 
-                  ? 'hover:shadow-[0_0_25px_rgba(236,72,153,0.3)]' 
-                  : ''
-              }`}
+              className="relative w-full max-w-md mx-auto"
+              style={{ aspectRatio: '3/4' }}
             >
-              <Image
-                src="/images/roderick-profile4.webp"
-                alt="Roderick Daniels - Professional Photo"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
-                priority
-                loading="eager"
-              />
+              {/* Profile Photo */}
+              <motion.div
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+                className={`absolute inset-3 rounded-lg overflow-hidden ${
+                  theme === 'dystopian' 
+                    ? 'hover:shadow-[0_0_25px_rgba(27,124,219,0.3)]' 
+                    : 'hover:shadow-xl'
+                }`}
+              >
+                <Image
+                  src="/images/roderick-profile4.webp"
+                  alt="Roderick Daniels - Professional Photo"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  loading="eager"
+                />
+              </motion.div>
+
+              {/* Animated Border Lines - Two lines traveling around photo border - positioned on top */}
+              <div className="absolute inset-2 pointer-events-none z-10">
+                <svg 
+                  className="w-full h-full" 
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  <defs>
+                    <linearGradient 
+                      id="borderGradientAbout1" 
+                      x1="0%" 
+                      y1="0%" 
+                      x2="100%" 
+                      y2="0%"
+                    >
+                      <stop 
+                        offset="0%" 
+                        stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
+                        stopOpacity="0" 
+                      />
+                      <stop 
+                        offset="50%" 
+                        stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
+                        stopOpacity="1" 
+                      />
+                      <stop 
+                        offset="100%" 
+                        stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
+                        stopOpacity="0" 
+                      />
+                    </linearGradient>
+                    
+                    <linearGradient 
+                      id="borderGradientAbout2" 
+                      x1="0%" 
+                      y1="0%" 
+                      x2="100%" 
+                      y2="0%"
+                    >
+                      <stop 
+                        offset="0%" 
+                        stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
+                        stopOpacity="0" 
+                      />
+                      <stop 
+                        offset="50%" 
+                        stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
+                        stopOpacity="0.7" 
+                      />
+                      <stop 
+                        offset="100%" 
+                        stopColor={theme === 'dystopian' ? '#1B7CDB' : '#041348'} 
+                        stopOpacity="0" 
+                      />
+                    </linearGradient>
+                  </defs>
+                  
+                  {/* First traveling line */}
+                  <rect
+                    x="1"
+                    y="1"
+                    width="98"
+                    height="98"
+                    fill="none"
+                    stroke="url(#borderGradientAbout1)"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeDasharray="25 75"
+                    rx="6"
+                    style={{
+                      animation: 'dash 8s linear infinite'
+                    }}
+                  />
+                  
+                  {/* Second traveling line (offset) */}
+                  <rect
+                    x="1"
+                    y="1"
+                    width="98"
+                    height="98"
+                    fill="none"
+                    stroke="url(#borderGradientAbout2)"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeDasharray="25 75"
+                    strokeDashoffset="50"
+                    rx="6"
+                    style={{
+                      animation: 'dash 8s linear infinite'
+                    }}
+                  />
+                </svg>
+              </div>
             </motion.div>
           </motion.section>
 
