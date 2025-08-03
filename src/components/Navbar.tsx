@@ -152,6 +152,7 @@ export default function Navbar() {
                             >
                               <Link
                                 href={dropdownItem.href}
+                                onClick={() => setOpenDropdown(null)}
                                 className={`block px-4 py-2 text-sm transition-all duration-200 ${
                                   theme === 'dystopian'
                                     ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800/50'
