@@ -486,6 +486,86 @@ export default function ResumePage() {
               })}
             </div>
           </motion.section>
+
+          {/* Certifications & AI Training Section */}
+          <motion.section variants={item}>
+            <motion.div
+              className={`p-6 rounded-xl ${
+                theme === 'dystopian'
+                  ? 'bg-surface-dark/80 border-2 border-neon-blue backdrop-blur-sm'
+                  : 'bg-modern-gray/10'
+              }`}
+              style={
+                theme === 'dystopian'
+                  ? { boxShadow: '0 0 20px rgba(0, 255, 255, 0.2)' }
+                  : undefined
+              }
+            >
+              <h2 className="heading-2 text-center mb-6">
+                📜 Certifications & AI Training
+              </h2>
+              <div className="max-w-3xl mx-auto">
+                <ul className="space-y-3">
+                  <li className="flex items-start gap-3">
+                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                      theme === 'dystopian' ? 'bg-neon-blue' : 'bg-primary'
+                    }`} />
+                    <span className="body-normal">
+                      <strong>LangChain for LLM Development</strong> – DeepLearning.AI (2025)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                      theme === 'dystopian' ? 'bg-neon-blue' : 'bg-primary'
+                    }`} />
+                    <span className="body-normal">
+                      <strong>ChatGPT Prompt Engineering</strong> – DeepLearning.AI & OpenAI (2025)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                      theme === 'dystopian' ? 'bg-neon-blue' : 'bg-primary'
+                    }`} />
+                    <span className="body-normal">
+                      <strong>AI Financial Forecasting</strong> – LinkedIn Learning (2025)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                      theme === 'dystopian' ? 'bg-neon-blue' : 'bg-primary'
+                    }`} />
+                    <span className="body-normal">
+                      <strong>AI Coding Agents with Copilot</strong> – LinkedIn Learning (2025)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                      theme === 'dystopian' ? 'bg-neon-blue' : 'bg-primary'
+                    }`} />
+                    <span className="body-normal">
+                      <strong>Advanced Prompt Engineering Techniques</strong> – LinkedIn Learning (2023)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                      theme === 'dystopian' ? 'bg-neon-blue' : 'bg-primary'
+                    }`} />
+                    <span className="body-normal">
+                      <strong>Career Essentials in Generative AI</strong> – Microsoft & LinkedIn (2023)
+                    </span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className={`w-2 h-2 rounded-full mt-2 flex-shrink-0 ${
+                      theme === 'dystopian' ? 'bg-neon-blue' : 'bg-primary'
+                    }`} />
+                    <span className="body-normal">
+                      <strong>Tableau Essential Training</strong> – LinkedIn Learning (2024)
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
+          </motion.section>
         </motion.div>
       </div>
     </div>
