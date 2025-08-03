@@ -4,7 +4,8 @@ import * as React from 'react';
 import Image from 'next/image';
 import { useTheme } from '@/lib/ThemeContext';
 import { motion, useInView } from 'framer-motion';
-import { FaCode, FaChartLine, FaCogs, FaTools, FaGraduationCap, FaUsers, FaAnchor, FaMedal, FaBrain } from 'react-icons/fa';
+import { FaCode, FaChartLine, FaCogs, FaTools, FaGraduationCap, FaUsers, FaAnchor, FaMedal, FaBrain, FaRobot, FaChartBar } from 'react-icons/fa';
+import { FiGithub } from 'react-icons/fi';
 import NavyTimeline from '@/components/NavyTimeline';
 
 const container = {
@@ -519,6 +520,241 @@ export default function AboutPage() {
                     : 'text-modern-text/90'
                 }`}>
                   Practical AI for workflow automation, integration, and business efficiency.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FiGithub className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  AI Coding Agents with GitHub Copilot and Cursor
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  LinkedIn Learning • Completed: July 2025
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Developed autonomous agents using GitHub Copilot and no-code platforms.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FaChartLine className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  AI in Financial Forecasting
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  LinkedIn Learning • Completed: July 2025
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Applied machine learning to financial modeling, trend analysis, and forecasting.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FaBrain className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  Advanced Prompt Engineering Techniques
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  LinkedIn Learning • Completed: November 2023
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Covered complex prompt structures, chaining techniques, and model control.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FaGraduationCap className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  Career Essentials in Generative AI
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  Microsoft & LinkedIn • Completed: November 2023
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Comprehensive introduction to generative AI in business and ethical considerations.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FaChartBar className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  Tableau Essential Training (2022)
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  LinkedIn Learning • Completed: March 2024
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Created dashboards and visualizations for data storytelling and reporting.
                 </p>
               </motion.div>
             </div>
