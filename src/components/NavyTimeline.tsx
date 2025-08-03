@@ -212,18 +212,23 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.8, opacity: 0 }}
-          className={`card relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-6 ${
+          className={`card relative max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-6 border-2 ${
             theme === 'dystopian' 
-              ? 'bg-surface-dark border-accent' 
-              : 'bg-surface-light border-primary'
+              ? 'bg-black/90 border-neon-blue backdrop-blur-sm' 
+              : 'bg-white border-gray-200 shadow-xl'
           }`}
+          style={
+            theme === 'dystopian'
+              ? { boxShadow: '0 0 30px rgba(0, 255, 255, 0.3)' }
+              : undefined
+          }
           onClick={(e: React.MouseEvent) => e.stopPropagation()}
         >
           <button
             onClick={onClose}
             className={`absolute top-4 right-4 p-2 rounded-full transition-colors ${
               theme === 'dystopian'
-                ? 'hover:bg-cyber-gray text-gray-300 hover:text-white'
+                ? 'hover:bg-gray-800 text-gray-300 hover:text-white'
                 : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
             }`}
           >
@@ -324,7 +329,7 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
               }`}>Impact & Legacy</h4>
               <p className={`p-4 rounded-lg ${
                 theme === 'dystopian'
-                  ? 'bg-cyber-gray/30 border-l-4 border-neon-pink text-white'
+                  ? 'bg-gray-800/50 border-l-4 border-neon-pink text-white'
                   : 'bg-gray-50 border-l-4 border-primary text-gray-700'
               }`}>
                 {entry.expandedContent.impact}
@@ -398,8 +403,8 @@ const NavyTimeline: React.FC = () => {
                 <motion.div
                   className={`relative p-6 rounded-xl border-2 backdrop-blur-sm ${
                     theme === 'dystopian'
-                      ? 'bg-surface-dark/80 text-primary'
-                      : 'bg-surface-light/90 text-gray-800'
+                      ? 'bg-black/80 text-white'
+                      : 'bg-white/90 text-gray-800'
                   }`}
                   style={{
                     borderColor: getCategoryColor(entry.category),
