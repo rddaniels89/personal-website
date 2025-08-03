@@ -42,18 +42,18 @@ const timelineData: TimelineEntry[] = [
     description: 'Enlisted in the United States Navy, beginning an incredible journey of service, leadership, and personal growth.',
     expandedContent: {
       achievements: [
-        'Completed Navy Boot Camp with honors - Top 15% of division',
-        'Selected for Financial Management rating based on ASVAB scores and aptitude testing',
-        'Demonstrated exceptional leadership potential - Chosen as Division Leader',
+        'Selected as Division Leader during Boot Camp; led 80+ recruits',
         'Earned Expert Marksmanship qualification',
-        'Graduated with Perfect Physical Readiness Test scores',
-        'Received Recognition for Outstanding Military Bearing and Leadership'
+        'Completed training with top 10% distinction',
+        'Recognized for Outstanding Military Bearing and Physical Fitness Excellence',
+        'Developed core values of discipline, attention to detail, and accountability',
+        'Laid the foundation for a high-impact career in military finance and leadership'
       ],
       photos: [
         { src: '/images/roderick-navy0.jpg', alt: 'Navy Boot Camp Graduation', caption: 'Boot Camp Graduation Day' }
       ],
-      skills: ['Military Bearing', 'Team Leadership', 'Financial Fundamentals', 'Discipline & Time Management', 'Physical Fitness', 'Attention to Detail'],
-      impact: 'Established the foundation for a distinguished military career by demonstrating exceptional character, leadership ability, and commitment to excellence. Set the standard for performance that would define the next 5 years of service and beyond into civilian leadership roles.'
+      skills: ['Military Bearing', 'Team Leadership', 'Division Leadership', 'Physical Fitness Excellence', 'Discipline & Accountability', 'Attention to Detail', 'Core Military Values'],
+      impact: 'Established the foundation for a distinguished military career by demonstrating exceptional leadership over 80+ recruits and achieving top-tier performance standards. The core values of discipline, attention to detail, and accountability developed during this period became the cornerstone of future military and civilian success.'
     },
     icon: FaAnchor,
     category: 'training'
@@ -67,18 +67,18 @@ const timelineData: TimelineEntry[] = [
     description: 'Completed intensive financial management training, learning advanced accounting, budgeting, and financial analysis techniques.',
     expandedContent: {
       achievements: [
-        'Graduated top 10% of class with 3.8 GPA in intensive 16-week program',
-        'Mastered Navy Standard Integrated Personnel System (NSIPS) and financial databases',
-        'Earned Financial Management (FM) rating qualification ahead of schedule',
-        'Completed advanced certification in Defense Travel System (DTS)',
-        'Selected for accelerated advancement to Petty Officer Third Class',
-        'Received Academic Excellence Award for superior performance'
+        'Graduated with a 3.8 GPA',
+        'Earned Academic Excellence Award for top-tier performance',
+        'Promoted early to E-4 based on academic and leadership merit',
+        'Trained in federal financial regulations, accounting systems, and audit prep',
+        'Advanced in Excel, Access, and proprietary DoD financial systems',
+        'Built strong foundations in fund control and resource planning'
       ],
       photos: [
         { src: '/images/roderick-navy1.jpg', alt: 'Financial Management Training', caption: 'Advanced Training Phase' }
       ],
-      skills: ['Financial Analysis', 'Budget Management', 'Regulatory Compliance', 'System Administration', 'Advanced Excel & Database Management', 'Federal Financial Regulations', 'Audit Preparation'],
-      impact: 'Developed comprehensive expertise in military financial systems and federal regulations that became the cornerstone of career advancement. This technical proficiency enabled leadership roles and positioned for successful transition to civilian defense contracting and federal financial management.'
+      skills: ['Financial Analysis', 'Federal Financial Regulations', 'Advanced Excel & Access', 'DoD Financial Systems', 'Fund Control', 'Resource Planning', 'Audit Preparation', 'Accounting Systems'],
+      impact: 'Developed comprehensive expertise in military financial systems and federal regulations that became the cornerstone of career advancement. Early promotion to E-4 based on merit demonstrated exceptional aptitude that would enable rapid progression through leadership roles and successful transition to civilian federal financial management.'
     },
     icon: FaGraduationCap,
     category: 'training'
@@ -87,24 +87,24 @@ const timelineData: TimelineEntry[] = [
     id: 'first-deployment',
     date: '2015-2016',
     title: 'First Overseas Deployment',
-    subtitle: 'Combat Operations Support',
-    location: 'Middle East Theater',
+    subtitle: 'Combat Zone Operations',
+    location: 'Middle East (exact location classified)',
     description: 'First major deployment supporting combat and humanitarian operations, managing critical financial operations in high-stress environments.',
     expandedContent: {
       achievements: [
-        'Managed $15+ million in operational and humanitarian mission budgets',
-        'Led financial support for 12 humanitarian missions across 4 countries',
-        'Received Navy Achievement Medal for exceptional performance under combat conditions',
-        'Promoted ahead of peers to Petty Officer Second Class (E-5) in record time',
-        'Processed over $2M in emergency financial authorizations without error',
-        'Coordinated international financial operations with allied forces',
-        'Achieved 100% accountability in high-stress combat environment audits'
+        'Managed over $15M in operational budgets across multiple commands',
+        'Awarded the Navy and Marine Corps Achievement Medal',
+        'Supported urgent/emergency financial authorizations in combat environments',
+        'Coordinated with multinational partners and joint task forces',
+        'Maintained 100% accountability of classified and unclassified funds',
+        'Gained real-time leadership and risk assessment experience under fire',
+        'Established reputation for reliability under pressure'
       ],
       photos: [
         { src: '/images/roderick-navy2.webp', alt: 'First Deployment', caption: 'Overseas Operations' }
       ],
-      skills: ['Crisis Management', 'International Operations', 'Multi-million Dollar Budgets', 'Team Coordination', 'Combat Zone Operations', 'Emergency Financial Authorization', 'Multi-National Cooperation', 'Stress Management'],
-      impact: 'Proved exceptional capability to maintain financial integrity and operational effectiveness in the most challenging circumstances. This deployment established reputation for reliability under pressure that opened doors to senior leadership positions and demonstrated readiness for high-stakes civilian financial management roles.'
+      skills: ['Crisis Management', 'Combat Zone Operations', 'Emergency Financial Authorization', 'Multinational Coordination', 'Risk Assessment Under Fire', 'Classified Fund Management', 'Joint Task Force Operations', 'Real-time Leadership'],
+      impact: 'Proved exceptional capability to maintain financial integrity and operational effectiveness under combat conditions. This deployment established a reputation for reliability under extreme pressure and demonstrated the ability to manage critical financial operations in the most challenging circumstances, setting the foundation for future senior leadership roles.'
     },
     icon: FaPlane,
     category: 'deployment'
@@ -113,24 +113,24 @@ const timelineData: TimelineEntry[] = [
     id: 'leadership-role',
     date: '2016-2017',
     title: 'Assistant Financial Manager',
-    subtitle: 'Leadership Development',
-    location: 'Naval Air Station',
-    description: 'Promoted to leadership role, overseeing financial operations for major naval aviation unit and mentoring junior personnel.',
+    subtitle: 'Joint Tasking Operations',
+    location: 'Europe',
+    description: 'Led financial operations for joint military exercises and multinational operations, overseeing digital transformation initiatives.',
     expandedContent: {
       achievements: [
-        'Led team of 12 financial specialists managing $25M+ annual aviation unit budget',
-        'Implemented digital process improvements increasing efficiency by 35% and reducing errors by 40%',
-        'Contributed to unit Supply Blue E award for excellence in financial and supply management',
-        'Mentored 15+ junior sailors with 100% advancement rate for direct reports',
-        'Designed and conducted financial training program adopted unit-wide',
-        'Achieved zero audit findings during Inspector General inspection',
-        'Streamlined vendor payment processes reducing processing time from 30 to 10 days'
+        'Led digital transformation of vendor management processes',
+        'Drove 35% improvement in reimbursement cycle time',
+        'Created training programs for junior personnel across 4 departments',
+        'Oversaw team of 6 finance techs and ensured zero audit findings',
+        'Supported complex operations during NATO joint exercises',
+        'Key contributor to Unit Commendation for financial readiness',
+        'Developed resource forecasting models still in use today'
       ],
       photos: [
         { src: '/images/roderick-navy3.jpg', alt: 'Leadership Role', caption: 'Leading Financial Operations' }
       ],
-      skills: ['Team Leadership', 'Process Improvement', 'Mentorship', 'Strategic Planning', 'Training Development', 'Quality Control', 'Vendor Management', 'Digital Transformation', 'Performance Management'],
-      impact: 'Demonstrated transformational leadership by revolutionizing unit financial operations through innovation and team development. This role established a proven track record of leading high-performing teams and implementing efficiency improvements that directly translates to success in civilian leadership positions requiring change management and operational excellence.'
+      skills: ['Digital Transformation', 'Vendor Management', 'NATO Joint Operations', 'Cross-Departmental Training', 'Resource Forecasting', 'Financial Readiness', 'Process Innovation', 'Team Leadership', 'Audit Management'],
+      impact: 'Demonstrated transformational leadership by revolutionizing financial operations through digital innovation and cross-departmental training programs. The resource forecasting models developed during this period continue to be used today, showcasing the lasting impact of strategic thinking and process improvement capabilities that translate directly to civilian leadership excellence.'
     },
     icon: FaUsers,
     category: 'leadership'
@@ -140,24 +140,24 @@ const timelineData: TimelineEntry[] = [
     date: '2017-2018',
     title: 'Advanced Operations Deployment',
     subtitle: 'Senior Financial Manager',
-    location: 'Afghanistan Theater',
-    description: 'Led financial operations during critical deployment phase, managing complex multi-national financial requirements.',
+    location: 'Horn of Africa & Indian Ocean',
+    description: 'Led theater-level financial operations across multiple maritime locations, managing complex logistics and emergency funding protocols.',
     expandedContent: {
       achievements: [
-        'Managed $75M+ in operational funds across 8 different mission categories',
-        'Coordinated financial support for multi-national operations with 6 allied nations',
-        'Received second Navy Achievement Medal and Combat Action Ribbon',
-        'Led comprehensive financial audit with zero discrepancies across $50M+ in transactions',
-        'Promoted to Petty Officer First Class (E-6) during deployment',
-        'Established emergency financial protocols adopted across theater operations',
-        'Managed cryptocurrency and digital payment systems for sensitive operations',
-        'Trained and certified 25+ personnel on advanced financial procedures'
+        'Managed $75M in funds across 12 locations in austere environments',
+        'Integrated digital payment systems into operational workflows',
+        'Supported theater-level logistics and finance strategy for maritime ops',
+        'Earned Combat Action Ribbon for engagement in hostile territory',
+        'Partnered with coalition forces for emergency logistics finance',
+        'Created SOPs used in contingency funding efforts DoD-wide',
+        'Recognized by commanding officers for strategic decision-making under pressure',
+        'Developed financial models for emergency evacuation protocol planning'
       ],
       photos: [
         { src: '/images/roderick-navy4.jpg', alt: 'Advanced Deployment', caption: 'Senior Leadership Role' }
       ],
-      skills: ['Senior Leadership', 'International Finance', 'Audit Management', 'Strategic Operations', 'Emergency Protocol Development', 'Digital Payment Systems', 'Advanced Training & Certification', 'Theater-level Operations', 'Multi-National Coordination'],
-      impact: 'Achieved the pinnacle of military financial leadership by successfully managing the largest and most complex financial operations in theater. This deployment cemented reputation as a strategic financial leader capable of handling billion-dollar responsibilities, directly enabling transition to senior civilian positions in defense financial management and federal contracting.'
+      skills: ['Theater-Level Operations', 'Maritime Finance Strategy', 'Digital Payment Integration', 'Austere Environment Operations', 'Coalition Force Coordination', 'Emergency Logistics Finance', 'SOP Development', 'Strategic Decision-Making', 'Emergency Evacuation Planning'],
+      impact: 'Achieved the pinnacle of military financial leadership by successfully managing complex theater-level operations across 12 austere locations. The SOPs and financial models developed during this deployment are still used DoD-wide, demonstrating lasting strategic impact and validating readiness for the highest levels of civilian financial leadership and defense contracting responsibilities.'
     },
     icon: FaChartLine,
     category: 'deployment'
@@ -165,24 +165,23 @@ const timelineData: TimelineEntry[] = [
   {
     id: 'transition',
     date: '2019',
-    title: 'Honorable Discharge',
-    subtitle: 'Transition to Civilian Leadership',
-    location: 'San Diego, CA',
-    description: 'Completed military service with honors, transitioning to civilian career while maintaining the values and leadership skills gained.',
+    title: 'Honorable Discharge & Civilian Transition',
+    subtitle: 'Transition to Federal Leadership',
+    location: 'Returned to U.S.',
+    description: 'Completed exemplary military service and transitioned to civilian federal career, applying military-learned discipline to high-stakes operations.',
     expandedContent: {
       achievements: [
-        'Honorable Discharge with Navy Achievement Medal (2x), Combat Action Ribbon, and 5 service medals',
-        'Perfect 4.0 performance evaluations across all 5 years of service',
-        'Leadership legacy: 100% of mentored personnel achieved advancement during tenure',
-        'Seamless transition to civilian GS-12 federal position within 30 days',
-        'Completed Bachelor\'s degree during service with 3.7 GPA while deployed',
-        'Established enduring financial training programs still used by successor units',
-        'Received Letter of Commendation from Commanding Officer for "exceptional dedication and transformational leadership"',
-        'Selected for early discharge to pursue federal civilian career opportunity'
+        'Completed Bachelor\'s Degree in Business Administration',
+        'Received perfect score on final Navy evaluation',
+        'Transitioned into GS-level Financial Analyst role within DoD',
+        'Applied military-learned discipline to high-stakes federal operations',
+        'Launched long-term financial management career with future FERS pension',
+        'Began pursuit of MBA and high-level certifications (CDFM, LangChain AI training)',
+        'Left a legacy of mentorship, efficiency, and mission-first mindset'
       ],
       photos: [],
-      skills: ['Strategic Transition', 'Civilian Leadership', 'Legacy Building', 'Knowledge Transfer', 'Educational Achievement', 'Program Development', 'Federal Transition', 'Career Planning'],
-      impact: 'Completed an exemplary military career that established the foundation for continued success in federal service. The leadership principles, financial expertise, and process improvement mindset developed during 5 years of distinguished naval service continues to drive exceptional performance in civilian roles, enabling rapid advancement to senior GS-14 positions and recognition as a transformational leader in defense financial management.'
+      skills: ['Strategic Transition', 'Federal Career Planning', 'Business Administration', 'GS-Level Operations', 'Professional Certification Pursuit', 'Legacy Building', 'Mission-First Leadership', 'Educational Achievement'],
+      impact: 'Successfully transitioned military excellence into federal civilian leadership, seamlessly applying naval financial expertise and leadership principles to drive success in defense contracting roles. The foundation built during distinguished naval service enabled rapid career progression and positioned for continued advancement through MBA education, professional certifications, and AI training – demonstrating the career progression from enlisted service to senior federal leadership.'
     },
     icon: FaMedal,
     category: 'achievement'
@@ -222,26 +221,42 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
         >
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 p-2 rounded-full hover:bg-surface-secondary"
+            className={`absolute top-4 right-4 p-2 rounded-full transition-colors ${
+              theme === 'dystopian'
+                ? 'hover:bg-cyber-gray text-gray-300 hover:text-white'
+                : 'hover:bg-gray-100 text-gray-600 hover:text-gray-900'
+            }`}
           >
             <FaTimes className="w-5 h-5" />
           </button>
 
           <div className="pr-12">
             <div className="flex items-center gap-3 mb-4">
-              <entry.icon className="w-6 h-6 text-primary" />
+              <entry.icon className={`w-6 h-6 ${
+                theme === 'dystopian' ? 'text-neon-blue' : 'text-primary'
+              }`} />
               <div>
-                <h3 className="text-2xl font-bold">{entry.title}</h3>
-                <p className="text-lg text-secondary">{entry.subtitle}</p>
-                <p className="text-sm text-tertiary">{entry.date} • {entry.location}</p>
+                <h3 className={`text-2xl font-bold ${
+                  theme === 'dystopian' ? 'text-white' : 'text-gray-900'
+                }`}>{entry.title}</h3>
+                <p className={`text-lg ${
+                  theme === 'dystopian' ? 'text-neon-blue' : 'text-gray-600'
+                }`}>{entry.subtitle}</p>
+                <p className={`text-sm ${
+                  theme === 'dystopian' ? 'text-gray-300' : 'text-gray-500'
+                }`}>{entry.date} • {entry.location}</p>
               </div>
             </div>
 
-            <p className="text-lg mb-6">{entry.description}</p>
+            <p className={`text-lg mb-6 ${
+              theme === 'dystopian' ? 'text-gray-200' : 'text-gray-700'
+            }`}>{entry.description}</p>
 
             {entry.expandedContent.photos.length > 0 && (
               <div className="mb-6">
-                <h4 className="text-lg font-semibold mb-3 text-primary">Photos</h4>
+                <h4 className={`text-lg font-semibold mb-3 ${
+                  theme === 'dystopian' ? 'text-neon-blue' : 'text-primary'
+                }`}>Photos</h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {entry.expandedContent.photos.map((photo, index) => (
                     <div key={index} className="relative aspect-[4/3] rounded-lg overflow-hidden">
@@ -265,26 +280,34 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div>
-                <h4 className="text-lg font-semibold mb-3 text-primary">Key Achievements</h4>
+                <h4 className={`text-lg font-semibold mb-3 ${
+                  theme === 'dystopian' ? 'text-neon-blue' : 'text-primary'
+                }`}>Key Achievements</h4>
                 <ul className="space-y-2">
                   {entry.expandedContent.achievements.map((achievement, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <span className="text-primary mt-1">•</span>
-                      <span>{achievement}</span>
+                      <span className={`mt-1 ${
+                        theme === 'dystopian' ? 'text-neon-pink' : 'text-primary'
+                      }`}>•</span>
+                      <span className={theme === 'dystopian' ? 'text-gray-200' : 'text-gray-700'}>
+                        {achievement}
+                      </span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div>
-                <h4 className="text-lg font-semibold mb-3 text-primary">Skills Developed</h4>
+                <h4 className={`text-lg font-semibold mb-3 ${
+                  theme === 'dystopian' ? 'text-neon-blue' : 'text-primary'
+                }`}>Skills Developed</h4>
                 <div className="flex flex-wrap gap-2">
                   {entry.expandedContent.skills.map((skill, index) => (
                     <span
                       key={index}
                       className={`px-3 py-1 rounded-full text-sm ${
                         theme === 'dystopian'
-                          ? 'bg-accent/20 text-accent border border-accent/30'
+                          ? 'bg-neon-blue/20 text-neon-blue border border-neon-blue/30'
                           : 'bg-primary/20 text-primary border border-primary/30'
                       }`}
                     >
@@ -296,11 +319,13 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
             </div>
 
             <div>
-              <h4 className="text-lg font-semibold mb-3 text-primary">Impact & Legacy</h4>
+              <h4 className={`text-lg font-semibold mb-3 ${
+                theme === 'dystopian' ? 'text-neon-blue' : 'text-primary'
+              }`}>Impact & Legacy</h4>
               <p className={`p-4 rounded-lg ${
                 theme === 'dystopian'
-                  ? 'bg-surface-secondary border-l-4 border-accent'
-                  : 'bg-surface-secondary border-l-4 border-primary'
+                  ? 'bg-cyber-gray/30 border-l-4 border-neon-pink text-gray-200'
+                  : 'bg-gray-50 border-l-4 border-primary text-gray-700'
               }`}>
                 {entry.expandedContent.impact}
               </p>
@@ -403,9 +428,15 @@ const NavyTimeline: React.FC = () => {
                   <div className="mt-4">
                     <div className="flex justify-between items-start mb-3">
                       <div>
-                        <h3 className="text-xl font-bold mb-1">{entry.title}</h3>
-                        <h4 className="text-lg text-secondary mb-1">{entry.subtitle}</h4>
-                        <p className="text-sm text-tertiary">{entry.location}</p>
+                        <h3 className={`text-xl font-bold mb-1 ${
+                          theme === 'dystopian' ? 'text-white' : 'text-gray-900'
+                        }`}>{entry.title}</h3>
+                        <h4 className={`text-lg mb-1 ${
+                          theme === 'dystopian' ? 'text-neon-blue' : 'text-gray-600'
+                        }`}>{entry.subtitle}</h4>
+                        <p className={`text-sm ${
+                          theme === 'dystopian' ? 'text-gray-300' : 'text-gray-500'
+                        }`}>{entry.location}</p>
                       </div>
                       
                       {entry.expandedContent && (
@@ -413,7 +444,7 @@ const NavyTimeline: React.FC = () => {
                           onClick={() => setExpandedEntry(entry)}
                           className={`p-2 rounded-full transition-all hover:scale-110 ${
                             theme === 'dystopian'
-                              ? 'bg-accent/20 hover:bg-accent/30 text-accent'
+                              ? 'bg-neon-blue/20 hover:bg-neon-blue/30 text-neon-blue'
                               : 'bg-primary/20 hover:bg-primary/30 text-primary'
                           }`}
                           title="View Details"
@@ -423,14 +454,16 @@ const NavyTimeline: React.FC = () => {
                       )}
                     </div>
                     
-                    <p className="text-sm leading-relaxed mb-4">{entry.description}</p>
+                    <p className={`text-sm leading-relaxed mb-4 ${
+                      theme === 'dystopian' ? 'text-gray-200' : 'text-gray-700'
+                    }`}>{entry.description}</p>
                     
                     {entry.expandedContent && (
                       <motion.button
                         onClick={() => setExpandedEntry(entry)}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
                           theme === 'dystopian'
-                            ? 'bg-accent/20 hover:bg-accent/30 text-accent border border-accent/30'
+                            ? 'bg-neon-pink/20 hover:bg-neon-pink/30 text-neon-pink border border-neon-pink/30'
                             : 'bg-primary/20 hover:bg-primary/30 text-primary border border-primary/30'
                         }`}
                         whileHover={{ scale: 1.05 }}
