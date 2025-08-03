@@ -1,0 +1,67 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Header -->
+  <rect x="0" y="0" width="800" height="80" fill="#1e40af"/>
+  <text x="40" y="45" fill="white" font-family="Arial, sans-serif" font-size="24" font-weight="bold">FIRE FED Calculator</text>
+  <text x="40" y="65" fill="#93c5fd" font-family="Arial, sans-serif" font-size="14">Financial Independence for Federal Employees</text>
+  
+  <!-- Main Content Area -->
+  <rect x="40" y="100" width="720" height="480" fill="white" stroke="#e5e7eb" stroke-width="1" rx="8"/>
+  
+  <!-- Left Panel - Input Form -->
+  <rect x="60" y="120" width="340" height="440" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="6"/>
+  <text x="80" y="145" fill="#1f2937" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Your Information</text>
+  
+  <!-- Form Fields -->
+  <rect x="80" y="160" width="300" height="35" fill="white" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="90" y="180" fill="#6b7280" font-family="Arial, sans-serif" font-size="12">Current Age: 35</text>
+  
+  <rect x="80" y="205" width="300" height="35" fill="white" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="90" y="225" fill="#6b7280" font-family="Arial, sans-serif" font-size="12">Years of Service: 12</text>
+  
+  <rect x="80" y="250" width="300" height="35" fill="white" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="90" y="270" fill="#6b7280" font-family="Arial, sans-serif" font-size="12">Current Salary: $85,000</text>
+  
+  <rect x="80" y="295" width="300" height="35" fill="white" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="90" y="315" fill="#6b7280" font-family="Arial, sans-serif" font-size="12">TSP Balance: $245,000</text>
+  
+  <rect x="80" y="340" width="300" height="35" fill="white" stroke="#d1d5db" stroke-width="1" rx="4"/>
+  <text x="90" y="360" fill="#6b7280" font-family="Arial, sans-serif" font-size="12">Monthly TSP Contribution: 15%</text>
+  
+  <!-- Calculate Button -->
+  <rect x="80" y="390" width="300" height="40" fill="#3b82f6" rx="6"/>
+  <text x="210" y="415" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Calculate FIRE Plan</text>
+  
+  <!-- Right Panel - Results -->
+  <rect x="420" y="120" width="320" height="440" fill="white"/>
+  <text x="440" y="145" fill="#1f2937" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Your FIRE Timeline</text>
+  
+  <!-- Result Cards -->
+  <rect x="440" y="160" width="280" height="60" fill="#dcfce7" stroke="#16a34a" stroke-width="1" rx="6"/>
+  <text x="450" y="180" fill="#166534" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Retirement Eligibility</text>
+  <text x="450" y="200" fill="#15803d" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Age 57 (22 years)</text>
+  
+  <rect x="440" y="235" width="280" height="60" fill="#dbeafe" stroke="#3b82f6" stroke-width="1" rx="6"/>
+  <text x="450" y="255" fill="#1e40af" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Estimated FERS Pension</text>
+  <text x="450" y="275" fill="#2563eb" font-family="Arial, sans-serif" font-size="20" font-weight="bold">$2,847/month</text>
+  
+  <rect x="440" y="310" width="280" height="60" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" rx="6"/>
+  <text x="450" y="330" fill="#92400e" font-family="Arial, sans-serif" font-size="14" font-weight="bold">Projected TSP Value</text>
+  <text x="450" y="350" fill="#d97706" font-family="Arial, sans-serif" font-size="20" font-weight="bold">$1,247,000</text>
+  
+  <!-- Chart Area -->
+  <rect x="440" y="385" width="280" height="150" fill="#f9fafb" stroke="#e5e7eb" stroke-width="1" rx="4"/>
+  <text x="570" y="410" fill="#6b7280" font-family="Arial, sans-serif" font-size="12" text-anchor="middle">Retirement Projection Chart</text>
+  
+  <!-- Simple Chart Lines -->
+  <path d="M460 520 L480 500 L500 485 L520 475 L540 460 L560 450 L580 435 L600 425 L620 415 L640 405 L660 400 L680 395 L700 390" stroke="#3b82f6" stroke-width="3" fill="none"/>
+  <path d="M460 520 L480 515 L500 510 L520 505 L540 500 L560 495 L580 490 L600 485 L620 480 L640 475 L660 470 L680 465 L700 460" stroke="#16a34a" stroke-width="2" fill="none"/>
+  
+  <!-- Legend -->
+  <circle cx="470" cy="545" r="3" fill="#3b82f6"/>
+  <text x="480" y="550" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">TSP Growth</text>
+  <circle cx="570" cy="545" r="3" fill="#16a34a"/>
+  <text x="580" y="550" fill="#6b7280" font-family="Arial, sans-serif" font-size="10">FERS Pension</text>
+</svg>

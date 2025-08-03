@@ -51,7 +51,7 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        src: "/images/placeholder-project.svg",
+        src: "/images/fire-fed-screenshot.svg",
         alt: "FIRE-Fed Calculator Screenshot",
         caption: "FIRE calculator interface for federal employees"
       }
@@ -88,9 +88,9 @@ export const projects: Project[] = [
     ],
     images: [
       {
-        src: "/images/placeholder-project.svg",
-        alt: "Federal Retirement Advisor Screenshot",
-        caption: "Retirement planning interface for federal employees"
+        src: "/images/fed-retirement-advisor-screenshot.svg",
+        alt: "Federal Retirement Advisor Screenshot", 
+        caption: "Intelligent retirement advisory system interface"
       }
     ],
     githubUrl: "https://github.com/rddaniels89/fed-retirement-advisor.git",
