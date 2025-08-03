@@ -4,10 +4,8 @@ import * as React from 'react';
 import Image from 'next/image';
 import { useTheme } from '@/lib/ThemeContext';
 import { motion, useInView } from 'framer-motion';
-import { FaCode, FaChartLine, FaCogs, FaTools, FaGraduationCap, FaUsers, FaAnchor, FaMedal } from 'react-icons/fa';
+import { FaCode, FaChartLine, FaCogs, FaTools, FaGraduationCap, FaUsers, FaAnchor, FaMedal, FaBrain } from 'react-icons/fa';
 import NavyTimeline from '@/components/NavyTimeline';
-import TextTransition from '@/components/TextTransition';
-import TextReveal from '@/components/TextReveal';
 
 const container = {
   hidden: { opacity: 0 },
@@ -162,11 +160,13 @@ export default function AboutPage() {
   // Refs for scroll animations
   const whatIDoRef = React.useRef(null);
   const whatDrivesMeRef = React.useRef(null);
+  const aiTrainingRef = React.useRef(null);
   const familyRef = React.useRef(null);
   const navyJourneyRef = React.useRef(null);
   
   const whatIDoInView = useInView(whatIDoRef, { once: true, margin: "-50px" });
   const whatDrivesMeInView = useInView(whatDrivesMeRef, { once: true, margin: "-50px" });
+  const aiTrainingInView = useInView(aiTrainingRef, { once: true, margin: "-50px" });
   const familyInView = useInView(familyRef, { once: true, margin: "-50px" });
   const navyJourneyInView = useInView(navyJourneyRef, { once: true, margin: "-50px" });
 
@@ -182,18 +182,18 @@ export default function AboutPage() {
           {/* Introduction with Photo */}
           <motion.section variants={item} className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div>
-              <TextReveal
-                delay={0.2}
-                duration={1.0}
-                direction="left"
-                className={`heading-1 text-center text-balance mb-8 ${
+              <motion.h1
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.2, duration: 1.0 }}
+                className={`text-4xl font-bold text-center text-balance mb-8 ${
                   theme === 'dystopian'
-                    ? 'neon-text text-glow'
-                    : 'gradient-text'
+                    ? 'text-blue-400'
+                    : 'text-gray-900'
                 }`}
               >
-                <h1>About Me</h1>
-              </TextReveal>
+                About Me
+              </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0 }}
@@ -350,6 +350,177 @@ export default function AboutPage() {
                   </p>
                 </motion.div>
               ))}
+            </div>
+          </motion.section>
+
+          {/* AI Training & Certifications */}
+          <motion.section
+            ref={aiTrainingRef}
+            initial="hidden"
+            animate={aiTrainingInView ? "visible" : "hidden"}
+            variants={staggerContainer}
+          >
+            <motion.div 
+              variants={fadeInUp}
+              className="flex items-center gap-3 mb-6"
+            >
+              <FaBrain className="text-primary w-6 h-6" />
+              <h2 className="text-2xl font-bold text-primary">
+                AI Training & Certifications
+              </h2>
+            </motion.div>
+            
+            <motion.div 
+              variants={fadeInUp}
+              className="prose max-w-none mb-8"
+            >
+              <p className="text-lg mb-6 body-large">
+                Staying ahead in today's rapidly evolving tech landscape requires continuous learning. I've completed advanced AI and machine learning courses to enhance my technical expertise and bring cutting-edge solutions to financial operations.
+              </p>
+            </motion.div>
+
+            {/* Certifications Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FaCode className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  LangChain for LLM Application Development
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  DeepLearning.AI
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Trained on retrieval-augmented generation (RAG), LangChain agents, memory, and orchestration.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FaChartLine className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  ChatGPT Prompt Engineering for Developers
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  DeepLearning.AI & OpenAI
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Focused on zero-shot/few-shot prompting and instruction tuning for LLMs.
+                </p>
+              </motion.div>
+
+              <motion.div
+                variants={cardVariant}
+                whileHover="hover"
+                whileTap="tap"
+                className={`card p-6 rounded-lg transition-all duration-300 ${
+                  theme === 'dystopian'
+                    ? 'border-2 hover:shadow-[0_0_20px_rgba(26,254,73,0.1)]'
+                    : 'bg-modern-gray border border-modern-accent/10 hover:border-modern-accent/30 hover:bg-white/90 hover:shadow-lg'
+                }`}
+                style={{
+                  backgroundColor: theme === 'dystopian' ? 'var(--color-background)' : undefined,
+                  borderColor: theme === 'dystopian' ? '#083e12' : undefined
+                }}
+              >
+                <motion.div
+                  variants={iconAnimation}
+                  className="mb-4"
+                >
+                  <FaCogs className={`w-6 h-6 transition-colors duration-300 ${
+                    theme === 'dystopian'
+                      ? 'text-neon-pink/90'
+                      : 'text-modern-accent/90'
+                  }`} />
+                </motion.div>
+                <h3 className={`text-lg font-bold mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-blue/90'
+                    : 'text-navy-blue/90'
+                }`}>
+                  Leverage AI Tools and Resources for Your Business
+                </h3>
+                <p className={`text-sm mb-2 transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-neon-pink/70'
+                    : 'text-modern-accent/70'
+                }`}>
+                  Microsoft Learn
+                </p>
+                <p className={`text-sm body-normal transition-colors duration-300 ${
+                  theme === 'dystopian'
+                    ? 'text-gray-300/90'
+                    : 'text-modern-text/90'
+                }`}>
+                  Practical AI for workflow automation, integration, and business efficiency.
+                </p>
+              </motion.div>
             </div>
           </motion.section>
 
