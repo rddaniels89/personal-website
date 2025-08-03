@@ -127,16 +127,16 @@ const summary = {
   professional: "Accomplished Financial Management Leader with 11+ years of experience driving financial strategy and operational excellence across defense and healthcare sectors. Expert in managing billion-dollar budgets, optimizing federal workflows, and leading cross-functional teams to deliver regulatory compliance and mission readiness. Recently trained in AI-powered tools and automation—including LangChain, ChatGPT Prompt Engineering, and AI financial forecasting—adding cutting-edge capabilities to support digital transformation and decision intelligence. Recognized for strategic vision, data-driven execution, and a consistent record of delivering measurable value in high-stakes, complex government environments.",
   competencies: [
     {
-      category: "Financial Management",
-      skills: ["Budget Analysis", "Financial Operations", "Resource Planning", "Fund Management", "Audit Readiness"]
+      category: "Financial Management & Analytics",
+      skills: ["Budget Analysis", "Fund Control", "Financial Forecasting", "Resource Planning", "Financial Operations", "Audit Readiness"]
     },
     {
-      category: "Defense Operations",
-      skills: ["DoD Regulations", "Military Healthcare", "Government Procurement", "Defense Financial Systems"]
+      category: "AI & Technology",
+      skills: ["AI Workflow Automation", "Prompt Engineering", "Data Visualization", "Power BI", "Tableau", "Defense Financial Systems"]
     },
     {
-      category: "Leadership & Strategy",
-      skills: ["Strategic Planning", "Process Improvement", "Team Leadership", "Project Management", "Change Management"]
+      category: "Defense Operations & Leadership",
+      skills: ["DoD Regulations", "Military Healthcare", "Government Procurement", "Strategic Planning", "Process Improvement", "Change Management"]
     }
   ]
 };
