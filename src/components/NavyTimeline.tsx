@@ -243,13 +243,13 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
                   theme === 'dystopian' ? 'text-neon-blue' : 'text-gray-600'
                 }`}>{entry.subtitle}</p>
                 <p className={`text-sm ${
-                  theme === 'dystopian' ? 'text-gray-300' : 'text-gray-500'
+                  theme === 'dystopian' ? 'text-gray-100' : 'text-gray-500'
                 }`}>{entry.date} • {entry.location}</p>
               </div>
             </div>
 
             <p className={`text-lg mb-6 ${
-              theme === 'dystopian' ? 'text-gray-200' : 'text-gray-700'
+              theme === 'dystopian' ? 'text-white' : 'text-gray-700'
             }`}>{entry.description}</p>
 
             {entry.expandedContent.photos.length > 0 && (
@@ -289,7 +289,7 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
                       <span className={`mt-1 ${
                         theme === 'dystopian' ? 'text-neon-pink' : 'text-primary'
                       }`}>•</span>
-                      <span className={theme === 'dystopian' ? 'text-gray-200' : 'text-gray-700'}>
+                      <span className={theme === 'dystopian' ? 'text-white' : 'text-gray-700'}>
                         {achievement}
                       </span>
                     </li>
@@ -324,7 +324,7 @@ const ExpandedModal: React.FC<ExpandedModalProps> = ({ entry, isOpen, onClose })
               }`}>Impact & Legacy</h4>
               <p className={`p-4 rounded-lg ${
                 theme === 'dystopian'
-                  ? 'bg-cyber-gray/30 border-l-4 border-neon-pink text-gray-200'
+                  ? 'bg-cyber-gray/30 border-l-4 border-neon-pink text-white'
                   : 'bg-gray-50 border-l-4 border-primary text-gray-700'
               }`}>
                 {entry.expandedContent.impact}
@@ -435,7 +435,7 @@ const NavyTimeline: React.FC = () => {
                           theme === 'dystopian' ? 'text-neon-blue' : 'text-gray-600'
                         }`}>{entry.subtitle}</h4>
                         <p className={`text-sm ${
-                          theme === 'dystopian' ? 'text-gray-300' : 'text-gray-500'
+                          theme === 'dystopian' ? 'text-gray-100' : 'text-gray-500'
                         }`}>{entry.location}</p>
                       </div>
                       
@@ -455,7 +455,7 @@ const NavyTimeline: React.FC = () => {
                     </div>
                     
                     <p className={`text-sm leading-relaxed mb-4 ${
-                      theme === 'dystopian' ? 'text-gray-200' : 'text-gray-700'
+                      theme === 'dystopian' ? 'text-white' : 'text-gray-700'
                     }`}>{entry.description}</p>
                     
                     {entry.expandedContent && (
