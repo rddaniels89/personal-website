@@ -124,7 +124,7 @@ const item = {
 };
 
 const summary = {
-  professional: "Accomplished Financial Management Leader with 11+ years of experience driving financial strategy and operational excellence in government organizations. Proven expertise in managing billion-dollar budgets, leading cross-functional teams, and implementing process improvements that drive efficiency and regulatory compliance. Adept at navigating complex regulatory environments and delivering transformative results that support organizational growth and innovation. Recognized for strategic vision, data-driven decision-making, and a consistent record of delivering value across diverse government sectors.",
+  professional: "Accomplished Financial Management Leader with 11+ years of experience driving financial strategy and operational excellence across defense and healthcare sectors. Expert in managing billion-dollar budgets, optimizing federal workflows, and leading cross-functional teams to deliver regulatory compliance and mission readiness. Recently trained in AI-powered tools and automation—including LangChain, ChatGPT Prompt Engineering, and AI financial forecasting—adding cutting-edge capabilities to support digital transformation and decision intelligence. Recognized for strategic vision, data-driven execution, and a consistent record of delivering measurable value in high-stakes, complex government environments.",
   competencies: [
     {
       category: "Financial Management",
