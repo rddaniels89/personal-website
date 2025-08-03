@@ -142,6 +142,11 @@ export default function Navbar() {
                             ? 'bg-gray-900 border-blue-500/20'
                             : 'bg-white border-gray-200'
                         }`}
+                        style={{ 
+                          pointerEvents: 'auto',
+                          position: 'relative',
+                          zIndex: 9999
+                        }}
                       >
                         <div className="py-1">
                           {item.dropdown.map((dropdownItem) => (
@@ -149,15 +154,28 @@ export default function Navbar() {
                               key={dropdownItem.name}
                               whileHover={{ x: 4 }}
                               transition={{ duration: 0.2 }}
+                              style={{ pointerEvents: 'auto' }}
+                              onClick={(e: React.MouseEvent) => {
+                                e.stopPropagation();
+                                console.log('Motion div clicked:', dropdownItem.href, 'Theme:', theme);
+                                setOpenDropdown(null);
+                                // Force navigation as backup
+                                window.location.href = dropdownItem.href;
+                              }}
                             >
                               <Link
                                 href={dropdownItem.href}
-                                onClick={() => setOpenDropdown(null)}
-                                className={`block px-4 py-2 text-sm transition-all duration-200 ${
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  console.log('Dropdown link clicked:', dropdownItem.href, 'Theme:', theme);
+                                  setOpenDropdown(null);
+                                }}
+                                className={`block px-4 py-2 text-sm transition-all duration-200 cursor-pointer ${
                                   theme === 'dystopian'
                                     ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800/50'
                                     : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'
                                 }`}
+                                style={{ pointerEvents: 'auto' }}
                               >
                                 {dropdownItem.name}
                               </Link>
