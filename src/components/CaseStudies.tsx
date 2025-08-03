@@ -307,176 +307,215 @@ export default function CaseStudies() {
     };
 
     // Header
-    doc.setFontSize(24);
+    doc.setFontSize(20);
     doc.setFont('helvetica', 'bold');
-    doc.text('RODERICK DANIELS', marginLeft, currentY);
+    doc.text('Roderick Daniels', marginLeft, currentY);
     
-    currentY += 10;
-    doc.setFontSize(12);
+    currentY += 8;
+    doc.setFontSize(10);
     doc.setFont('helvetica', 'normal');
-    doc.text('Financial Management Leader | AI-Enhanced Analytics | Defense Operations Expert', marginLeft, currentY);
+    doc.text('📍 Schertz, TX | 💼 roderickdaniels.com | 📧 roderick@daniels.com | 📱 (XXX) XXX-XXXX | LinkedIn', marginLeft, currentY);
     
     currentY += 15;
 
-    // Professional Summary
-    doc.setFontSize(14);
+    // Executive Summary
+    doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
-    doc.text('PROFESSIONAL SUMMARY', marginLeft, currentY);
-    currentY += 8;
+    doc.text('EXECUTIVE SUMMARY', marginLeft, currentY);
+    currentY += 6;
     
-    const professionalSummary = "Accomplished Financial Management Leader with 11+ years of experience driving financial strategy and operational excellence across defense and healthcare sectors. Expert in managing billion-dollar budgets, optimizing federal workflows, and leading cross-functional teams to deliver regulatory compliance and mission readiness. Recently trained in AI-powered tools and automation—including LangChain, ChatGPT Prompt Engineering, and AI financial forecasting—adding cutting-edge capabilities to support digital transformation and decision intelligence. Recognized for strategic vision, data-driven execution, and a consistent record of delivering measurable value in high-stakes, complex government environments.";
+    const executiveSummary = "Strategic Financial Management Leader with 11+ years of experience delivering high-impact results across military, federal, and digital finance environments. Proven ability to manage billion-dollar budgets, optimize complex operations, and drive data-informed transformation in high-stakes settings. Recently upskilled in AI-powered financial forecasting, LangChain app development, and prompt engineering. Recognized for combining operational discipline with digital innovation to solve enterprise-level challenges.";
     
-    currentY = addWrappedText(professionalSummary, marginLeft, currentY, contentWidth, 10);
+    currentY = addWrappedText(executiveSummary, marginLeft, currentY, contentWidth, 9);
     currentY += 10;
 
     // Core Competencies
-    doc.setFontSize(14);
+    doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('CORE COMPETENCIES', marginLeft, currentY);
-    currentY += 8;
+    currentY += 6;
 
-    const competencies = [
-      {
-        category: "Financial Management & Analytics",
-        skills: ["Budget Analysis", "Fund Control", "Financial Forecasting", "Resource Planning", "Financial Operations", "Audit Readiness"]
-      },
-      {
-        category: "AI & Technology", 
-        skills: ["AI Workflow Automation", "Prompt Engineering", "Data Visualization", "Power BI", "Tableau", "Defense Financial Systems"]
-      },
-      {
-        category: "Defense Operations & Leadership",
-        skills: ["DoD Regulations", "Military Healthcare", "Government Procurement", "Strategic Planning", "Process Improvement", "Change Management"]
-      }
+    const competencyLines = [
+      'Financial Strategy • Budget & Forecasting • Fund Control • AI/ML in Finance',
+      'Digital Transformation • Prompt Engineering • Tableau & Power BI Dashboards',
+      'Government & Defense Finance • Cost Optimization • Risk Mitigation • Procurement Compliance',
+      'Leadership & People Development • Process Automation • Strategic Planning • Operational Excellence'
     ];
 
-    competencies.forEach((comp) => {
-      doc.setFontSize(11);
-      doc.setFont('helvetica', 'bold');
-      doc.text(`• ${comp.category}:`, marginLeft, currentY);
-      currentY += 5;
-      
+    competencyLines.forEach((line) => {
+      doc.setFontSize(9);
       doc.setFont('helvetica', 'normal');
-      doc.setFontSize(10);
-      currentY = addWrappedText(comp.skills.join(' • '), marginLeft + 5, currentY, contentWidth - 5, 10);
-      currentY += 5;
+      currentY = addWrappedText(line, marginLeft, currentY, contentWidth, 9);
+      currentY += 2;
     });
 
-    currentY += 10;
+    currentY += 8;
 
     // Professional Experience
-    doc.setFontSize(14);
+    doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
     doc.text('PROFESSIONAL EXPERIENCE', marginLeft, currentY);
     currentY += 8;
 
-    const experiences = [
-      {
-        title: 'Financial Management Analyst - Investment Management Branch',
-        company: 'Defense Health Agency',
-        period: 'Apr 2023 - Present',
-        bullets: [
-          'Lead strategic financial operations and resource planning for defense healthcare initiatives',
-          'Direct and coordinate financial operations, including planning and organization',
-          'Develop comprehensive resource documents and conduct comparative studies',
-          'Drive continuous process improvement across resource management systems'
-        ]
-      },
-      {
-        title: 'Budget Analyst - Financial Operations',
-        company: 'Defense Health Agency',
-        period: 'Sep 2021 - Apr 2023',
-        bullets: [
-          'Managed program/budget planning for Military Treatment Facilities',
-          'Analyzed budget controls for multiple operating programs and funds',
-          'Implemented automated financial systems for budget analysis and reporting',
-          'Developed strategic forecasts and budgetary adjustment recommendations'
-        ]
-      },
-      {
-        title: 'Financial Manager',
-        company: 'US Navy',
-        period: 'Aug 2014 - Aug 2019',
-        bullets: [
-          'Managed $25 million Operating Target budget with full accountability',
-          'Administered financial records and accounting systems for operational efficiency',
-          'Oversaw Government Purchase Card Program with strict compliance',
-          'Processed complex financial transactions and formulated budget estimates'
-        ]
-      }
+    // DHA Experience
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Defense Health Agency (DHA) – Financial Management Analyst', marginLeft, currentY);
+    currentY += 5;
+    
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Department of Defense – Remote | 2019–Present', marginLeft, currentY);
+    currentY += 5;
+    
+    doc.setFont('helvetica', 'italic');
+    currentY = addWrappedText('Led financial strategy, resource planning, and reconciliation for multi-year, multi-billion-dollar IT and healthcare budgets within the DoD.', marginLeft, currentY, contentWidth, 9);
+    currentY += 6;
+
+    const dhaResponsibilities = [
+      'Managed and reconciled $400M+ annually across the BEM, AFP, and Starting Control modules in Ektropy',
+      'Built audit-ready documentation and reduced reconciliation cycles by 25%',
+      'Developed scenario modeling for 6-year Future Year Defense Program (FYDP) submissions',
+      'Piloted dashboard and workflow automation initiatives using Excel and Power BI',
+      'Solely responsible for financial controls management site; streamlined controls tracking post-staff reductions',
+      'Supported PPBE cycles (POM and BES), working directly with BP&J teams and executive-level reviewers'
     ];
 
-    experiences.forEach((exp) => {
-      // Check if we need a new page
-      if (currentY > 250) {
-        doc.addPage();
-        currentY = 20;
-      }
-
-      doc.setFontSize(12);
-      doc.setFont('helvetica', 'bold');
-      doc.text(exp.title, marginLeft, currentY);
-      currentY += 5;
-      
-      doc.setFontSize(11);
+    dhaResponsibilities.forEach((resp) => {
+      doc.setFontSize(9);
       doc.setFont('helvetica', 'normal');
-      doc.text(`${exp.company} | ${exp.period}`, marginLeft, currentY);
-      currentY += 8;
-
-      exp.bullets.forEach((bullet) => {
-        doc.setFontSize(10);
-        currentY = addWrappedText(`• ${bullet}`, marginLeft + 5, currentY, contentWidth - 5, 10);
-        currentY += 2;
-      });
-      currentY += 8;
+      currentY = addWrappedText(`• ${resp}`, marginLeft, currentY, contentWidth, 9);
+      currentY += 2;
     });
 
-    // Education
+    currentY += 8;
+
+    // Navy Experience
+    if (currentY > 200) {
+      doc.addPage();
+      currentY = 20;
+    }
+
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'bold');
+    doc.text('U.S. Navy – Financial Analyst & Operations Lead', marginLeft, currentY);
+    currentY += 5;
+    
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Global Deployments | 2014–2019', marginLeft, currentY);
+    currentY += 5;
+    
+    doc.setFont('helvetica', 'italic');
+    currentY = addWrappedText('Progressed from entry-level financial management to overseeing $75M+ in contingency funds across combat and peacetime missions.', marginLeft, currentY, contentWidth, 9);
+    currentY += 6;
+
+    const navyResponsibilities = [
+      'Earned multiple commendations including Navy Achievement Medal and Combat Action Ribbon',
+      'Managed emergency and operational budgets under pressure in multinational environments',
+      'Led 35% process efficiency improvements; built training and compliance programs from scratch',
+      'Drove adoption of digital payment systems in overseas and joint-command deployments',
+      'Contributed to readiness for theater-wide military operations involving finance and logistics'
+    ];
+
+    navyResponsibilities.forEach((resp) => {
+      doc.setFontSize(9);
+      doc.setFont('helvetica', 'normal');
+      currentY = addWrappedText(`• ${resp}`, marginLeft, currentY, contentWidth, 9);
+      currentY += 2;
+    });
+
+    currentY += 10;
+
+    // Key Projects
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('KEY PROJECTS', marginLeft, currentY);
+    currentY += 8;
+
+    // Professional Projects
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('🔷 Professional Projects (DHA & DoD)', marginLeft, currentY);
+    currentY += 6;
+
+    // Automated Budget Tracker
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Automated Budget Tracker for DHA', marginLeft, currentY);
+    currentY += 4;
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    currentY = addWrappedText('Developed a Power BI dashboard automating quarterly reconciliation, real-time financial visibility, and workflow tracking across three major divisions.', marginLeft, currentY, contentWidth, 9);
+    currentY += 4;
+    doc.setFont('helvetica', 'italic');
+    currentY = addWrappedText('Impact: Reduced manual reporting time by 60% and improved audit-readiness posture.', marginLeft, currentY, contentWidth, 9);
+    currentY += 6;
+
+    // FYDP Tool
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('FYDP Scenario Modeling Tool', marginLeft, currentY);
+    currentY += 4;
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    currentY = addWrappedText('Created dynamic spreadsheet-based models to project resource needs across six-year PPBE planning horizons.', marginLeft, currentY, contentWidth, 9);
+    currentY += 4;
+    doc.setFont('helvetica', 'italic');
+    currentY = addWrappedText('Impact: Enabled leadership to quickly test various funding strategies and respond to shifting priorities.', marginLeft, currentY, contentWidth, 9);
+    currentY += 8;
+
+    // Personal Projects
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('🔶 Personal / Entrepreneurial Projects', marginLeft, currentY);
+    currentY += 6;
+
+    // Check for new page
     if (currentY > 220) {
       doc.addPage();
       currentY = 20;
     }
 
-    doc.setFontSize(14);
+    // FireFed
+    doc.setFontSize(10);
     doc.setFont('helvetica', 'bold');
-    doc.text('EDUCATION', marginLeft, currentY);
-    currentY += 8;
-
-    doc.setFontSize(12);
-    doc.setFont('helvetica', 'bold');
-    doc.text('Master of Business Administration (MBA)', marginLeft, currentY);
-    currentY += 5;
-    doc.setFontSize(11);
+    doc.text('FireFed – Federal Retirement Forecasting Tool', marginLeft, currentY);
+    currentY += 4;
+    doc.setFontSize(9);
     doc.setFont('helvetica', 'normal');
-    doc.text('Western Governors University | 2023', marginLeft, currentY);
+    currentY = addWrappedText('Built a scenario-based retirement planner for federal employees using Cursor (AI no-code builder), Supabase for auth, and LangChain logic for dynamic modeling.', marginLeft, currentY, contentWidth, 9);
+    currentY += 4;
+    doc.setFont('helvetica', 'italic');
+    currentY = addWrappedText('Impact: Streamlined the TSP and pension optimization process; positioned for SaaS rollout.', marginLeft, currentY, contentWidth, 9);
+    currentY += 6;
+
+    // TSP Simulator
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('TSP Forecast Simulator MVP', marginLeft, currentY);
+    currentY += 4;
+    doc.setFontSize(9);
+    doc.setFont('helvetica', 'normal');
+    currentY = addWrappedText('Designed an interactive web app using React, chart.js, and custom logic for TSP growth modeling based on user-specific contribution and allocation scenarios.', marginLeft, currentY, contentWidth, 9);
+    currentY += 4;
+    doc.setFont('helvetica', 'italic');
+    currentY = addWrappedText('Impact: Achieved over 200 user sessions in first 30 days with strong engagement from federal employees pursuing FIRE.', marginLeft, currentY, contentWidth, 9);
     currentY += 10;
 
+    // Certifications & Training
     doc.setFontSize(12);
     doc.setFont('helvetica', 'bold');
-    doc.text('Bachelor of Arts in Finance', marginLeft, currentY);
-    currentY += 5;
-    doc.setFontSize(11);
-    doc.setFont('helvetica', 'normal');
-    doc.text('California State University, Fullerton | 2022', marginLeft, currentY);
-    currentY += 15;
-
-    // AI Training & Certifications
-    doc.setFontSize(14);
-    doc.setFont('helvetica', 'bold');
-    doc.text('AI TRAINING & CERTIFICATIONS', marginLeft, currentY);
-    currentY += 8;
+    doc.text('CERTIFICATIONS & TRAINING', marginLeft, currentY);
+    currentY += 6;
 
     const certifications = [
-      'LangChain for LLM Development – DeepLearning.AI (2025)',
-      'ChatGPT Prompt Engineering – DeepLearning.AI & OpenAI (2025)',
+      'LangChain for LLM Application Development – DeepLearning.AI (2025)',
+      'ChatGPT Prompt Engineering for Developers – DeepLearning.AI & OpenAI (2025)',
       'AI Financial Forecasting – LinkedIn Learning (2025)',
       'AI Coding Agents with Copilot – LinkedIn Learning (2025)',
-      'Advanced Prompt Engineering Techniques – LinkedIn Learning (2023)',
-      'Career Essentials in Generative AI – Microsoft & LinkedIn (2023)',
-      'Tableau Essential Training – LinkedIn Learning (2024)',
-      'Certified Defense Financial Manager (CDFM) – SDFM (2021)',
-      'DoD Financial Manager Certification Level 2 (DFMC2) – DoD (2020)',
-      'Lean Six Sigma Green Belt – Department of Defense (2016)'
+      'Certified Defense Financial Manager (CDFM) – DoD Certification',
+      'Tableau Essential Training – LinkedIn Learning (2024)'
     ];
 
     certifications.forEach((cert) => {
@@ -484,11 +523,36 @@ export default function CaseStudies() {
         doc.addPage();
         currentY = 20;
       }
-      doc.setFontSize(10);
+      doc.setFontSize(9);
       doc.setFont('helvetica', 'normal');
-      doc.text(`• ${cert}`, marginLeft, currentY);
-      currentY += 5;
+      doc.text(cert, marginLeft, currentY);
+      currentY += 4;
     });
+
+    currentY += 6;
+
+    // Education
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('EDUCATION', marginLeft, currentY);
+    currentY += 6;
+
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Master of Business Administration (MBA) – Western Governors University', marginLeft, currentY);
+    currentY += 4;
+    doc.text('B.S., Business Administration – California State University, Fullerton', marginLeft, currentY);
+    currentY += 10;
+
+    // Security Clearance
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('SECURITY CLEARANCE', marginLeft, currentY);
+    currentY += 6;
+    
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Active U.S. Government Clearance (eligible for TS/SCI roles)', marginLeft, currentY);
 
     // Save the PDF
     doc.save('Roderick_Daniels_Resume.pdf');
