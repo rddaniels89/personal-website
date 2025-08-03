@@ -311,7 +311,8 @@ export default function CaseStudies() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg ${
+          onClick={handleExport}
+          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
             theme === 'dystopian'
               ? 'bg-cyber-gray/30 text-neon-pink hover:bg-cyber-gray/40'
               : 'bg-modern-gray/10 text-modern-accent hover:bg-modern-gray/20'
