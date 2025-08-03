@@ -1,0 +1,8 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f8fafc"/>
+  <rect x="1" y="1" width="398" height="298" stroke="#e2e8f0" stroke-width="2"/>
+  <circle cx="200" cy="120" r="40" fill="#3b82f6" opacity="0.1"/>
+  <rect x="160" y="90" width="80" height="60" rx="8" fill="#3b82f6" opacity="0.2"/>
+  <text x="200" y="200" text-anchor="middle" fill="#64748b" font-family="Arial, sans-serif" font-size="16" font-weight="500">Project Screenshot</text>
+  <text x="200" y="220" text-anchor="middle" fill="#94a3b8" font-family="Arial, sans-serif" font-size="12">Coming Soon</text>
+</svg>

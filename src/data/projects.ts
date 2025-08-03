@@ -1,5 +1,6 @@
 import { IconType } from 'react-icons';
 import { GiWoodBeam, GiSawedOffShotgun, GiClosedDoors, GiWashingMachine, GiKitchenTap, GiBookshelf, GiTable } from 'react-icons/gi';
+import { FiDollarSign, FiBarChart } from 'react-icons/fi';
 
 export interface ProjectImage {
   src: string;
@@ -16,9 +17,85 @@ export interface Project {
   icon: IconType;
   tools: string[];
   images: ProjectImage[];
+  githubUrl?: string;
+  liveUrl?: string;
 }
 
 export const projects: Project[] = [
+  {
+    title: "FIRE FED",
+    category: "Financial Technology",
+    description: "A comprehensive FIRE (Financial Independence, Retire Early) calculator specifically designed for federal employees. Features advanced retirement planning tools, federal benefits integration, and personalized savings strategies.",
+    details: [
+      "Federal pension integration (FERS/CSRS)",
+      "TSP optimization calculations",
+      "Special provisions for federal employees",
+      "Multiple retirement scenarios",
+      "Interactive charts and projections"
+    ],
+    techniques: [
+      "React component architecture",
+      "Financial calculations and modeling",
+      "Data visualization",
+      "Responsive design",
+      "State management"
+    ],
+    icon: FiDollarSign,
+    tools: [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "JavaScript",
+      "Chart.js",
+      "Git"
+    ],
+    images: [
+      {
+        src: "/images/placeholder-project.svg",
+        alt: "FIRE-Fed Calculator Screenshot",
+        caption: "FIRE calculator interface for federal employees"
+      }
+    ],
+    githubUrl: "https://github.com/rddaniels89/FIRE-FED.git",
+    liveUrl: undefined
+  },
+  {
+    title: "Federal Retirement Advisor",
+    category: "Financial Technology",
+    description: "An intelligent advisory system for federal employees navigating retirement decisions. Provides personalized recommendations based on years of service, current position, and financial goals.",
+    details: [
+      "Personalized retirement timeline",
+      "Federal benefits analysis",
+      "Pension optimization strategies",
+      "Healthcare transition planning",
+      "Social Security integration"
+    ],
+    techniques: [
+      "Decision tree algorithms",
+      "Data-driven recommendations",
+      "User experience design",
+      "Form validation and processing",
+      "Federal regulations compliance"
+    ],
+    icon: FiBarChart,
+    tools: [
+      "React",
+      "Node.js",
+      "CSS3",
+      "JavaScript",
+      "Federal APIs",
+      "Git"
+    ],
+    images: [
+      {
+        src: "/images/placeholder-project.svg",
+        alt: "Federal Retirement Advisor Screenshot",
+        caption: "Retirement planning interface for federal employees"
+      }
+    ],
+    githubUrl: "https://github.com/rddaniels89/fed-retirement-advisor.git",
+    liveUrl: undefined
+  },
   {
     title: "Closet Storage System",
     category: "Home Improvement",

@@ -4,7 +4,7 @@ import React, { useState, lazy, Suspense } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@/lib/ThemeContext';
-import { FiExternalLink, FiTool, FiMaximize2, FiChevronDown, FiX } from 'react-icons/fi';
+import { FiExternalLink, FiTool, FiMaximize2, FiChevronDown, FiX, FiGithub, FiLink } from 'react-icons/fi';
 // Lazy load ImageGallery for better performance
 const ImageGallery = lazy(() => import('@/components/ImageGallery'));
 import LoadingSpinner from '@/components/LoadingSpinner';
@@ -308,6 +308,60 @@ export default function ProjectsPage() {
                             </motion.span>
                           ))}
                         </div>
+
+                        {/* Project Links */}
+                        {(project.githubUrl || project.liveUrl) && (
+                          <div className="mt-4">
+                            <h3 className={`flex items-center gap-2 font-medium mb-2 text-sm sm:text-base ${
+                              theme === 'dystopian'
+                                ? 'text-neon-blue'
+                                : 'text-navy-blue'
+                            }`}>
+                              <FiLink className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                              Project Links
+                            </h3>
+                            <div className="flex flex-wrap gap-3">
+                              {project.githubUrl && (
+                                <motion.a
+                                  href={project.githubUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ delay: 0.6 }}
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-200 ${
+                                    theme === 'dystopian'
+                                      ? 'bg-cyber-gray text-neon-blue hover:bg-neon-blue hover:text-cyber-gray'
+                                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                                  }`}
+                                >
+                                  <FiGithub className="w-3 h-3" /> GitHub
+                                </motion.a>
+                              )}
+                              {project.liveUrl && (
+                                <motion.a
+                                  href={project.liveUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  initial={{ opacity: 0, scale: 0.8 }}
+                                  animate={{ opacity: 1, scale: 1 }}
+                                  transition={{ delay: 0.7 }}
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  className={`flex items-center gap-1 px-3 py-1.5 rounded-md text-xs font-medium transition-colors duration-200 ${
+                                    theme === 'dystopian'
+                                      ? 'bg-neon-pink text-cyber-gray hover:bg-neon-blue hover:text-cyber-gray'
+                                      : 'bg-blue-500 text-white hover:bg-blue-600'
+                                  }`}
+                                >
+                                  <FiExternalLink className="w-3 h-3" /> Live Demo
+                                </motion.a>
+                              )}
+                            </div>
+                          </div>
+                        )}
 
                         <div className="mt-4">
                           <h3 className={`flex items-center gap-2 font-medium mb-2 text-sm sm:text-base ${
