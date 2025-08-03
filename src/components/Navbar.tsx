@@ -45,7 +45,7 @@ export default function Navbar() {
   const handleMouseLeave = () => {
     const timeout = setTimeout(() => {
       setOpenDropdown(null);
-    }, 150); // 150ms delay before closing
+    }, 300); // Increased to 300ms for better UX
     setCloseTimeout(timeout);
   };
 
@@ -55,6 +55,15 @@ export default function Navbar() {
       setCloseTimeout(null);
     }
   };
+
+  // Clear timeout on component unmount
+  React.useEffect(() => {
+    return () => {
+      if (closeTimeout) {
+        clearTimeout(closeTimeout);
+      }
+    };
+  }, [closeTimeout]);
 
   return (
     <nav className={`fixed w-full z-50 backdrop-blur-sm transition-all duration-300 ${
@@ -90,7 +99,7 @@ export default function Navbar() {
                   key={item.name}
                   className="relative"
                   onMouseEnter={() => item.dropdown && handleMouseEnter(item.name)}
-                  onMouseLeave={handleMouseLeave}
+                  onMouseLeave={item.dropdown ? handleMouseLeave : undefined}
                 >
                   <motion.div
                     whileHover={{ y: -2 }}
@@ -120,19 +129,29 @@ export default function Navbar() {
                   </motion.div>
 
                   {item.dropdown && openDropdown === item.name && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className={`absolute left-0 top-full w-48 rounded-md shadow-lg border ${
-                        theme === 'dystopian'
-                          ? 'bg-gray-900 border-blue-500/20'
-                          : 'bg-white border-gray-200'
-                      }`}
-                      onMouseEnter={handleDropdownMouseEnter}
-                      onMouseLeave={handleMouseLeave}
-                    >
+                    <>
+                      {/* Invisible bridge to prevent hover loss */}
+                      <div 
+                        className="absolute left-0 top-full w-48 h-2 bg-transparent"
+                        onMouseEnter={handleDropdownMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      />
+                      <motion.div 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className={`absolute left-0 w-48 rounded-md shadow-lg border z-50 ${
+                          theme === 'dystopian'
+                            ? 'bg-gray-900 border-blue-500/20'
+                            : 'bg-white border-gray-200'
+                        }`}
+                        style={{ 
+                          top: 'calc(100% + 2px)' // Position just below the invisible bridge
+                        }}
+                        onMouseEnter={handleDropdownMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                      >
                       <div className="py-1">
                         {item.dropdown.map((dropdownItem) => (
                           <motion.div
@@ -154,6 +173,7 @@ export default function Navbar() {
                         ))}
                       </div>
                     </motion.div>
+                    </>
                   )}
                 </div>
               ))}
