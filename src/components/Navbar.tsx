@@ -32,14 +32,33 @@ const socialLinks = [
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [openDropdown, setOpenDropdown] = React.useState<string | null>(null);
+  const [closeTimeout, setCloseTimeout] = React.useState<NodeJS.Timeout | null>(null);
 
   const handleDropdownEnter = (itemName: string) => {
+    // Clear any pending close timeout
+    if (closeTimeout) {
+      clearTimeout(closeTimeout);
+      setCloseTimeout(null);
+    }
     setOpenDropdown(itemName);
   };
 
   const handleDropdownLeave = () => {
-    setOpenDropdown(null);
+    // Add a small delay before closing to allow users to move to dropdown
+    const timeout = setTimeout(() => {
+      setOpenDropdown(null);
+    }, 150);
+    setCloseTimeout(timeout);
   };
+
+  // Clear timeout on component unmount
+  React.useEffect(() => {
+    return () => {
+      if (closeTimeout) {
+        clearTimeout(closeTimeout);
+      }
+    };
+  }, [closeTimeout]);
 
   return (
     <nav className={`fixed w-full z-50 backdrop-blur-sm transition-all duration-300 ${
@@ -74,7 +93,6 @@ export default function Navbar() {
                 <div
                   key={item.name}
                   className="relative"
-                  style={item.dropdown && openDropdown === item.name ? { paddingBottom: '180px' } : {}}
                   onMouseEnter={() => item.dropdown && handleDropdownEnter(item.name)}
                   onMouseLeave={() => item.dropdown && handleDropdownLeave()}
                 >
@@ -106,38 +124,47 @@ export default function Navbar() {
                   </motion.div>
 
                   {item.dropdown && openDropdown === item.name && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.2 }}
-                      className={`absolute left-0 top-full mt-1 w-48 rounded-md shadow-lg border z-50 ${
-                        theme === 'dystopian'
-                          ? 'bg-gray-900 border-blue-500/20'
-                          : 'bg-white border-gray-200'
-                      }`}
+                    <div 
+                      className="absolute left-0 top-full w-48 z-50"
+                      onMouseEnter={() => handleDropdownEnter(item.name)}
+                      onMouseLeave={handleDropdownLeave}
                     >
-                      <div className="py-1">
-                        {item.dropdown.map((dropdownItem) => (
-                          <motion.div
-                            key={dropdownItem.name}
-                            whileHover={{ x: 4 }}
-                            transition={{ duration: 0.2 }}
-                          >
-                            <Link
-                              href={dropdownItem.href}
-                              className={`block px-4 py-2 text-sm transition-all duration-200 ${
-                                theme === 'dystopian'
-                                  ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800/50'
-                                  : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'
-                              }`}
+                      {/* Invisible hover bridge */}
+                      <div className="h-2 w-full bg-transparent" />
+                      
+                      <motion.div 
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
+                        className={`w-48 rounded-md shadow-lg border ${
+                          theme === 'dystopian'
+                            ? 'bg-gray-900 border-blue-500/20'
+                            : 'bg-white border-gray-200'
+                        }`}
+                      >
+                        <div className="py-1">
+                          {item.dropdown.map((dropdownItem) => (
+                            <motion.div
+                              key={dropdownItem.name}
+                              whileHover={{ x: 4 }}
+                              transition={{ duration: 0.2 }}
                             >
-                              {dropdownItem.name}
-                            </Link>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
+                              <Link
+                                href={dropdownItem.href}
+                                className={`block px-4 py-2 text-sm transition-all duration-200 ${
+                                  theme === 'dystopian'
+                                    ? 'text-gray-300 hover:text-blue-400 hover:bg-gray-800/50'
+                                    : 'text-gray-700 hover:text-blue-600 hover:bg-gray-100'
+                                }`}
+                              >
+                                {dropdownItem.name}
+                              </Link>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </div>
                   )}
                 </div>
               ))}
