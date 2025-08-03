@@ -287,14 +287,211 @@ export default function CaseStudies() {
     }));
   };
 
-  const handleExport = () => {
-    const pdfUrl = '/resume.pdf';
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = 'Roderick_Daniels_Resume.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleExport = async () => {
+    // Dynamic import to avoid SSR issues
+    const { jsPDF } = await import('jspdf');
+    
+    const doc = new jsPDF();
+    const pageWidth = doc.internal.pageSize.getWidth();
+    const marginLeft = 20;
+    const marginRight = 20;
+    const contentWidth = pageWidth - marginLeft - marginRight;
+    let currentY = 20;
+
+    // Helper function to add text with word wrapping
+    const addWrappedText = (text: string, x: number, y: number, maxWidth: number, fontSize: number = 10) => {
+      doc.setFontSize(fontSize);
+      const lines = doc.splitTextToSize(text, maxWidth);
+      doc.text(lines, x, y);
+      return y + (lines.length * (fontSize * 0.35)); // Return new Y position
+    };
+
+    // Header
+    doc.setFontSize(24);
+    doc.setFont('helvetica', 'bold');
+    doc.text('RODERICK DANIELS', marginLeft, currentY);
+    
+    currentY += 10;
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Financial Management Leader | AI-Enhanced Analytics | Defense Operations Expert', marginLeft, currentY);
+    
+    currentY += 15;
+
+    // Professional Summary
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('PROFESSIONAL SUMMARY', marginLeft, currentY);
+    currentY += 8;
+    
+    const professionalSummary = "Accomplished Financial Management Leader with 11+ years of experience driving financial strategy and operational excellence across defense and healthcare sectors. Expert in managing billion-dollar budgets, optimizing federal workflows, and leading cross-functional teams to deliver regulatory compliance and mission readiness. Recently trained in AI-powered tools and automation—including LangChain, ChatGPT Prompt Engineering, and AI financial forecasting—adding cutting-edge capabilities to support digital transformation and decision intelligence. Recognized for strategic vision, data-driven execution, and a consistent record of delivering measurable value in high-stakes, complex government environments.";
+    
+    currentY = addWrappedText(professionalSummary, marginLeft, currentY, contentWidth, 10);
+    currentY += 10;
+
+    // Core Competencies
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('CORE COMPETENCIES', marginLeft, currentY);
+    currentY += 8;
+
+    const competencies = [
+      {
+        category: "Financial Management & Analytics",
+        skills: ["Budget Analysis", "Fund Control", "Financial Forecasting", "Resource Planning", "Financial Operations", "Audit Readiness"]
+      },
+      {
+        category: "AI & Technology", 
+        skills: ["AI Workflow Automation", "Prompt Engineering", "Data Visualization", "Power BI", "Tableau", "Defense Financial Systems"]
+      },
+      {
+        category: "Defense Operations & Leadership",
+        skills: ["DoD Regulations", "Military Healthcare", "Government Procurement", "Strategic Planning", "Process Improvement", "Change Management"]
+      }
+    ];
+
+    competencies.forEach((comp) => {
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'bold');
+      doc.text(`• ${comp.category}:`, marginLeft, currentY);
+      currentY += 5;
+      
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(10);
+      currentY = addWrappedText(comp.skills.join(' • '), marginLeft + 5, currentY, contentWidth - 5, 10);
+      currentY += 5;
+    });
+
+    currentY += 10;
+
+    // Professional Experience
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('PROFESSIONAL EXPERIENCE', marginLeft, currentY);
+    currentY += 8;
+
+    const experiences = [
+      {
+        title: 'Financial Management Analyst - Investment Management Branch',
+        company: 'Defense Health Agency',
+        period: 'Apr 2023 - Present',
+        bullets: [
+          'Lead strategic financial operations and resource planning for defense healthcare initiatives',
+          'Direct and coordinate financial operations, including planning and organization',
+          'Develop comprehensive resource documents and conduct comparative studies',
+          'Drive continuous process improvement across resource management systems'
+        ]
+      },
+      {
+        title: 'Budget Analyst - Financial Operations',
+        company: 'Defense Health Agency',
+        period: 'Sep 2021 - Apr 2023',
+        bullets: [
+          'Managed program/budget planning for Military Treatment Facilities',
+          'Analyzed budget controls for multiple operating programs and funds',
+          'Implemented automated financial systems for budget analysis and reporting',
+          'Developed strategic forecasts and budgetary adjustment recommendations'
+        ]
+      },
+      {
+        title: 'Financial Manager',
+        company: 'US Navy',
+        period: 'Aug 2014 - Aug 2019',
+        bullets: [
+          'Managed $25 million Operating Target budget with full accountability',
+          'Administered financial records and accounting systems for operational efficiency',
+          'Oversaw Government Purchase Card Program with strict compliance',
+          'Processed complex financial transactions and formulated budget estimates'
+        ]
+      }
+    ];
+
+    experiences.forEach((exp) => {
+      // Check if we need a new page
+      if (currentY > 250) {
+        doc.addPage();
+        currentY = 20;
+      }
+
+      doc.setFontSize(12);
+      doc.setFont('helvetica', 'bold');
+      doc.text(exp.title, marginLeft, currentY);
+      currentY += 5;
+      
+      doc.setFontSize(11);
+      doc.setFont('helvetica', 'normal');
+      doc.text(`${exp.company} | ${exp.period}`, marginLeft, currentY);
+      currentY += 8;
+
+      exp.bullets.forEach((bullet) => {
+        doc.setFontSize(10);
+        currentY = addWrappedText(`• ${bullet}`, marginLeft + 5, currentY, contentWidth - 5, 10);
+        currentY += 2;
+      });
+      currentY += 8;
+    });
+
+    // Education
+    if (currentY > 220) {
+      doc.addPage();
+      currentY = 20;
+    }
+
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('EDUCATION', marginLeft, currentY);
+    currentY += 8;
+
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Master of Business Administration (MBA)', marginLeft, currentY);
+    currentY += 5;
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.text('Western Governors University | 2023', marginLeft, currentY);
+    currentY += 10;
+
+    doc.setFontSize(12);
+    doc.setFont('helvetica', 'bold');
+    doc.text('Bachelor of Arts in Finance', marginLeft, currentY);
+    currentY += 5;
+    doc.setFontSize(11);
+    doc.setFont('helvetica', 'normal');
+    doc.text('California State University, Fullerton | 2022', marginLeft, currentY);
+    currentY += 15;
+
+    // AI Training & Certifications
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'bold');
+    doc.text('AI TRAINING & CERTIFICATIONS', marginLeft, currentY);
+    currentY += 8;
+
+    const certifications = [
+      'LangChain for LLM Development – DeepLearning.AI (2025)',
+      'ChatGPT Prompt Engineering – DeepLearning.AI & OpenAI (2025)',
+      'AI Financial Forecasting – LinkedIn Learning (2025)',
+      'AI Coding Agents with Copilot – LinkedIn Learning (2025)',
+      'Advanced Prompt Engineering Techniques – LinkedIn Learning (2023)',
+      'Career Essentials in Generative AI – Microsoft & LinkedIn (2023)',
+      'Tableau Essential Training – LinkedIn Learning (2024)',
+      'Certified Defense Financial Manager (CDFM) – SDFM (2021)',
+      'DoD Financial Manager Certification Level 2 (DFMC2) – DoD (2020)',
+      'Lean Six Sigma Green Belt – Department of Defense (2016)'
+    ];
+
+    certifications.forEach((cert) => {
+      if (currentY > 270) {
+        doc.addPage();
+        currentY = 20;
+      }
+      doc.setFontSize(10);
+      doc.setFont('helvetica', 'normal');
+      doc.text(`• ${cert}`, marginLeft, currentY);
+      currentY += 5;
+    });
+
+    // Save the PDF
+    doc.save('Roderick_Daniels_Resume.pdf');
   };
 
   return (

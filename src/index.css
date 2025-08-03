@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Custom input class */
+.input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors;
+}
+
+.input:focus {
+  @apply ring-blue-500 border-blue-500;
+}
+
+.input:disabled {
+  @apply bg-gray-100 text-gray-500 cursor-not-allowed;
+}
+
+/* Additional base styles */
+body {
+  @apply bg-gray-50 text-gray-900 font-sans;
+}
+
+* {
+  @apply transition-colors;
+} 
