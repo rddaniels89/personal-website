@@ -132,9 +132,10 @@ export default function CustomCursor() {
     
     setRippleEffects(prev => [...prev, newRipple]);
     
+    // Faster animation for muted ledger entry effect
     setTimeout(() => {
       setRippleEffects(prev => prev.filter(r => r.id !== newRipple.id));
-    }, 400);
+    }, 250);
   }, [theme]);
 
   useEffect(() => {
@@ -239,9 +240,9 @@ export default function CustomCursor() {
       if (cursorState.isText) return '#ff006e'; // neon pink for text
       return '#3d43b4'; // neon blue default
     } else if (theme === 'modern') {
-      if (cursorState.isHovering) return '#374151'; // dark gray for hover
-      if (cursorState.isText) return '#083e12'; // dark green for text
-      return '#6b7280'; // medium gray default
+      if (cursorState.isHovering) return '#8B4513'; // saddle brown for hover
+      if (cursorState.isText) return '#654321'; // dark brown for text
+      return '#A0522D'; // sienna brown default (ledger ink color)
     } else {
       // Light theme fallback
       if (cursorState.isHovering) return '#3b82f6'; // blue
@@ -570,6 +571,95 @@ export default function CustomCursor() {
     </>
   );
 
+  const renderTraditionalCursor = () => (
+    <>
+      {/* Small Green Dot Ripple Effects for Ledger Entry */}
+      <AnimatePresence>
+        {rippleEffects.map((ripple) => (
+          <motion.div
+            key={ripple.id}
+            initial={{ opacity: 0.6, scale: 0 }}
+            animate={{ opacity: 0, scale: 2 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
+            className="fixed pointer-events-none rounded-full"
+            style={{
+              left: ripple.x - 3,
+              top: ripple.y - 3,
+              width: 6,
+              height: 6,
+              backgroundColor: '#083e12',
+              zIndex: 9998,
+            }}
+          />
+        ))}
+      </AnimatePresence>
+
+      {/* Traditional I-beam Cursor with Green Underline */}
+      <motion.div
+        animate={{
+          scale: getCursorSize(),
+        }}
+        transition={{
+          type: 'spring',
+          damping: 30,
+          stiffness: 350,
+        }}
+        className="relative"
+      >
+        {/* Classic vertical I-beam */}
+        <div className="relative">
+          {/* Main I-beam vertical line */}
+          <div
+            style={{
+              width: '2px',
+              height: '20px',
+              backgroundColor: getCursorColor(),
+              position: 'relative',
+            }}
+          />
+          
+          {/* Top horizontal bar */}
+          <div
+            style={{
+              position: 'absolute',
+              top: '0px',
+              left: '-3px',
+              width: '8px',
+              height: '2px',
+              backgroundColor: getCursorColor(),
+            }}
+          />
+          
+          {/* Bottom horizontal bar */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '0px',
+              left: '-3px',
+              width: '8px',
+              height: '2px',
+              backgroundColor: getCursorColor(),
+            }}
+          />
+          
+          {/* Green underline */}
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '-4px',
+              left: '-4px',
+              width: '10px',
+              height: '2px',
+              backgroundColor: '#083e12',
+              borderRadius: '1px',
+            }}
+          />
+        </div>
+      </motion.div>
+    </>
+  );
+
   return (
     <motion.div
       style={{
@@ -583,7 +673,7 @@ export default function CustomCursor() {
       }}
       className="transform -translate-x-1/2 -translate-y-1/2"
     >
-      {theme === 'dystopian' ? renderDystopianCursor() : renderExecutiveCursor()}
+      {theme === 'dystopian' ? renderDystopianCursor() : renderTraditionalCursor()}
     </motion.div>
   );
 } 

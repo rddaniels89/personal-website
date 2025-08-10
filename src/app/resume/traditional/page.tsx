@@ -26,7 +26,7 @@ export default function TraditionalResumePage() {
   return (
     <div className={`min-h-screen print:min-h-full`}
       style={{
-        backgroundColor: 'var(--color-background)'
+        backgroundColor: theme === 'dystopian' ? '#0a0a0a' : '#1a1a1a'
       }}>
       <div className="max-w-[8.5in] mx-auto px-4 sm:px-6 lg:px-8 py-8 print:py-4 print:px-6">
         <motion.div
@@ -35,8 +35,8 @@ export default function TraditionalResumePage() {
           animate="show"
           className={`p-8 rounded-lg print:p-0 print:shadow-none print:rounded-none print:bg-white print:text-black ${
             theme === 'dystopian'
-              ? 'bg-cyber-gray border border-neon-pink/20'
-              : 'bg-modern-gray border border-modern-accent/20'
+              ? 'bg-gray-900 border border-neon-pink/20'
+              : 'bg-gray-800 border border-modern-accent/20'
           }`}
         >
           {/* Header */}

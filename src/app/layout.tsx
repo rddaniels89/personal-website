@@ -79,7 +79,6 @@ export const metadata: Metadata = {
   verification: {
     google: 'your-google-verification-code-here',
   },
-  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -133,9 +132,11 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="msapplication-TileColor" content="#1a1a1a" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <link rel="manifest" href="/site.webmanifest" />
+                <meta name="msapplication-TileColor" content="#1a1a1a" />
+        
+        {/* Explicitly disable favicon to prevent browser requests */}
+        <link rel="icon" href="data:," />
+        
         <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
         <meta httpEquiv="Pragma" content="no-cache" />
         <meta httpEquiv="Expires" content="0" />
